@@ -1,16 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>mail - 标签 - zu1k</title>
-        <link>https://lgf.im/tags/mail/</link>
-        <description>mail - 标签 - zu1k</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor>
-            <webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 27 Nov 2019 23:22:22 &#43;0000</lastBuildDate><atom:link href="https://lgf.im/tags/mail/" rel="self" type="application/rss+xml" /><item>
-    <title>了解邮件列表</title>
-    <link>https://lgf.im/posts/learn/learning-maillist/</link>
-    <pubDate>Wed, 27 Nov 2019 23:22:22 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/learn/learning-maillist/</guid>
-    <description><![CDATA[<blockquote>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>mail - 标签 - zu1k</title><link>https://lgf.im/tags/mail/</link><description>mail - 标签 - zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 27 Nov 2019 23:22:22 +0000</lastBuildDate><atom:link href="https://lgf.im/tags/mail/" rel="self" type="application/rss+xml"/><item><title>了解邮件列表</title><link>https://lgf.im/posts/learn/learning-maillist/</link><pubDate>Wed, 27 Nov 2019 23:22:22 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/learn/learning-maillist/</guid><description><![CDATA[<blockquote>
 <p>之前经常听说或者在新闻里见到邮件列表这个词，知道很多大佬，特别是计算机大佬、某某编程语言之父、某某操作系统之父等一堆大佬都在用邮件列表，就感到十分好奇。近期我特意上网搜索相关资料，亲身实践邮件列表的使用。</p>
 </blockquote>
 <h2 id="什么是邮件列表">什么是邮件列表</h2>
@@ -110,14 +98,7 @@
 <p>如果你回复的有问题，回复内容会被当做一个新的主题被发出，当别人说线索断了的时候注意检查是不是自己的邮件客户端有问题。</p>
 <h2 id="一些邮件列表">一些邮件列表</h2>
 <p><a href="https://lists.wikimedia.org/mailman/listinfo">https://lists.wikimedia.org/mailman/listinfo</a></p>
-]]></description>
-</item><item>
-    <title>通过Sendmail服务发送邮件</title>
-    <link>https://lgf.im/posts/coding/send-mail-via-endmail-service/</link>
-    <pubDate>Mon, 03 Dec 2018 17:59:48 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/coding/send-mail-via-endmail-service/</guid>
-    <description><![CDATA[<p>通过Sendmail服务发送邮件</p>
+]]></description></item><item><title>通过Sendmail服务发送邮件</title><link>https://lgf.im/posts/coding/send-mail-via-endmail-service/</link><pubDate>Mon, 03 Dec 2018 17:59:48 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/send-mail-via-endmail-service/</guid><description><![CDATA[<p>通过Sendmail服务发送邮件</p>
 <p>系统centos7</p>
 <p>需要开启25端口</p>
 <h3 id="安装sendmail">安装sendmail</h3>
@@ -336,6 +317,4 @@ mail<span class="o">(</span><span class="s1">&#39;test@sohu.com&#39;</span>, <sp
 <span class="nb">echo</span> <span class="s2">&#34;test mail&#34;</span><span class="p">|</span>mail -s <span class="s2">&#34;postfix mail title&#34;</span> test@sohu.com
 </code></pre></td></tr></table>
 </div>
-</div>]]></description>
-</item></channel>
-</rss>
+</div>]]></description></item></channel></rss>

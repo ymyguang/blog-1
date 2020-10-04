@@ -1,16 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>HTML - 标签 - zu1k</title>
-        <link>https://lgf.im/tags/html/</link>
-        <description>HTML - 标签 - zu1k</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor>
-            <webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</lastBuildDate><atom:link href="https://lgf.im/tags/html/" rel="self" type="application/rss+xml" /><item>
-    <title>Markdown 基本语法</title>
-    <link>https://lgf.im/posts/theme/basic-markdown-syntax/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/theme/basic-markdown-syntax/</guid>
-    <description><![CDATA[<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>HTML - 标签 - zu1k</title><link>https://lgf.im/tags/html/</link><description>HTML - 标签 - zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Dec 2019 21:57:40 +0800</lastBuildDate><atom:link href="https://lgf.im/tags/html/" rel="self" type="application/rss+xml"/><item><title>Markdown 基本语法</title><link>https://lgf.im/posts/theme/basic-markdown-syntax/</link><pubDate>Sun, 01 Dec 2019 21:57:40 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/theme/basic-markdown-syntax/</guid><description><![CDATA[<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>
 <div class="details admonition note open">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-pencil-alt fa-fw"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
@@ -1108,6 +1096,4 @@ line 3 of code
 <p>这是一个带标签的脚注 <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>]]></description>
-</item></channel>
-</rss>
+</section>]]></description></item></channel></rss>

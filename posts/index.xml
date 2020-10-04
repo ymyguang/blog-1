@@ -1,16 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>所有文章 - zu1k</title>
-        <link>https://lgf.im/posts/</link>
-        <description>所有文章 | zu1k</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor>
-            <webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Aug 2020 09:21:59 &#43;0000</lastBuildDate><atom:link href="https://lgf.im/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>主题文档 - 基本概念</title>
-    <link>https://lgf.im/posts/theme/theme-documentation-basics/</link>
-    <pubDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/theme/theme-documentation-basics/</guid>
-    <description><![CDATA[<p>探索 Hugo - <strong>LoveIt</strong> 主题的全部内容和背后的核心概念.</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - zu1k</title><link>https://lgf.im/posts/</link><description>所有文章 | zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Aug 2020 09:21:59 +0000</lastBuildDate><atom:link href="https://lgf.im/posts/" rel="self" type="application/rss+xml"/><item><title>主题文档 - 基本概念</title><link>https://lgf.im/posts/theme/theme-documentation-basics/</link><pubDate>Fri, 06 Mar 2020 21:40:32 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/theme/theme-documentation-basics/</guid><description><![CDATA[<p>探索 Hugo - <strong>LoveIt</strong> 主题的全部内容和背后的核心概念.</p>
 <h2 id="1-准备">1 准备</h2>
 <p>由于 Hugo 提供的便利性, <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer">Hugo</a> 本身是这个主题唯一的依赖.</p>
 <p>直接安装满足你操作系统 (<strong>Windows</strong>, <strong>Linux</strong>, <strong>macOS</strong>) 的最新版本 <a href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener noreffer"><i class="far fa-file-archive fa-fw"></i>&nbsp;Hugo (&gt; 0.62.0)</a>.</p>
@@ -1894,14 +1882,7 @@ git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
 <a href="https://github.com/chrisdmacrae/atomic-algolia" target="_blank" rel="noopener noreffer">Algolia Atomic</a> 是一个不错的选择.
 为了兼容 Hugo 的多语言模式, 你需要上传不同语言的 <code>index.json</code> 文件到对应的 algolia index, 例如 <code>zh-cn/index.json</code> 或 <code>fr/index.json</code>&hellip;</div>
         </div>
-    </div>]]></description>
-</item><item>
-    <title>主题文档 - 内容</title>
-    <link>https://lgf.im/posts/theme/theme-documentation-content/</link>
-    <pubDate>Thu, 05 Mar 2020 16:30:05 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/theme/theme-documentation-content/</guid>
-    <description><![CDATA[<p>了解如何在 <strong>LoveIt</strong> 主题中快速, 直观地创建和组织内容.</p>
+    </div>]]></description></item><item><title>主题文档 - 内容</title><link>https://lgf.im/posts/theme/theme-documentation-content/</link><pubDate>Thu, 05 Mar 2020 16:30:05 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/theme/theme-documentation-content/</guid><description><![CDATA[<p>了解如何在 <strong>LoveIt</strong> 主题中快速, 直观地创建和组织内容.</p>
 <h2 id="contents-organization">1 内容组织</h2>
 <p>以下是一些方便你清晰管理和生成文章的目录结构建议:</p>
 <ul>
@@ -2404,14 +2385,7 @@ $$ \ce{Hg^2+ -&gt;[I-] HgI2 -&gt;[I-] [Hg^{II}I4]^2-} $$
 </code></pre></td></tr></table>
 </div>
 </div><p>呈现的输出效果如下:</p>
-<p><strong>[link](#escape-character)</strong> 而不是 <strong><a href="#escape-character" rel="">link</a></strong>.</p>]]></description>
-</item><item>
-    <title>主题文档 - 内置 Shortcodes</title>
-    <link>https://lgf.im/posts/theme/theme-documentation-built-in-shortcodes/</link>
-    <pubDate>Wed, 04 Mar 2020 16:29:59 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/theme/theme-documentation-built-in-shortcodes/</guid>
-    <description><![CDATA[<p><strong>Hugo</strong> 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容的整洁.</p>
+<p><strong>[link](#escape-character)</strong> 而不是 <strong><a href="#escape-character" rel="">link</a></strong>.</p>]]></description></item><item><title>主题文档 - 内置 Shortcodes</title><link>https://lgf.im/posts/theme/theme-documentation-built-in-shortcodes/</link><pubDate>Wed, 04 Mar 2020 16:29:59 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/theme/theme-documentation-built-in-shortcodes/</guid><description><![CDATA[<p><strong>Hugo</strong> 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容的整洁.</p>
 <p>Hugo 使用 Markdown 为其简单的内容格式. 但是, Markdown 在很多方面都无法很好地支持. 你可以使用纯 HTML 来扩展可能性.</p>
 <p>但这恰好是一个坏主意. 大家使用 Markdown, 正是因为它即使不经过渲染也可以轻松阅读. 应该尽可能避免使用 HTML 以保持内容简洁.</p>
 <p>为了避免这种限制, Hugo 创建了 <a href="https://gohugo.io/extras/shortcodes/" target="_blank" rel="noopener noreffer">shortcodes</a>.
@@ -2608,14 +2582,7 @@ Hugo 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容�
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube-nocookie.com/embed/w7Ft2ymGmfc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>]]></description>
-</item><item>
-    <title>主题文档 - 扩展 Shortcodes</title>
-    <link>https://lgf.im/posts/theme/theme-documentation-extended-shortcodes/</link>
-    <pubDate>Tue, 03 Mar 2020 16:29:59 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/theme/theme-documentation-extended-shortcodes/</guid>
-    <description><![CDATA[<p><strong>LoveIt</strong> 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode.</p>
+</div>]]></description></item><item><title>主题文档 - 扩展 Shortcodes</title><link>https://lgf.im/posts/theme/theme-documentation-extended-shortcodes/</link><pubDate>Tue, 03 Mar 2020 16:29:59 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/theme/theme-documentation-extended-shortcodes/</guid><description><![CDATA[<p><strong>LoveIt</strong> 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode.</p>
 <h2 id="1-style">1 style</h2>
 <a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
 <div class="details admonition note open">
@@ -4179,14 +4146,7 @@ public class HelloWorld {
 <span class="p">{{&lt;</span> <span class="p">/</span><span class="nt">script</span> <span class="p">&gt;</span>}}
 </code></pre></td></tr></table>
 </div>
-</div><p>你可以在开发者工具的控制台中看到输出.</p>]]></description>
-</item><item>
-    <title>Markdown 基本语法</title>
-    <link>https://lgf.im/posts/theme/basic-markdown-syntax/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/theme/basic-markdown-syntax/</guid>
-    <description><![CDATA[<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>
+</div><p>你可以在开发者工具的控制台中看到输出.</p>]]></description></item><item><title>Markdown 基本语法</title><link>https://lgf.im/posts/theme/basic-markdown-syntax/</link><pubDate>Sun, 01 Dec 2019 21:57:40 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/theme/basic-markdown-syntax/</guid><description><![CDATA[<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>
 <div class="details admonition note open">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-pencil-alt fa-fw"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
@@ -5284,14 +5244,7 @@ line 3 of code
 <p>这是一个带标签的脚注 <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>]]></description>
-</item><item>
-    <title>Emoji 支持</title>
-    <link>https://lgf.im/posts/theme/emoji-support/</link>
-    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/theme/emoji-support/</guid>
-    <description><![CDATA[<p>Emoji 可以通过多种方式在 Hugo 项目中启用.</p>
+</section>]]></description></item><item><title>Emoji 支持</title><link>https://lgf.im/posts/theme/emoji-support/</link><pubDate>Tue, 01 Oct 2019 17:55:28 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/theme/emoji-support/</guid><description><![CDATA[<p>Emoji 可以通过多种方式在 Hugo 项目中启用.</p>
 <p><a href="https://gohugo.io/functions/emojify/" target="_blank" rel="noopener noreffer"><code>emojify</code></a> 方法可以直接在模板中调用, 或者使用<a href="https://gohugo.io/templates/shortcode-templates#inline-shortcodes" target="_blank" rel="noopener noreffer">行内 Shortcodes</a>.</p>
 <p>要全局使用 emoji, 需要在你的<a href="https://gohugo.io/getting-started/configuration/" target="_blank" rel="noopener noreffer">网站配置</a>中设置 <code>enableEmoji</code> 为 <code>true</code>,
 然后你就可以直接在文章中输入 emoji 的代码.</p>
@@ -11026,14 +10979,7 @@ line 3 of code
 <td></td>
 </tr>
 </tbody>
-</table>]]></description>
-</item><item>
-    <title>如何优雅的隐藏你的Webshell</title>
-    <link>https://lgf.im/posts/web-security/hide-your-webshell/</link>
-    <pubDate>Sat, 08 Aug 2020 09:21:59 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/web-security/hide-your-webshell/</guid>
-    <description><![CDATA[<blockquote>
+</table>]]></description></item><item><title>如何优雅的隐藏你的Webshell</title><link>https://lgf.im/posts/web-security/hide-your-webshell/</link><pubDate>Sat, 08 Aug 2020 09:21:59 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/hide-your-webshell/</guid><description><![CDATA[<blockquote>
 <p>转自：酒仙桥六号部队 <a href="https://mp.weixin.qq.com/s/lExi2_y4NkTak735kpz4ug">https://mp.weixin.qq.com/s/lExi2_y4NkTak735kpz4ug</a>
 这个公众号的文章质量都非常高，推荐大家关注</p>
 </blockquote>
@@ -11394,14 +11340,7 @@ line 3 of code
 <p>在有权限的情况,看看管理员是否写的有动态webshell监测脚本,务必把脚本找出来,crontab一般都能看见了</p>
 </li>
 </ol>
-]]></description>
-</item><item>
-    <title>Nali IP地理信息和CDN服务商查询</title>
-    <link>https://lgf.im/posts/coding/nali-golang/</link>
-    <pubDate>Fri, 17 Jul 2020 13:39:47 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/coding/nali-golang/</guid>
-    <description><![CDATA[<p><a href="https://github.com/zu1k/nali" target="_blank" rel="noopener noreffer">Nali</a></p>
+]]></description></item><item><title>Nali IP地理信息和CDN服务商查询</title><link>https://lgf.im/posts/coding/nali-golang/</link><pubDate>Fri, 17 Jul 2020 13:39:47 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/nali-golang/</guid><description><![CDATA[<p><a href="https://github.com/zu1k/nali" target="_blank" rel="noopener noreffer">Nali</a></p>
 <blockquote>
 <p>一个查询IP地理信息和CDN提供商的离线终端工具</p>
 </blockquote>
@@ -11806,14 +11745,7 @@ export NALI_DB_HOME=/home/nali
 </ul>
 <h2 id="开源证书">开源证书</h2>
 <p>MIT</p>
-]]></description>
-</item><item>
-    <title>关于刷票</title>
-    <link>https://lgf.im/posts/web-security/brush-votes/</link>
-    <pubDate>Mon, 13 Jul 2020 20:06:48 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/web-security/brush-votes/</guid>
-    <description><![CDATA[<p>相信大家都经历过朋友圈、群组里各种转发求投票的消息，有需求就会有刷票</p>
+]]></description></item><item><title>关于刷票</title><link>https://lgf.im/posts/web-security/brush-votes/</link><pubDate>Mon, 13 Jul 2020 20:06:48 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/brush-votes/</guid><description><![CDATA[<p>相信大家都经历过朋友圈、群组里各种转发求投票的消息，有需求就会有刷票</p>
 <p>关于刷票我自己也稍微研究过，这里说的刷票是指刷投票，不是黄牛那种抢票</p>
 <h2 id="初识刷票">初识刷票</h2>
 <p>人生中第一次刷票是在大一，舍友的姐姐结婚拍婚纱照，摄影店给了一个点赞链接，承诺点赞数量超过500票免费送豪华相册和相框</p>
@@ -11844,14 +11776,7 @@ export NALI_DB_HOME=/home/nali
 <p>并且，有很多刷票组织养着很多群，可以提供真人投票服务，这种刷票成本非常高，但是是无法检测的，刷票成功率100%</p>
 <p>针对刷票行为，无法完全避免，我们能做的就是通过各种方式对用户身份进行验证，检查用户IP，尽量避免身份伪造</p>
 <p>同时，可以对投票请求的频率等信息进行分析，因为脚本刷票投票会很集中、时间间隔会比较均匀</p>
-]]></description>
-</item><item>
-    <title>Golang逆向思考</title>
-    <link>https://lgf.im/posts/reverse/golang-reverse-thinking/</link>
-    <pubDate>Sat, 20 Jun 2020 17:48:53 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/reverse/golang-reverse-thinking/</guid>
-    <description><![CDATA[<p>在前段时间对xray进行逆向过程中，发现golang编译的程序会有巨多函数，不能说都是多余的，但是大部分函数的确不是用户编写的代码生成的，而是golang运行时和各种库所需要的东西</p>
+]]></description></item><item><title>Golang逆向思考</title><link>https://lgf.im/posts/reverse/golang-reverse-thinking/</link><pubDate>Sat, 20 Jun 2020 17:48:53 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/reverse/golang-reverse-thinking/</guid><description><![CDATA[<p>在前段时间对xray进行逆向过程中，发现golang编译的程序会有巨多函数，不能说都是多余的，但是大部分函数的确不是用户编写的代码生成的，而是golang运行时和各种库所需要的东西</p>
 <p>同时，因为去除了符号表，这些大量的非实际业务代码会对我们逆向工作造成极大困难，如果能够利用一些自动化工具重建符号表或者重新命名，就可以极大的便利我们逆向</p>
 <h2 id="golang特殊段">golang特殊段</h2>
 <p>在本次逆向的过程中，我遇到了上述的问题，在网上搜索发现了一个ida插件， <a href="https://github.com/sibears/IDAGolangHelper.git" target="_blank" rel="noopener noreffer">IDAGolangHelper</a></p>
@@ -11868,14 +11793,7 @@ export NALI_DB_HOME=/home/nali
 <h3 id="特征匹配">特征匹配</h3>
 <p>在逆向的时候，我们就可以先分析程序的golang版本、编译平台、运行平台，然后使用相对应的特征库对去除了符号表的二进制函数进行特征匹配，通过这种方法可以对大部分基本的函数重建符号表，而剩余的小量函数便可以确定为用户编写的代码，需要我们深入分析</p>
 <p>这个工作应该已经有人开始做了</p>
-]]></description>
-</item><item>
-    <title>xray社区高级版破解</title>
-    <link>https://lgf.im/posts/reverse/xray-cracker/</link>
-    <pubDate>Thu, 18 Jun 2020 09:06:25 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/reverse/xray-cracker/</guid>
-    <description><![CDATA[<blockquote>
+]]></description></item><item><title>xray社区高级版破解</title><link>https://lgf.im/posts/reverse/xray-cracker/</link><pubDate>Thu, 18 Jun 2020 09:06:25 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/reverse/xray-cracker/</guid><description><![CDATA[<blockquote>
 <p>首先感谢 长亭科技 提供 xray 这款非常方便非常好用的安全工具<br>
 俗话说：没有人破解的工具不是好工具<br>
 根据没有任何数据支持的统计，大部分安全研究人员使用的安全工具都是盗版<br>
@@ -12125,14 +12043,7 @@ Not Valid After: 2099-09-09 08:00:00
 <blockquote>
 <p>主要是无法确定应该修改哪一个地方，因为出现了不止一次，一个特征是调用 VerifyPSS 的那个 Call，可以尝试自己解析 pclntab 段，从中还原符号表找到这个验证函数的入口，然后找搜索关键 Call，再在这个 call 后面两三个汇编处找 setnz 或者 setz 进行修改</p>
 </blockquote>
-]]></description>
-</item><item>
-    <title>屏蔽雨课堂在线考试异常上报</title>
-    <link>https://lgf.im/posts/web-security/yuketang-exam-block-report/</link>
-    <pubDate>Fri, 12 Jun 2020 20:23:46 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/web-security/yuketang-exam-block-report/</guid>
-    <description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
+]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
 <p>因为都是js代码，没有用wasm，分析还是比较简单的</p>
 <h2 id="切屏检测">切屏检测</h2>
 <p>考试过程中，如果切换浏览器标签，返回后会有一个切屏警告，并且老师那边也会有切屏记录</p>
@@ -12355,14 +12266,7 @@ Not Valid After: 2099-09-09 08:00:00
 <li>upload-as0.qiniup.com</li>
 </ul>
 <p>插件我用的AdblockPLUS，手动添加几条规则就行，亲测好用</p>
-]]></description>
-</item><item>
-    <title>利用360直播课评论区对用户浏览器dos攻击</title>
-    <link>https://lgf.im/posts/web-security/dos-attack-on-360-university-user/</link>
-    <pubDate>Fri, 29 May 2020 14:01:45 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/web-security/dos-attack-on-360-university-user/</guid>
-    <description><![CDATA[<p>前段时间在360网络安全大学听免费的网络安全直播课，里面的老师有一些讲的不错</p>
+]]></description></item><item><title>利用360直播课评论区对用户浏览器dos攻击</title><link>https://lgf.im/posts/web-security/dos-attack-on-360-university-user/</link><pubDate>Fri, 29 May 2020 14:01:45 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/dos-attack-on-360-university-user/</guid><description><![CDATA[<p>前段时间在360网络安全大学听免费的网络安全直播课，里面的老师有一些讲的不错</p>
 <p>对评论区进行测试，发现对评论和送花速度没有进行限制，送花有总数50次限制，但是评论总数没有限制</p>
 <p>并且，后端性能非常好，能够即时处理所有评论并通过websocket发送给所有直播课的听众</p>
 <p>用户的浏览器效率比较低，无法及时处理后端返回的所有评论，从而导致浏览器卡死，如此只需要一个用户不断发送评论包，所有用户都会受到dos攻击</p>
@@ -12562,14 +12466,7 @@ Not Valid After: 2099-09-09 08:00:00
 </code></pre></td></tr></table>
 </div>
 </div><p>可能是360也发现这个dos了，过了不到一个周便修复了，增加了评论速率的限制</p>
-]]></description>
-</item><item>
-    <title>一个来自保留IP地址的连接</title>
-    <link>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</link>
-    <pubDate>Mon, 25 May 2020 15:22:09 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</guid>
-    <description><![CDATA[<p>昨天看了一篇文章，文章最后使用IP logger进行钓鱼，最后记录下来的IP地址让我大跌眼镜</p>
+]]></description></item><item><title>一个来自保留IP地址的连接</title><link>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</link><pubDate>Mon, 25 May 2020 15:22:09 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</guid><description><![CDATA[<p>昨天看了一篇文章，文章最后使用IP logger进行钓鱼，最后记录下来的IP地址让我大跌眼镜</p>
 <p>万万没有想到，记录下来的IP地址竟然是是 244.242.105.51</p>
 <p>![Logger]](ip-logger.png [IP)</p>
 <p>这可是一个E类IP地址，是属于保留地址，是未来用来做ip研究用的，目前并没有开放使用啊</p>
@@ -12602,14 +12499,7 @@ Not Valid After: 2099-09-09 08:00:00
 <p>才疏学浅，文中可能有错误，欢迎指正
 目前这个问题还在困扰我，如果有大佬知道答案，希望能够告诉我</p>
 </blockquote>
-]]></description>
-</item><item>
-    <title>Tor洋葱服务如何工作</title>
-    <link>https://lgf.im/posts/learn/how-do-onion-service-work/</link>
-    <pubDate>Mon, 25 May 2020 14:13:37 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/learn/how-do-onion-service-work/</guid>
-    <description><![CDATA[<p>昨天遇到了点问题，为了研究清楚原理，把Tor客户端与服务端通信的具体流程学习了一下，这篇博文写来记录</p>
+]]></description></item><item><title>Tor洋葱服务如何工作</title><link>https://lgf.im/posts/learn/how-do-onion-service-work/</link><pubDate>Mon, 25 May 2020 14:13:37 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/learn/how-do-onion-service-work/</guid><description><![CDATA[<p>昨天遇到了点问题，为了研究清楚原理，把Tor客户端与服务端通信的具体流程学习了一下，这篇博文写来记录</p>
 <h2 id="通信流程">通信流程</h2>
 <p>这里要描述的通讯是 用户通过 tor浏览器 连接 洋葱服务 的过程</p>
 <p>为了方便表达，这里用Alice表示客户端，Bob表示服务端</p>
@@ -12649,14 +12539,7 @@ Not Valid After: 2099-09-09 08:00:00
 <p>如果tor客户端访问的服务不是洋葱服务，那通讯过程就不是上面那个流程了，也只有3次中转了</p>
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://community.torproject.org/onion-services/overview/">https://community.torproject.org/onion-services/overview/</a></p>
-]]></description>
-</item><item>
-    <title>逆向破解学校在线考试客户端</title>
-    <link>https://lgf.im/posts/reverse/crack-sdu-online-exam-software/</link>
-    <pubDate>Fri, 01 May 2020 21:44:54 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/reverse/crack-sdu-online-exam-software/</guid>
-    <description><![CDATA[<h2 id="前言">前言</h2>
+]]></description></item><item><title>逆向破解学校在线考试客户端</title><link>https://lgf.im/posts/reverse/crack-sdu-online-exam-software/</link><pubDate>Fri, 01 May 2020 21:44:54 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/reverse/crack-sdu-online-exam-software/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>近期，学校开始测试线上考试系统，据说十分流氓，开搞！</p>
 <p>从大一学弟那里拿到了相关程序和说明文档，经过学弟的使用体验，程序开始运行会自动杀死QQ、微信等程序，隐藏并屏蔽任务栏和开始菜单，强制全屏并屏蔽一些常用的快捷键包括窗口切换等。</p>
 <h2 id="开搞">开搞</h2>
@@ -12761,14 +12644,7 @@ Not Valid After: 2099-09-09 08:00:00
 <h2 id="申明与文件">申明与文件</h2>
 <p>同时本次研究完全以学习为目的，不得将上述内容用作商业或非法，否则一切后果由用户负责。您必须在下载后的24个小时之内，从您的电脑中彻底删除上述内容。</p>
 <p>破解之后的程序 {% asset_link 线上考试.zip [点击下载] %}</p>
-]]></description>
-</item><item>
-    <title>Linux添加swap</title>
-    <link>https://lgf.im/posts/linux/linux-add-swap/</link>
-    <pubDate>Sun, 12 Apr 2020 20:38:26 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/linux/linux-add-swap/</guid>
-    <description><![CDATA[<p>给 linux 服务器添加swap做了好几次了，每一次都没记住，临时去网上查命令，这里特地记录一下</p>
+]]></description></item><item><title>Linux添加swap</title><link>https://lgf.im/posts/linux/linux-add-swap/</link><pubDate>Sun, 12 Apr 2020 20:38:26 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/linux/linux-add-swap/</guid><description><![CDATA[<p>给 linux 服务器添加swap做了好几次了，每一次都没记住，临时去网上查命令，这里特地记录一下</p>
 <h2 id="查看当前swap">查看当前swap</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -12899,14 +12775,7 @@ sudo dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="
 </code></pre></td></tr></table>
 </div>
 </div><p>最佳 swappiness 值取决于您系统的工作负载以及内存的使用方式，您应该以小增量的方式来调整此参数，以查到最佳值。</p>
-]]></description>
-</item><item>
-    <title>使用GlobalSSH服务加速境外服务器ssh访问</title>
-    <link>https://lgf.im/posts/coding/use-ucloud-globalssh-to-speedup-server-ssh/</link>
-    <pubDate>Sun, 12 Apr 2020 16:37:56 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/coding/use-ucloud-globalssh-to-speedup-server-ssh/</guid>
-    <description><![CDATA[<blockquote>
+]]></description></item><item><title>使用GlobalSSH服务加速境外服务器ssh访问</title><link>https://lgf.im/posts/coding/use-ucloud-globalssh-to-speedup-server-ssh/</link><pubDate>Sun, 12 Apr 2020 16:37:56 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/use-ucloud-globalssh-to-speedup-server-ssh/</guid><description><![CDATA[<blockquote>
 <h3 id="ucloud已经对加速ip进行限制本文中的方法即时失效">UCloud已经对加速IP进行限制，本文中的方法即时失效</h3>
 <p>通知内容如下：<br>
 尊敬的UCloud用户，您好！<br>
@@ -12963,14 +12832,7 @@ git clone git@githubssh.xyz:moby/moby.git
 </div><p>为了能够自动更新ip，我写了一个程序，每天会检查github新的ip，创建新的globalssh，然后自动解析到域名githubssh.xyz上，由cloudflare进行DNS层面的负载均衡</p>
 <p>开源地址为： <a href="https://github.com/zu1k/globalssh4github">https://github.com/zu1k/globalssh4github</a></p>
 <p>同时为了方便，改了一个插件： <a href="https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/kejahdakjmkfddgnifodfnpcklckjjpo">https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/kejahdakjmkfddgnifodfnpcklckjjpo</a></p>
-]]></description>
-</item><item>
-    <title>kms激活</title>
-    <link>https://lgf.im/posts/share/kms/</link>
-    <pubDate>Wed, 08 Apr 2020 09:09:02 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/share/kms/</guid>
-    <description><![CDATA[<p>这是一个无聊的，老生常谈的话题</p>
+]]></description></item><item><title>kms激活</title><link>https://lgf.im/posts/share/kms/</link><pubDate>Wed, 08 Apr 2020 09:09:02 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/share/kms/</guid><description><![CDATA[<p>这是一个无聊的，老生常谈的话题</p>
 <p>我个人笔记本是自带的正版windows，但是在虚拟机里面的win却没有正版，我一般会用kms进行激活</p>
 <p>github搜索kms会找到很多版本的kms激活服务端，比较出名的是这一个，可以一键运行起来：https://github.com/Wind4/vlmcsd</p>
 <p>相关的脚本啊，命令啊，在百度一搜一大堆，就不重复写了</p>
@@ -12978,14 +12840,7 @@ git clone git@githubssh.xyz:moby/moby.git
 <p>因为你永远不知道他们提供的服务什么时候会中止或者域名什么时候会到期，像我这样有多个不同的虚拟机，如果这种事情发生我就需要打开每一个虚拟机分别重新运行激活脚本进行重新激活，这就很麻烦。</p>
 <p>而用自己的域名的话，我只需要找一个好用的kms服务器然后修改dns的解析就行了，省了很多事</p>
 <p>我自己用的激活脚本： <a href="https://gist.github.com/zu1k/612dd4b0a0193620d43c08a698e05d85">https://gist.github.com/zu1k/612dd4b0a0193620d43c08a698e05d85</a></p>
-]]></description>
-</item><item>
-    <title>烤红薯</title>
-    <link>https://lgf.im/posts/life/bake-sweet-potato/</link>
-    <pubDate>Tue, 31 Mar 2020 11:17:57 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/life/bake-sweet-potato/</guid>
-    <description><![CDATA[<blockquote>
+]]></description></item><item><title>烤红薯</title><link>https://lgf.im/posts/life/bake-sweet-potato/</link><pubDate>Tue, 31 Mar 2020 11:17:57 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/life/bake-sweet-potato/</guid><description><![CDATA[<blockquote>
 <p>这应该是我第一篇记录生活的博文吧，之前一直是写一些学习、技术相关的文章，总感觉博客不应该只记录这些东西，那就开始吧</p>
 </blockquote>
 <p>妈妈从网上买了几斤红薯，今天突然说想吃，那就用烤箱烤一下吧</p>
@@ -13014,6 +12869,4 @@ git clone git@githubssh.xyz:moby/moby.git
 <h2 id="补充">补充</h2>
 <p>这次因为是第一次烤，烤的时间稍微有点长，流出来太多油浪费了，还有一些油都烤糊了，下次会缩短一点时间</p>
 <p></p>
-]]></description>
-</item></channel>
-</rss>
+]]></description></item></channel></rss>

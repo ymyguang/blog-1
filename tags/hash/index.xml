@@ -1,16 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>hash - 标签 - zu1k</title>
-        <link>https://lgf.im/tags/hash/</link>
-        <description>hash - 标签 - zu1k</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor>
-            <webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 14 Oct 2018 17:53:03 &#43;0000</lastBuildDate><atom:link href="https://lgf.im/tags/hash/" rel="self" type="application/rss+xml" /><item>
-    <title>MD5的Hash长度扩展攻击</title>
-    <link>https://lgf.im/posts/crypto/md5-hash-length-extension-attack/</link>
-    <pubDate>Sun, 14 Oct 2018 17:53:03 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/crypto/md5-hash-length-extension-attack/</guid>
-    <description><![CDATA[<h2 id="一遇到的问题">一、遇到的问题</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>hash - 标签 - zu1k</title><link>https://lgf.im/tags/hash/</link><description>hash - 标签 - zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 14 Oct 2018 17:53:03 +0000</lastBuildDate><atom:link href="https://lgf.im/tags/hash/" rel="self" type="application/rss+xml"/><item><title>MD5的Hash长度扩展攻击</title><link>https://lgf.im/posts/crypto/md5-hash-length-extension-attack/</link><pubDate>Sun, 14 Oct 2018 17:53:03 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/crypto/md5-hash-length-extension-attack/</guid><description><![CDATA[<h2 id="一遇到的问题">一、遇到的问题</h2>
 <p>在一道web题目中遇到了以下判断:
 <code>if ($COOKIE[&quot;md5hash&quot;] === md5($secret . $input))</code></p>
 <p>在该题目中我们可以掌握的参数有<code>md5hash</code>、<code>input</code>的值，<code>secret</code>的md5值和长度，我们需要想办法让这个判断通过。</p>
@@ -692,6 +680,4 @@ D=0xf6b42726
 </div><p>脚本使用时第一个命令行参数是一个服务端加密一个固定长度数据的md5，第二个参数是固定的长度
 例如已知服务端加密一个15字符的md5：test.py 571580b26c65f306376d4f64e53cb5c7 15</p>
 <h4 id="参考文章">参考文章</h4>
-<p><a href="https://www.cnblogs.com/p00mj/p/6288337.html" target="_blank" rel="noopener noreffer">MD5的Hash长度扩展攻击</a></p>]]></description>
-</item></channel>
-</rss>
+<p><a href="https://www.cnblogs.com/p00mj/p/6288337.html" target="_blank" rel="noopener noreffer">MD5的Hash长度扩展攻击</a></p>]]></description></item></channel></rss>

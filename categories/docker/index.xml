@@ -1,16 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>docker - 分类 - zu1k</title>
-        <link>https://lgf.im/categories/docker/</link>
-        <description>docker - 分类 - zu1k</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor>
-            <webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Mar 2020 21:16:07 &#43;0000</lastBuildDate><atom:link href="https://lgf.im/categories/docker/" rel="self" type="application/rss+xml" /><item>
-    <title>加速docker pull</title>
-    <link>https://lgf.im/posts/coding/speedup-docker-pull/</link>
-    <pubDate>Sun, 08 Mar 2020 21:16:07 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/coding/speedup-docker-pull/</guid>
-    <description><![CDATA[<h2 id="为docker设置代理">为docker设置代理</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>docker - 分类 - zu1k</title><link>https://lgf.im/categories/docker/</link><description>docker - 分类 - zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Mar 2020 21:16:07 +0000</lastBuildDate><atom:link href="https://lgf.im/categories/docker/" rel="self" type="application/rss+xml"/><item><title>加速docker pull</title><link>https://lgf.im/posts/coding/speedup-docker-pull/</link><pubDate>Sun, 08 Mar 2020 21:16:07 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/speedup-docker-pull/</guid><description><![CDATA[<h2 id="为docker设置代理">为docker设置代理</h2>
 <p>环境是在centos下，如果没有新建下面这个文件夹</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -98,14 +86,7 @@ sudo systemctl restart docker
 </code></pre></td></tr></table>
 </div>
 </div><p><a href="https://juejin.im/post/5cd2cf01f265da0374189441">https://juejin.im/post/5cd2cf01f265da0374189441</a></p>
-]]></description>
-</item><item>
-    <title>给docker里的每一个容器一个独立的ipv6地址</title>
-    <link>https://lgf.im/posts/coding/set-ipv6-for-every-docker-container/</link>
-    <pubDate>Sat, 31 Aug 2019 14:39:03 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://lgf.im/posts/coding/set-ipv6-for-every-docker-container/</guid>
-    <description><![CDATA[<p>ipv6不断普及，ipv6地址多的数不胜数，机房给单台机器分配的ipv6段达到了可怕的64位长度的子网主机号。</p>
+]]></description></item><item><title>给docker里的每一个容器一个独立的ipv6地址</title><link>https://lgf.im/posts/coding/set-ipv6-for-every-docker-container/</link><pubDate>Sat, 31 Aug 2019 14:39:03 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/set-ipv6-for-every-docker-container/</guid><description><![CDATA[<p>ipv6不断普及，ipv6地址多的数不胜数，机房给单台机器分配的ipv6段达到了可怕的64位长度的子网主机号。</p>
 <p>那我不禁在想，能不能给docker下的每个容器独立的ipv6地址，这样就不需要映射端口号了。</p>
 <p>所以就有了以下实践：</p>
 <p>首先，给docker engine开启ipv6支持, 参考： <a href="https://docs.docker.com/config/daemon/ipv6/">https://docs.docker.com/config/daemon/ipv6/</a></p>
@@ -184,6 +165,4 @@ sudo systemctl restart docker
 <pre class="chroma"><code class="language-shell" data-lang="shell">ip -6 neigh add proxy 2001🔢5001🔢6666::101 dev ens3
 </code></pre></td></tr></table>
 </div>
-</div>]]></description>
-</item></channel>
-</rss>
+</div>]]></description></item></channel></rss>
