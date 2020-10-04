@@ -11869,5 +11869,1151 @@ export NALI_DB_HOME=/home/nali
 <p>在逆向的时候，我们就可以先分析程序的golang版本、编译平台、运行平台，然后使用相对应的特征库对去除了符号表的二进制函数进行特征匹配，通过这种方法可以对大部分基本的函数重建符号表，而剩余的小量函数便可以确定为用户编写的代码，需要我们深入分析</p>
 <p>这个工作应该已经有人开始做了</p>
 ]]></description>
+</item><item>
+    <title>xray社区高级版破解</title>
+    <link>https://lgf.im/posts/reverse/xray-cracker/</link>
+    <pubDate>Thu, 18 Jun 2020 09:06:25 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://lgf.im/posts/reverse/xray-cracker/</guid>
+    <description><![CDATA[<blockquote>
+<p>首先感谢 长亭科技 提供 xray 这款非常方便非常好用的安全工具<br>
+俗话说：没有人破解的工具不是好工具<br>
+根据没有任何数据支持的统计，大部分安全研究人员使用的安全工具都是盗版<br>
+包括但不限于： IDA \ JEB \ BurpSuite \ Vmware</p>
+</blockquote>
+<p>前几天长亭官方有个活动，可以领 2 个月的 xray 社区高级版证书，正好趁这个机会逆向分析了一下 xray 的证书算法，写了一个证书生成器</p>
+<p>因为 xray 证书用到了 rsa 算法，所以需要替换 xray 程序中的公钥，将该功能也集成在工具中了</p>
+<h2 id="工具使用">工具使用</h2>
+<h3 id="查看帮助">查看帮助</h3>
+<p>使用 <code>-h</code> 查看帮助</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">PS &gt; .<span class="se">\x</span>ray-cracker -h
+破解xray高级版证书，使用 -h 参数查看使用帮助
+
+Usage of xray-cracker:
+  -c string
+        替换xray程序内置公钥，需要指定xray程序文件路径
+  -g string
+        生成一个永久license，需要指定用户名
+  -p string
+        解析官方证书，需要指定证书路径
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="生成证书">生成证书</h3>
+<p>使用 <code>-g username</code> 生成永久证书</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">PS &gt; .<span class="se">\x</span>ray-cracker -g <span class="s2">&#34;我叫啥&#34;</span>
+破解xray高级版证书，使用 -h 参数查看使用帮助
+
+证书已写入文件：xray-license.lic
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="破解-xray">破解 xray</h3>
+<p>使用 <code>-c path-to-xray</code> 修改 xray 内置公钥</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">PS &gt; .<span class="se">\x</span>ray-cracker -c .<span class="se">\x</span>ray_windows_amd64.exe
+破解xray高级版证书，使用 -h 参数查看使用帮助
+
+public key index: <span class="m">16741321</span>
+文件写入成功： .<span class="se">\x</span>ray_windows_amd64.exe
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>工具虽然是 windows 平台下运行，但是照样可以破解其他平台 xray<br>
+目前 xray 最新版是 1.0.0，现在全平台全版本通杀</p>
+</blockquote>
+<h2 id="破解效果">破解效果</h2>
+<p>使用修改版 xray 和永久证书后，效果如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">PS &gt; .<span class="se">\x</span>ray_windows_amd64.exe version
+
+ __   __  _____              __     __
+ <span class="se">\ \ </span>/ / <span class="p">|</span>  __ <span class="se">\ </span>     /<span class="se">\ </span>    <span class="se">\ \ </span>  / /
+  <span class="se">\ </span>V /  <span class="p">|</span> <span class="p">|</span>__<span class="o">)</span> <span class="p">|</span>    /  <span class="se">\ </span>    <span class="se">\ \_</span>/ /
+   &gt; &lt;   <span class="p">|</span>  _  /    / /<span class="se">\ \ </span>    <span class="se">\ </span>  /
+  / . <span class="se">\ </span> <span class="p">|</span> <span class="p">|</span> <span class="se">\ \ </span>  / ____ <span class="se">\ </span>    <span class="p">|</span> <span class="p">|</span>
+ /_/ <span class="se">\_\ </span><span class="p">|</span>_<span class="p">|</span>  <span class="se">\_\ </span>/_/    <span class="se">\_\ </span>   <span class="p">|</span>_<span class="p">|</span>
+
+
+Version: 1.0.0/62161168/COMMUNITY-ADVANCED
+Licensed to 我叫啥, license is valid <span class="k">until</span> 2099-09-09 08:00:00
+
+<span class="o">[</span>xray 1.0.0/62161168<span class="o">]</span>
+Build: <span class="o">[</span>2020-06-13<span class="o">]</span> <span class="o">[</span>windows/amd64<span class="o">]</span> <span class="o">[</span>RELEASE/COMMUNITY-ADVANCED<span class="o">]</span>
+Compiler Version: go version go1.14.1 linux/amd64
+License ID: <span class="m">00000000000000000000000000000000</span>
+User Name: 我叫啥/00000000000000000000000000000000
+Not Valid Before: 2020-06-12 00:00:00
+Not Valid After: 2099-09-09 08:00:00
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="部分细节">部分细节</h2>
+<blockquote>
+<p>距离博文发布已经过了快一个月了，补充一点点细节信息，希望能够帮助到部分研究学习的同学</p>
+</blockquote>
+<p>这里只给出使用的关键函数和关键流程，一些重要参数细节需要自己探索，可以动态单步调试获得</p>
+<h3 id="aes-解密">AES 解密</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">decode_data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">base64</span><span class="p">.</span><span class="nx">StdEncoding</span><span class="p">.</span><span class="nf">DecodeString</span><span class="p">(</span><span class="nx">licenseString</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+  <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">aesDecData</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">AesCBCDecryptAndUnPad</span><span class="p">(</span><span class="nx">decode_data</span><span class="p">[</span><span class="mi">17</span><span class="p">:])</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+  <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">licensePlainJsonBytes</span> <span class="o">:=</span> <span class="nx">aesDecData</span><span class="p">[</span><span class="mh">0x102</span><span class="p">:]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="rsa-签名验证">RSA 签名验证</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">sum</span> <span class="o">:=</span> <span class="nx">sha256</span><span class="p">.</span><span class="nf">Sum256</span><span class="p">(</span><span class="nx">licensePlainJsonBytes</span><span class="p">)</span>
+<span class="nx">err</span> <span class="p">=</span> <span class="nx">rsa</span><span class="p">.</span><span class="nf">VerifyPSS</span><span class="p">(</span><span class="nx">pubKey</span><span class="p">,</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">SHA256</span><span class="p">,</span> <span class="nx">sum</span><span class="p">[:],</span> <span class="nx">aesDecData</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mh">0x102</span><span class="p">],</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2020-年-8-月-27-日-补充">2020 年 8 月 27 日 补充</h2>
+<p>xray 官方在 1.3.0 版本中更换了授权验证机制，所以破解仅支持到 1.2.0 版本，本文使用代码现在开源： <a href="https://github.com/zu1k/xray-crack">https://github.com/zu1k/xray-crack</a></p>
+<h2 id="2020-年-9-月-30-日-补充">2020 年 9 月 30 日 补充</h2>
+<p>前几天有大佬私发我一个 License，我就又对证书算法研究了一下</p>
+<p>相关代码也已经更新到 github 了</p>
+<h3 id="证书生成">证书生成</h3>
+<p>证书生成验证整体的思路没有大的改动，还是先 AES 解密，然后 RSA 签名验证，只是前后增加了两处简单的变换</p>
+<p>在解密前有一个简单的交换，开始和最后的两个两个没有参与运算（开始第一个字节是证书版本号）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="nx">right</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">base64DecodeData</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="nx">l</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">l</span> <span class="p">&lt;</span> <span class="nx">right</span><span class="p">;</span> <span class="nx">l</span><span class="o">++</span> <span class="p">{</span>
+  <span class="nx">r</span> <span class="o">:=</span> <span class="nx">right</span> <span class="o">-</span> <span class="nx">l</span>
+  <span class="k">if</span> <span class="nx">l</span> <span class="o">&gt;=</span> <span class="nx">r</span> <span class="p">{</span>
+    <span class="k">break</span>
+  <span class="p">}</span>
+  <span class="nx">base64DecodeData</span><span class="p">[</span><span class="nx">l</span><span class="p">],</span> <span class="nx">base64DecodeData</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span> <span class="p">=</span> <span class="nx">base64DecodeData</span><span class="p">[</span><span class="nx">r</span><span class="p">],</span> <span class="nx">base64DecodeData</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后进行 aes 解密，密钥是写死的，IV 是附加在证书里面的，刚刚的变换结束后，除去第一个字节是版本号，紧接着的 16 个字节是 AES 的 IV</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="nx">aesDecData</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">Decrypt</span><span class="p">(</span><span class="nx">base64DecodeData</span><span class="p">[</span><span class="mi">17</span><span class="p">:],</span> <span class="nx">base64DecodeData</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>AES 解密后就会遇到另一个变换，是简单的异或处理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">aesDecData</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+  <span class="nx">aesDecData</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">aesDecData</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">^</span> <span class="mh">0x44</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后后面的部分就跟之前一样了</p>
+<h3 id="公钥">公钥</h3>
+<p>在新的版本中，RSA 的公钥被加密处理了，在运行的时候解密，这样做可以防止我们通过简单的公钥替换通杀所有的版本和平台</p>
+<p>通过逆向发现，解密函数有二百多个局部变量，先是变量之间互相交换，然后两两进行加、减、异或等操作来还原公钥信息</p>
+<p>我推测是用程序生成的代码，然后那生成的代码编译的，这样可以在每一次编译的时候重新生成一下代码，增加我们破解的时间</p>
+<p>从这一方面出发，我只能变换一下思路，不能去硬刚</p>
+<p>Golang 中 RSA 签名验证代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="nx">err</span> <span class="o">:=</span> <span class="nx">rsa</span><span class="p">.</span><span class="nf">VerifyPSS</span><span class="p">(</span><span class="nx">pubKey</span><span class="p">,</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">SHA256</span><span class="p">,</span> <span class="nx">sum</span><span class="p">[:],</span> <span class="nx">aesDecData</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mh">0x102</span><span class="p">],</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;签名验证 失败&#34;</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;签名验证 成功&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>很明显，是通过判断返回值是否为空来确定签名验证是否成功的，在汇编中一般为<code>test eax,eax</code>，然后<code>setnz</code>或者<code>setz</code>，所以我可以修改这里</p>
+<p>但是这种方法我只能手工修改，目前没有实现用程序来自动化</p>
+<blockquote>
+<p>主要是无法确定应该修改哪一个地方，因为出现了不止一次，一个特征是调用 VerifyPSS 的那个 Call，可以尝试自己解析 pclntab 段，从中还原符号表找到这个验证函数的入口，然后找搜索关键 Call，再在这个 call 后面两三个汇编处找 setnz 或者 setz 进行修改</p>
+</blockquote>
+]]></description>
+</item><item>
+    <title>屏蔽雨课堂在线考试异常上报</title>
+    <link>https://lgf.im/posts/web-security/yuketang-exam-block-report/</link>
+    <pubDate>Fri, 12 Jun 2020 20:23:46 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://lgf.im/posts/web-security/yuketang-exam-block-report/</guid>
+    <description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
+<p>因为都是js代码，没有用wasm，分析还是比较简单的</p>
+<h2 id="切屏检测">切屏检测</h2>
+<p>考试过程中，如果切换浏览器标签，返回后会有一个切屏警告，并且老师那边也会有切屏记录</p>
+<p>通过实验发现如果不切换浏览器标签，使用另一个浏览器窗口或者切换其他软件都不会触发这个记录</p>
+<p>相关代码如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">onchange</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">hidden</span> <span class="o">||</span> 
+        <span class="mi">0</span> <span class="o">!=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">onlineProctor</span> <span class="o">||</span> 
+        <span class="nx">e</span><span class="p">.</span><span class="nx">getCacheResult</span><span class="p">(),</span> <span class="nx">e</span><span class="p">.</span><span class="nx">onlineProctor</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">hidden</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">e</span><span class="p">.</span><span class="nx">time1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">uploadUnnormal</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">e</span><span class="p">.</span><span class="nx">$alert</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">customClass</span><span class="o">:</span> <span class="s2">&#34;alertMsg&#34;</span><span class="p">,</span>
+                <span class="nx">showClose</span><span class="o">:</span> <span class="o">!</span><span class="mi">1</span><span class="p">,</span>
+                <span class="nx">message</span><span class="o">:</span> <span class="s2">&#34;系统监测到你切出了考试页面&lt;br/&gt;我们会将此行为报告你的老师&#34;</span><span class="p">,</span>
+                <span class="nx">dangerouslyUseHTMLString</span><span class="o">:</span> <span class="o">!</span><span class="mi">0</span><span class="p">,</span>
+                <span class="nx">confirmButtonText</span><span class="o">:</span> <span class="s2">&#34;继续考试&#34;</span><span class="p">,</span>
+                <span class="nx">center</span><span class="o">:</span> <span class="o">!</span><span class="mi">0</span><span class="p">,</span>
+                <span class="nx">callback</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{}</span>
+            <span class="p">})</span>
+        <span class="p">},</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span><span class="p">;</span>
+<span class="p">},</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>没有看代码之前我还猜想检查切屏可以通过focus来检查，看了代码后发现使用的是vue的 onchange 进行触发，然就在方法内检查document是否hidden</p>
+<p>这样是无法检测到切换不同应用的，简直是自欺欺人啊</p>
+<p>注意到检测到切标签后会触发 <code>e.uploadUnnormal(12)</code> 方法，进去看一下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">uploadUnnormal</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">$axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">API</span><span class="p">.</span><span class="nx">feed_add</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">exam_id</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">exam_id</span><span class="p">,</span>
+        <span class="nx">action</span><span class="o">:</span> <span class="nx">t</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">$message</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;发生错误&#34;</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>其中 <code>API.feed_add1</code> 是 <code>/online_proctor/stu/monitor/feed/add</code> 这个路径</p>
+<p>也就是说切标签后会 POST 一个标号为12的action记录，抓包后也发现的确如此，也仅仅而已</p>
+<h2 id="照片上传">照片上传</h2>
+<p>查看请求发现图片是先上传到七牛云，然后将返回的连接发给服务器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">handleCapture</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span>
+        <span class="nx">e</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">,</span>
+        <span class="nx">n</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">video</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isexam</span><span class="p">)</span> 
+        <span class="nx">e</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">180</span><span class="p">),</span> <span class="k">this</span><span class="p">.</span><span class="nx">reTake</span><span class="p">)</span> 
+        <span class="k">return</span> <span class="k">void</span> <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s2">&#34;changeReTake&#34;</span><span class="p">,</span> <span class="o">!</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s2">&#34;image/jpeg&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="nx">n</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">(</span><span class="nx">u</span><span class="p">.</span><span class="nx">b</span><span class="p">)(</span><span class="nx">e</span><span class="p">,</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">());</span>
+        <span class="nx">t</span><span class="p">.</span><span class="nx">upload</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">e</span> <span class="o">&amp;&amp;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
+            <span class="nx">t</span><span class="p">.</span><span class="nx">image_url</span> <span class="o">=</span> <span class="nx">n</span><span class="p">,</span> 
+            <span class="nx">t</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s2">&#34;changeReTake&#34;</span><span class="p">,</span> <span class="o">!</span><span class="mi">0</span><span class="p">),</span> 
+            <span class="nx">t</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s2">&#34;changeCanEnter&#34;</span><span class="p">,</span> <span class="o">!</span><span class="mi">0</span><span class="p">),</span> 
+            <span class="nx">t</span><span class="p">.</span><span class="nx">isexam</span> <span class="o">&amp;&amp;</span> <span class="nx">t</span><span class="p">.</span><span class="nx">postRecord</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">})</span>
+    <span class="p">},</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">},</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">upload</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">a</span><span class="p">.</span><span class="nx">qiniuDomain</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">s</span><span class="p">.</span><span class="nx">a</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">next</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">t</span><span class="p">.</span><span class="nx">total</span><span class="p">.</span><span class="nx">percent</span>
+            <span class="p">},</span>
+            <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">r</span><span class="p">({</span>
+                    <span class="nx">url</span><span class="o">:</span> <span class="s2">&#34;&#34;</span>
+                <span class="p">})</span>
+            <span class="p">},</span>
+            <span class="nx">complete</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">e</span> <span class="o">+</span> <span class="s2">&#34;/&#34;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">key</span><span class="p">);</span>
+                <span class="nx">n</span><span class="p">({</span>
+                    <span class="nx">url</span><span class="o">:</span> <span class="nx">r</span>
+                <span class="p">})</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+        <span class="nx">c</span><span class="p">.</span><span class="nx">a</span> <span class="o">&amp;&amp;</span> <span class="nx">c</span><span class="p">.</span><span class="nx">a</span><span class="p">.</span><span class="nx">upload</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="s2">&#34;image&#34;</span><span class="p">,</span> <span class="o">!</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">},</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">postRecord</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">e</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">exam_id</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">examid</span><span class="p">,</span>
+        <span class="nx">image_url</span><span class="o">:</span> <span class="nx">t</span><span class="p">,</span>
+        <span class="nx">label</span><span class="o">:</span> <span class="nx">e</span><span class="p">,</span>
+        <span class="nx">event_group_id</span><span class="o">:</span> <span class="nx">n</span><span class="p">,</span>
+        <span class="nx">operator_id</span><span class="o">:</span> <span class="nx">r</span><span class="p">,</span>
+        <span class="nx">action</span><span class="o">:</span> <span class="nx">i</span>
+    <span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">$axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">API</span><span class="p">.</span><span class="nx">upload_photograph</span><span class="p">,</span> <span class="nx">o</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{})</span>
+                <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">{})</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="如何绕过">如何绕过</h2>
+<p>那啥，就几个有用的url，反正都是后台请求，当做广告拦截了就行，这样老师那边就没有切屏警告和异常照片了</p>
+<ul>
+<li>changjiang-exam.yuketang.cn/online_proctor/stu/monitor/feed/add</li>
+<li>changjiang-exam.yuketang.cn/online_proctor/stu/photograph/add</li>
+<li>upload.qiniup.com</li>
+<li>upload-z1.qiniup.com</li>
+<li>upload-z2.qiniup.com</li>
+<li>upload-na0.qiniup.com</li>
+<li>upload-as0.qiniup.com</li>
+</ul>
+<p>插件我用的AdblockPLUS，手动添加几条规则就行，亲测好用</p>
+]]></description>
+</item><item>
+    <title>利用360直播课评论区对用户浏览器dos攻击</title>
+    <link>https://lgf.im/posts/web-security/dos-attack-on-360-university-user/</link>
+    <pubDate>Fri, 29 May 2020 14:01:45 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://lgf.im/posts/web-security/dos-attack-on-360-university-user/</guid>
+    <description><![CDATA[<p>前段时间在360网络安全大学听免费的网络安全直播课，里面的老师有一些讲的不错</p>
+<p>对评论区进行测试，发现对评论和送花速度没有进行限制，送花有总数50次限制，但是评论总数没有限制</p>
+<p>并且，后端性能非常好，能够即时处理所有评论并通过websocket发送给所有直播课的听众</p>
+<p>用户的浏览器效率比较低，无法及时处理后端返回的所有评论，从而导致浏览器卡死，如此只需要一个用户不断发送评论包，所有用户都会受到dos攻击</p>
+<p>评论代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;flag&#34;</span>
+	<span class="s">&#34;log&#34;</span>
+	<span class="s">&#34;net/http&#34;</span>
+	<span class="s">&#34;net/url&#34;</span>
+	<span class="s">&#34;os&#34;</span>
+	<span class="s">&#34;os/signal&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+
+	<span class="s">&#34;github.com/gorilla/websocket&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">addr</span> <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;addr&#34;</span><span class="p">,</span> <span class="s">&#34;trans.college.360.cn&#34;</span><span class="p">,</span> <span class="s">&#34;http service address&#34;</span><span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">flag</span><span class="p">.</span><span class="nf">Parse</span><span class="p">()</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">SetFlags</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+	<span class="nx">interrupt</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Signal</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="nx">signal</span><span class="p">.</span><span class="nf">Notify</span><span class="p">(</span><span class="nx">interrupt</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Interrupt</span><span class="p">)</span>
+
+	<span class="nx">u</span> <span class="o">:=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">URL</span><span class="p">{</span>
+		<span class="nx">Scheme</span><span class="p">:</span> <span class="s">&#34;wss&#34;</span><span class="p">,</span> 
+		<span class="nx">Host</span><span class="p">:</span> <span class="o">*</span><span class="nx">addr</span><span class="p">,</span> 
+		<span class="nx">Path</span><span class="p">:</span> <span class="s">&#34;/ws&#34;</span><span class="p">,</span> 
+		<span class="nx">RawQuery</span><span class="p">:</span> <span class="s">&#34;live_course_id=10114&#34;</span>
+	<span class="p">}</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;connecting to %s&#34;</span><span class="p">,</span> <span class="nx">u</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+
+
+	<span class="nx">header</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">Header</span><span class="p">)</span>
+	<span class="nx">header</span><span class="p">[</span><span class="s">&#34;Origin&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;https://admin.college.360.cn&#34;</span><span class="p">}</span>
+	<span class="nx">header</span><span class="p">[</span><span class="s">&#34;User-Agent&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;Chrome/80.0.3987.122&#34;</span><span class="p">}</span>
+	<span class="nx">header</span><span class="p">[</span><span class="s">&#34;Cookie&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;your cookie&#34;</span><span class="p">}</span>
+
+	<span class="nx">dialer</span> <span class="o">:=</span> <span class="nx">websocket</span><span class="p">.</span><span class="nx">DefaultDialer</span>
+	<span class="nx">dialer</span><span class="p">.</span><span class="nx">EnableCompression</span> <span class="p">=</span> <span class="kc">true</span>
+	<span class="nx">c</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">dialer</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="nx">u</span><span class="p">.</span><span class="nf">String</span><span class="p">(),</span> <span class="nx">header</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;dial:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="nx">c</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+
+	<span class="nx">done</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kd">struct</span><span class="p">{})</span>
+
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span>
+		<span class="k">for</span> <span class="p">{</span>
+			<span class="nx">_</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">ReadMessage</span><span class="p">()</span>
+			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+				<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;read:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+				<span class="k">return</span>
+			<span class="p">}</span>
+			<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;recv: %s&#34;</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}()</span>
+
+	<span class="nx">ticker</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">NewTicker</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="k">defer</span> <span class="nx">ticker</span><span class="p">.</span><span class="nf">Stop</span><span class="p">()</span>
+
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="k">select</span> <span class="p">{</span>
+		<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">done</span><span class="p">:</span>
+			<span class="k">return</span>
+		<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">ticker</span><span class="p">.</span><span class="nx">C</span><span class="p">:</span>
+			<span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">WriteMessage</span><span class="p">(</span><span class="nx">websocket</span><span class="p">.</span><span class="nx">TextMessage</span><span class="p">,</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span>
+					<span class="s">&#34;{\&#34;cmd\&#34;:\&#34;newMessage\&#34;,\&#34;message\&#34;:\&#34;感谢360\&#34;}&#34;</span>
+				<span class="p">))</span>
+			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+				<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;write:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+				<span class="k">return</span>
+			<span class="p">}</span>
+		<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">interrupt</span><span class="p">:</span>
+			<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;interrupt&#34;</span><span class="p">)</span>
+			<span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">WriteMessage</span><span class="p">(</span>
+				<span class="nx">websocket</span><span class="p">.</span><span class="nx">CloseMessage</span><span class="p">,</span> 
+				<span class="nx">websocket</span><span class="p">.</span><span class="nf">FormatCloseMessage</span><span class="p">(</span>
+					<span class="nx">websocket</span><span class="p">.</span><span class="nx">CloseNormalClosure</span><span class="p">,</span> <span class="s">&#34;&#34;</span>
+				<span class="p">)</span>
+			<span class="p">)</span>
+			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+				<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;write close:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+				<span class="k">return</span>
+			<span class="p">}</span>
+			<span class="k">select</span> <span class="p">{</span>
+			<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">done</span><span class="p">:</span>
+			<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">time</span><span class="p">.</span><span class="nf">After</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">):</span>
+			<span class="p">}</span>
+			<span class="k">return</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可能是360也发现这个dos了，过了不到一个周便修复了，增加了评论速率的限制</p>
+]]></description>
+</item><item>
+    <title>一个来自保留IP地址的连接</title>
+    <link>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</link>
+    <pubDate>Mon, 25 May 2020 15:22:09 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</guid>
+    <description><![CDATA[<p>昨天看了一篇文章，文章最后使用IP logger进行钓鱼，最后记录下来的IP地址让我大跌眼镜</p>
+<p>万万没有想到，记录下来的IP地址竟然是是 244.242.105.51</p>
+<p>![Logger]](ip-logger.png [IP)</p>
+<p>这可是一个E类IP地址，是属于保留地址，是未来用来做ip研究用的，目前并没有开放使用啊</p>
+<p>考虑到文章中是对一个地下黑客组织进行钓鱼，所以我有理由相信，这个访问记录是通过某种高超的我从来没有听说过的手段实现的</p>
+<p>IP Logger为啥会记录到这样一个IP的访问呢？ 这个问题一直到现在都在困扰我</p>
+<p>下面记录一下我对这个的分析</p>
+<h2 id="大端小端">大端？小端？</h2>
+<p>众所周知计算机程序根据cpu架构和操作系统种类不同，数据在内存中存放有大端序和小端序两种情况，这个顺序叫做主机序</p>
+<p>而网络传输需要在不同主机序的计算机之间兼容，所以又规定了一个网络序，规定网络传输一律使用大端序</p>
+<p>文章中作者猜测是访问者使用的主机是小端序的，所以会又这样一个记录</p>
+<p>我个人认为这个猜测不成立</p>
+<p>因为一般ip层报文都是由操作系统网络栈来构造的，操作系统自身不会犯忘记转换成网络序的错误</p>
+<p>即使是访问者技术高超自己写代码构造的ip包，那源ip是E类ip地址，返程的ip包根本没有路由啊，这样子连tcp连接都建立不了，更不要谈ip logger记录下浏览器的user-agent</p>
+<h2 id="tor">Tor?</h2>
+<p>考虑到记录下来的user-agent与tor浏览器的一致，并且对方是黑客组织，使用tor也是非常普遍，所以分析一下通过tor能不能实现伪造自己的ip为E类ip</p>
+<p>tor连接的流程中，每个tor relay不会知道完整的路由路径，只知道上一个节点与下一个节点，并且这个路由是在应用层实现的，如果黑客控制了某些tor relay，通过这些relay能不能实现这个伪造？</p>
+<h3 id="提供onion-service">提供onion service</h3>
+<p>如果ip logger提供onion service，那他记录下来的ip应该是 会合节点的ip</p>
+<p>通过我上一篇博客学习的内容可以知道，这个会合节点是由客户端选择的，所以我们假设黑客这里选择了自己控制的某个tor relay作为会合节点，并且将这个E类ip地址写在介绍信中发送给介绍节点</p>
+<p>ip logger服务器如果没有怀疑这个E类IP地址，通过tor网络去连接这个会合节点，那在它的exit relay那里一定会连不上这个ip，因为会出现空路由</p>
+<p>所以如果要让连接成功建立，必须让ip logger到会合节点的relay路径中某个relay节点对这个错误的ip进行了更正，最简单的是控制exit relay，检查到最终访问的是错误ip便进行更正</p>
+<p>而这个relay路径中的每个relay都是ip logger自己选择的，所以黑客需要控制tor网络中的大部分relay????这不现实！！！</p>
+<h3 id="不提供onion-service">不提供onion service</h3>
+<p>如果ip logger不是提供onion service，而是提供公开的服务，那它记录下来的应该是 黑客选择的exit relay，即使黑客控制了这个relay也没办法伪造ip啊</p>
+<p>所以通过tor的某些机制伪造成这个E类ip不太现实</p>
+<h2 id="路由劫持">路由劫持？</h2>
+<p>我对公网的路由不太了解，但是看样子进行路由劫持是有可能的</p>
+<p>如果黑客创建了一条假的路由路径，并在路由途中的某个节点对这个E类ip进行更正，也是有可能的，不过看起来难度很大啊</p>
+<blockquote>
+<p>才疏学浅，文中可能有错误，欢迎指正
+目前这个问题还在困扰我，如果有大佬知道答案，希望能够告诉我</p>
+</blockquote>
+]]></description>
+</item><item>
+    <title>Tor洋葱服务如何工作</title>
+    <link>https://lgf.im/posts/learn/how-do-onion-service-work/</link>
+    <pubDate>Mon, 25 May 2020 14:13:37 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://lgf.im/posts/learn/how-do-onion-service-work/</guid>
+    <description><![CDATA[<p>昨天遇到了点问题，为了研究清楚原理，把Tor客户端与服务端通信的具体流程学习了一下，这篇博文写来记录</p>
+<h2 id="通信流程">通信流程</h2>
+<p>这里要描述的通讯是 用户通过 tor浏览器 连接 洋葱服务 的过程</p>
+<p>为了方便表达，这里用Alice表示客户端，Bob表示服务端</p>
+<h3 id="第一步服务端设置自己的介绍节点">第一步：服务端设置自己的介绍节点</h3>
+<p></p>
+<p>服务端为了不暴漏自己的IP，使用 介绍节点(introduction points) 来转发来自客户端的介绍信</p>
+<p>首先，Bob从 tor中继节点列表 中挑选几个节点来做自己的 介绍节点，然后与它们建立 长连接(long-term circuits)</p>
+<p>这里的长连接是通过tor网络建立起来的，所以是匿名的，介绍节点不会知道Bob的IP</p>
+<p>同时，Bob会给介绍节点发送一个 身份验证密钥(authentication key)，当有客户端连接这个介绍节点时，通过这个密钥便能判断这个连接是否是找Bob的</p>
+<h3 id="第二步服务端公开自己的信息">第二步：服务端公开自己的信息</h3>
+<p></p>
+<p>Bob 生成一个 描述信息(onion service descriptor)，里面存储了介绍节点列表，包括介绍节点的ip和相应的身份验证密钥</p>
+<p>然后Bob用自己的私钥对这个消息签名，并将这个消息发布到Tor的DHT中</p>
+<p>经过这步操作，tor客户端便可以通过某个key从DHT中获取到这个消息，从而找到Bob的介绍节点</p>
+<h3 id="第三步客户端获取介绍节点列表">第三步：客户端获取介绍节点列表</h3>
+<p></p>
+<p>Alice（客户端）从某些途径知道Bob有一个洋葱服务，并且知道这个服务的onion域名，例如 xyz.onion，此时Alice想要访问Bob.</p>
+<p>首先，她向DHT网络请求该域名对应的信息，也就是第二步中Bob发布的那个描述消息</p>
+<p>获取到消息后，Alice对其签名进行验证，验证使用的Bob的公钥其实已经被编码到 xyz.onion 这个域名中了，Alice可以从域名中解码出来</p>
+<p>消息没问题，Alice从消息中解析出Bob的介绍节点列表，选择其中一个介绍节点，Alice将要向Bob介绍自己</p>
+<h3 id="第四步客户端选择一个会合节点">第四步：客户端选择一个会合节点</h3>
+<p></p>
+<p>Alice从tor中继节点列表中选择一个节点作为 会合节点(rendezvous point)，然后通过tor与该 会合节点(RP) 建立连接</p>
+<p>同时，Alice会给会合节点发送一个 一次性密码(one-time secret)，这个密码会在回合过程中使用</p>
+<h3 id="第五步客户端向服务端介绍自己">第五步：客户端向服务端介绍自己</h3>
+<p>Alice生成一个消息，包含 会合节点 和 一次性密码，然后用Bob的公钥对消息进行加密</p>
+<p>Alice通过Tor网络连接上 Bob 的一个介绍节点，让该介绍节点把加密后的消息转发给Bob</p>
+<p></p>
+<h3 id="第六步服务端与客户端回合">第六步：服务端与客户端回合</h3>
+<p></p>
+<p>此时Bob已经收到介绍节点转发过来的消息，知道Alice想要访问自己，并且知道了会合节点的信息</p>
+<p>Bob通过Tor网络连接会合节点，然后将收到的一次性密码发送给会合节点，会合节点由此知道 Bob是要与Alice通信，从而可以将Alice与Bob的消息进行中继</p>
+<h2 id="安全性">安全性</h2>
+<p>客户端与服务端最终是通过会合节点通讯的，他们都各自通过tor网络分别连接会合节点，因此既能够保证客户端的隐匿性又能够保证服务端不暴露</p>
+<p>在上面流程中的所有通讯都是用过tor网络建立的，包括 服务端与介绍节点的通讯、客户端与介绍节点的通讯、客户端与会合节点的通讯、服务端与会合节点的通讯</p>
+<p>因此，正常情况下tor客户端与洋葱服务通讯是经过6次中转的，包括客户端连接会合节点的3次和服务端连接会合节点的3次</p>
+<p>如果tor客户端访问的服务不是洋葱服务，那通讯过程就不是上面那个流程了，也只有3次中转了</p>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://community.torproject.org/onion-services/overview/">https://community.torproject.org/onion-services/overview/</a></p>
+]]></description>
+</item><item>
+    <title>逆向破解学校在线考试客户端</title>
+    <link>https://lgf.im/posts/reverse/crack-sdu-online-exam-software/</link>
+    <pubDate>Fri, 01 May 2020 21:44:54 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://lgf.im/posts/reverse/crack-sdu-online-exam-software/</guid>
+    <description><![CDATA[<h2 id="前言">前言</h2>
+<p>近期，学校开始测试线上考试系统，据说十分流氓，开搞！</p>
+<p>从大一学弟那里拿到了相关程序和说明文档，经过学弟的使用体验，程序开始运行会自动杀死QQ、微信等程序，隐藏并屏蔽任务栏和开始菜单，强制全屏并屏蔽一些常用的快捷键包括窗口切换等。</p>
+<h2 id="开搞">开搞</h2>
+<h3 id="基本信息">基本信息</h3>
+<p>在虚拟机里安装程序后，先观察一下安装目录结构和里面的文件</p>
+<p></p>
+<p>仔细查看了各个文件夹下的内容，最终得出结论，是个QT编写的套壳浏览器，用的 QtWebEngine</p>
+<p>查看主程序的信息，32位未加壳C++程序，本身非常小，只有不到1M，大部分功能应该都是调库实现的</p>
+<p></p>
+<p>下面开始逆向，拖入IDA 32位，自动定位到入口函数start，从执行流图中可以看到程序本身结构非常简单</p>
+<h3 id="正着走">正着走</h3>
+<p>下面从start开始分析</p>
+<p></p>
+<p>可以看到一开始start函数的栈指针分析就出问题了，但是start本身的调用非常简单，不妨来看一下
+首先是 第一个call指令，进入这个函数</p>
+<p></p>
+<p>发现是 security_cookie检查，没有什么实际作用</p>
+<p>第二个是个无条件跳转 jmp，进去看一下</p>
+<p></p>
+<p>可以看到这一段东西比较多，特别是各种不知道什么作用的call非常多，并且自动反编译出问题了，这个反编译问题应该是比较好解决的，我没有深究</p>
+<p>简单看了一下调用的call，越深入越复杂，到这里分析不下去了，东西有点多，从其他方面入手</p>
+<h3 id="去除杀进程">去除杀进程</h3>
+<p>先来看一下字符串，很幸运字符串没有进行加密，因为我们知道程序会杀死qq，不如直接来搜索关键字QQ</p>
+<p></p>
+<p>看一下交叉引用</p>
+<p></p>
+<p>只有一个函数调用了它，先进入看看这个函数，关键部分如下</p>
+<p></p>
+<p>这就比较清楚了，程序是通过QProcess调用taskkill命令来强制来杀死这些程序的，会被杀死的程序包括实时聊天软件qq、微信，远程协助软件teamviwer、向日葵远程控制。</p>
+<p>在这里我们需要去除这个杀死进程的机制，直接将执行的命令字符串给清空就行</p>
+<h3 id="去除隐藏任务栏">去除隐藏任务栏</h3>
+<p>同时这段命令所在的这个函数在前面还有一堆对QtWebEngine的初始化</p>
+<p></p>
+<p>这个函数后面的部分有点意思，看到了一些字符串不清楚什么意思</p>
+<p></p>
+<p>我个人对tray比较敏感，因为做过任务栏图标程序的开发，知道任务栏的英文是tray</p>
+<p>这里对 Shell_TrayWhd 进行搜索</p>
+<p></p>
+<p>发现windows系统有一些特殊的窗口句柄，而这个正式任务栏窗口句柄</p>
+<p>一开始我还对这个考试程序怎么隐藏任务栏感兴趣，现在都一目了然了，先通过系统函数获得句柄，然后调用ShowWindow将窗口设置为不显示</p>
+<p>这里的ProgMan是任务管理器，所以说这段代码同时屏蔽了任务栏、开始菜单和任务管理器</p>
+<p>我们需要去除这种屏蔽机制，这也非常简单，来看汇编</p>
+<p></p>
+<p>发现在调用showwindow前需要将参数 True or False push入栈，也就是 call ShowWindow前面的push 0，只需要修改这几处汇编即可</p>
+<p></p>
+<p>![1]](14.png [push)</p>
+<p>将push 0修改为push 1即可去除他的屏蔽(后面的分析知道 push 5 比较好)</p>
+<h3 id="去除强制全屏">去除强制全屏</h3>
+<p>下面我们来去除一下窗口全屏，虽然有任务栏可以用了，但是全屏会挡住，不好用</p>
+<p>还是刚刚那个函数，通过不断查交叉应用，最后定位到start第二次jmp后的代码中</p>
+<p></p>
+<p>通过前面对前前后后的call和跳转的分析，可以知道没有啥具体内容，所以还得从刚刚的那个函数入手</p>
+<p>发现后面有一个call</p>
+<p></p>
+<p>进入后</p>
+<p></p>
+<p>发现这个函数是要将之前设置的任务栏隐藏等给还原，所以这里应该是要退出了，重要的内容还是在杀死qq的那些操作和这个函数中间的位置</p>
+<p>仔细分析后，找到了关键的地方</p>
+<p></p>
+<p></p>
+<p>这和函数在最后面会获取主屏幕的长和宽，然后调用resize函数设置窗口大小，从而使窗口占满屏幕</p>
+<p>这里看一下汇编</p>
+<p></p>
+<p>其实还是比较难搞的，东西比较紧凑，没法插入太多的汇编，又不想进行大改增加一个call，那就只把开始菜单的地方留出来吧，也就是只修改窗口的高</p>
+<p>因为需要先把高入栈，所以前面的宽先存到 esi，我们先不要动这个，先把高减一个数然后push进去再push esi，修改之后如下</p>
+<p></p>
+<p>这样显示的窗口就不会挡住任务栏，我们就可以切换窗口了</p>
+<h3 id="恢复窗口和按钮">恢复窗口和按钮</h3>
+<p>后来又想，如果可以手动修改窗口大小就好了，再有个放大、缩小的按钮并且能移动位置就更爽了，那就接着搞</p>
+<p>之前做过qt的开发，知道有一个窗口属性是可以隐藏系统窗口，只显示里面的内容从而使窗口无法修改大小和移动位置</p>
+<p>搜索一番后发现使用的使 setWindowFlags 函数来实现的，那就从imports里面找一下吧</p>
+<p></p>
+<p></p>
+<p>看交叉引用然后一个一个进去看，最后定位到一个函数，我给他起名 initWindowsComponent，前面的分析我也都相应的进行改名了，分析起来方便记忆</p>
+<p></p>
+<p>我这个起名应该是非常贴切了，的确是往窗口里面添加各种菜单按钮组件</p>
+<p></p>
+<p>在后面找到了setWindowFlags调用，但是因为qt里面用的是枚举类型，编译后都变成数字了，只能去看qt的源码</p>
+<p></p>
+<p>传入的枚举类型使WindowsFlags类型，跟进去后发现又是一个WindowType类型</p>
+<p></p>
+<p>再接着跟进，就看到了全部的内容</p>
+<p></p>
+<p>2048换成16进制是0x800
+
+根据代码是无边框类型
+</p>
+<p>我们需要的是有边框有放大缩小和关闭按钮，所以需要的类型是</p>
+<p></p>
+<p>此时还没有关闭按钮，根据计算方式，还需要或上关闭按钮的值</p>
+<p></p>
+<p>修改这个参数后窗口就可以随意移动、修改大小、缩小或者全屏了。</p>
+<h3 id="绕过摄像头检查">绕过摄像头检查</h3>
+<p>我们还知道这个程序还必须要摄像头检查通过，通过简单的实验，发现摄像头只需要检查通过一次，后面不会重复检查，只会读取device.ini文件，所以我们增加这个文件，并手动指定检查通过</p>
+<p></p>
+<p>同时通过搜索字符串查看交叉引用可以找到需要读取或者写入文件的地方，这里没有深入研究了，谁敢兴趣谁去研究</p>
+<p></p>
+<h3 id="其他地方">其他地方</h3>
+<p>在对这个程序探究的过程中，还发现了tab栏和menu栏可以打开显示，但是实际作用不大，就没有管。</p>
+<p>同时通过burp抓包和测试，找到了在线考试的登录接口并发现普通浏览器可以正常使用</p>
+<p>同时通过对相关接口的测试，找到了任意密码修改和个人信息泄露的漏洞</p>
+<h2 id="申明与文件">申明与文件</h2>
+<p>同时本次研究完全以学习为目的，不得将上述内容用作商业或非法，否则一切后果由用户负责。您必须在下载后的24个小时之内，从您的电脑中彻底删除上述内容。</p>
+<p>破解之后的程序 {% asset_link 线上考试.zip [点击下载] %}</p>
+]]></description>
+</item><item>
+    <title>Linux添加swap</title>
+    <link>https://lgf.im/posts/linux/linux-add-swap/</link>
+    <pubDate>Sun, 12 Apr 2020 20:38:26 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://lgf.im/posts/linux/linux-add-swap/</guid>
+    <description><![CDATA[<p>给 linux 服务器添加swap做了好几次了，每一次都没记住，临时去网上查命令，这里特地记录一下</p>
+<h2 id="查看当前swap">查看当前swap</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo swapon --show
+</code></pre></td></tr></table>
+</div>
+</div><p>如果没有输出说明没有swap</p>
+<p>也可以通过free命令来查看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">free -h
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="添加swap">添加swap</h2>
+<p>添加swap基本步骤： 创建一个大文件 -&gt; 初始化文件为swap交换文件格式 -&gt; 启用这个文件</p>
+<h3 id="创建大文件">创建大文件</h3>
+<p>先找一个剩余空间大点的地方创建一个大文件，这里以1G的大小为例，一般swap空间大小以真实物理内存1-2倍大小</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 我喜欢用的方法，速度快</span>
+sudo fallocate -l 1G /swapfile
+<span class="c1"># 如果没有安装可以用dd命令，比较慢</span>
+sudo dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/swapfile <span class="nv">bs</span><span class="o">=</span><span class="m">1024</span> <span class="nv">count</span><span class="o">=</span><span class="m">1048576</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>修改文件的权限</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo chmod <span class="m">600</span> /swapfile
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="初始化文件">初始化文件</h3>
+<p>创建完文件后需要将文件进行初始化，标记为swap文件格式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo mkswap /swapfile
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="启用swap">启用swap</h3>
+<p>接下来使用 命令启用这个swap交换文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo swapon /swapfile
+</code></pre></td></tr></table>
+</div>
+</div><p>要让创建好的 swap 分区永久生效，可以将 swapfile 路径内容写入到 <code>/etc/fstab</code> 文件当中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">/swapfile swap swap defaults <span class="m">0</span> <span class="m">0</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="检查">检查</h3>
+<p>用一开始的命令检查一下swap是否启用正常</p>
+<h2 id="移除swap分区">移除SWAP分区</h2>
+<p>根据添加的顺序反着来就行： 取消swap -&gt; 删除swap分页文件</p>
+<h3 id="取消swap">取消swap</h3>
+<p>首先输入以下命令停用 SWAP 空间：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo swapoff -v /swapfile
+</code></pre></td></tr></table>
+</div>
+</div><p>在 <code>/etc/fstab</code> 文件中删除有效 swap 的行。</p>
+<h3 id="删除文件">删除文件</h3>
+<p>最后执行以下命令删除 swapfile 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo rm /swapfile
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="调整swappiness值">调整Swappiness值</h2>
+<p>Swappiness 是一个 Linux 内核属性，用于定义 Linux 系统使用 SWAP 空间的频率。Swappiness 值可以从 0 至 100，较低的值会让内核尽可能少的使用 SWAP 空间，而较高的值将让 Linux Kernel 能够更加积极地使用 SWAP 分区。</p>
+<p>Ubuntu 18.04 默认的 Swappiness 值为 60，您可以使用如下命令来查看：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cat /proc/sys/vm/swappiness
+</code></pre></td></tr></table>
+</div>
+</div><p>值为 60 对于 Ubuntu 18.04 桌面还算行，但对于 Ubuntu Server 来说，SWAP 的使用频率就比较高了，所以您可能需要设置较低的值。例如，要将 swappiness 值设置为 40，请执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo sysctl vm.swappiness<span class="o">=</span><span class="m">40</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果要让设置在系统重启后依然有效，则必要在 /etc/sysctl.conf 文件中添加以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vm.swappiness<span class="o">=</span><span class="m">40</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>最佳 swappiness 值取决于您系统的工作负载以及内存的使用方式，您应该以小增量的方式来调整此参数，以查到最佳值。</p>
+]]></description>
+</item><item>
+    <title>使用GlobalSSH服务加速境外服务器ssh访问</title>
+    <link>https://lgf.im/posts/coding/use-ucloud-globalssh-to-speedup-server-ssh/</link>
+    <pubDate>Sun, 12 Apr 2020 16:37:56 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://lgf.im/posts/coding/use-ucloud-globalssh-to-speedup-server-ssh/</guid>
+    <description><![CDATA[<blockquote>
+<h3 id="ucloud已经对加速ip进行限制本文中的方法即时失效">UCloud已经对加速IP进行限制，本文中的方法即时失效</h3>
+<p>通知内容如下：<br>
+尊敬的UCloud用户，您好！<br>
+GlobalSSH产品即日起将暂时限制服务器IP地址范围，<br>
+仅允许添加UCloud平台上的IP地址，已创建的资源仍然可继续使用。 <br>
+GlobalSSH版本与功能支持将持续更新，敬请关注。</p>
+</blockquote>
+<p>由于众所周知的原因，很多国外的服务器在国内的访问效果很差，特别是国内比较热门的廉价服务器例如 Vultr 就经常被墙直接无法访问</p>
+<p>通常情况下我会使用ssr等代理服务进行中转，在我经常使用的 MobaXterm 中设置起来也非常方便</p>
+<p></p>
+<p>但是这种方法有两大劣势：</p>
+<ol>
+<li>如果科学上网服务器不稳定经常断流就会导致ssh连接断开</li>
+<li>部分客户端不支持设置http或者socks代理</li>
+</ol>
+<h2 id="globalssh">GlobalSSH</h2>
+<p>今天发现了一个免费的加速服务，非常方便，推荐给需要的人</p>
+<p>这就是 UCloud 免费提供的 GlobalSSH 加速服务</p>
+<p>官网链接： <a href="https://console.ucloud.cn/upathx/globalssh">https://console.ucloud.cn/upathx/globalssh</a></p>
+<p>官方文档： <a href="https://docs.ucloud.cn/pathx/globalssh">https://docs.ucloud.cn/pathx/globalssh</a></p>
+<p>这项服务目前是免费的，<del>也不需要进行实名认证</del> 现在需要实名认证才能用了，可以说是非常良心了，经过我的试用，访问速度和稳定性非常不错</p>
+<p>支持ssh和rdp远程桌面，猜测有一些其他的服务可以加速，因为是针对端口加速的，但是如果滥用的话可能被封禁</p>
+<p>在创建的时候只需要输入需要加速的国外服务器的ip和服务端口号，选择一个离服务器近的接入点</p>
+<p></p>
+<p>创建之后会提供一个域名，可以将自己的域名CNAME解析到提供的域名上方便记忆，UCLOUD可以准确识别到是访问哪一台服务器</p>
+<p>在我们使用的客户端上只需要用提供的加速域名和原服务端口号就可以了</p>
+<h2 id="注意事项">注意事项</h2>
+<ol>
+<li>自产品实例创建之日起，7日内单个实例累计出向流量小于2MB，加速功能将被停用，所以一开始先多用点吧</li>
+<li>每个源IP只能加速一个端口</li>
+<li>加速流量上限官方未注明，滥用的话会被封</li>
+</ol>
+<h2 id="妙用">妙用</h2>
+<p>众所周知，github在国内的访问速度很慢，有时候clone一个库不得不忍受十几k几十k每秒的速度</p>
+<p>而git是可以用ssh协议的，所以我们只需要从 <a href="https://api.github.com/meta">https://api.github.com/meta</a> 找到github使用的ip，通过GlobalSSH加速22端口，然后将自己的域名解析到加速的ip，最后使用自己的域名clone就行了</p>
+<p>经过我的尝试效果还不错，可以跑到10Mbps</p>
+<p>我用的域名为 <code>githubssh.xyz</code> ，大家可以拿去用，使用方法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">原命令
+git clone git@github.com:moby/moby.git
+
+替换后
+git clone git@githubssh.xyz:moby/moby.git
+</code></pre></td></tr></table>
+</div>
+</div><p>为了能够自动更新ip，我写了一个程序，每天会检查github新的ip，创建新的globalssh，然后自动解析到域名githubssh.xyz上，由cloudflare进行DNS层面的负载均衡</p>
+<p>开源地址为： <a href="https://github.com/zu1k/globalssh4github">https://github.com/zu1k/globalssh4github</a></p>
+<p>同时为了方便，改了一个插件： <a href="https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/kejahdakjmkfddgnifodfnpcklckjjpo">https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/kejahdakjmkfddgnifodfnpcklckjjpo</a></p>
+]]></description>
+</item><item>
+    <title>kms激活</title>
+    <link>https://lgf.im/posts/share/kms/</link>
+    <pubDate>Wed, 08 Apr 2020 09:09:02 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://lgf.im/posts/share/kms/</guid>
+    <description><![CDATA[<p>这是一个无聊的，老生常谈的话题</p>
+<p>我个人笔记本是自带的正版windows，但是在虚拟机里面的win却没有正版，我一般会用kms进行激活</p>
+<p>github搜索kms会找到很多版本的kms激活服务端，比较出名的是这一个，可以一键运行起来：https://github.com/Wind4/vlmcsd</p>
+<p>相关的脚本啊，命令啊，在百度一搜一大堆，就不重复写了</p>
+<p>分享一点我想说的，我的做法把用自己的域名cname解析网上搜到的kms服务器地址，然后用自己的域名进行激活。</p>
+<p>因为你永远不知道他们提供的服务什么时候会中止或者域名什么时候会到期，像我这样有多个不同的虚拟机，如果这种事情发生我就需要打开每一个虚拟机分别重新运行激活脚本进行重新激活，这就很麻烦。</p>
+<p>而用自己的域名的话，我只需要找一个好用的kms服务器然后修改dns的解析就行了，省了很多事</p>
+<p>我自己用的激活脚本： <a href="https://gist.github.com/zu1k/612dd4b0a0193620d43c08a698e05d85">https://gist.github.com/zu1k/612dd4b0a0193620d43c08a698e05d85</a></p>
+]]></description>
+</item><item>
+    <title>烤红薯</title>
+    <link>https://lgf.im/posts/life/bake-sweet-potato/</link>
+    <pubDate>Tue, 31 Mar 2020 11:17:57 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://lgf.im/posts/life/bake-sweet-potato/</guid>
+    <description><![CDATA[<blockquote>
+<p>这应该是我第一篇记录生活的博文吧，之前一直是写一些学习、技术相关的文章，总感觉博客不应该只记录这些东西，那就开始吧</p>
+</blockquote>
+<p>妈妈从网上买了几斤红薯，今天突然说想吃，那就用烤箱烤一下吧</p>
+<h2 id="准备">准备</h2>
+<p>烤盘铺上锡纸（哑光面接触食物），红薯洗净不去皮，均匀的摆放到烤盘上</p>
+<p>烤箱230度预热10分钟后就可以将烤盘放入了</p>
+<h2 id="第一波">第一波</h2>
+<p>230度先烤30分钟，呼叫小爱：“小爱同学，30分钟后叫我”</p>
+<p>30分钟不到（大约20多分钟吧）就闻到红薯的香气飘出来了，香啊</p>
+<p>30分钟后打开烤箱，用夹子夹着给每个红薯翻个个</p>
+<p>烤了半个小时的红薯朝上的那面有点软，但是没有怎么变色，接触锡纸的一面有点变黑了，焦感出来了</p>
+<p>翻完个后拍了三张照片，可以看到整体还是不错的，火候还不到，有的地方已经流出油来了</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 id="第二波">第二波</h2>
+<p>鉴于红薯个比较大，翻个后时间增加到45分钟，接着烤</p>
+<p>中途没忍住，打开拍了一张照片，流了很多油啊，接触到烤盘发出滋滋的响声，很是诱人</p>
+<p></p>
+<h2 id="出炉">出炉</h2>
+<p>时间到，啥也不说了，直接看图吧</p>
+<p></p>
+<p></p>
+<p></p>
+<p>超级好吃，超级甜，超级香</p>
+<h2 id="补充">补充</h2>
+<p>这次因为是第一次烤，烤的时间稍微有点长，流出来太多油浪费了，还有一些油都烤糊了，下次会缩短一点时间</p>
+<p></p>
+]]></description>
 </item></channel>
 </rss>
