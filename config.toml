@@ -208,7 +208,7 @@ enableEmoji = true
     # section 页面每页显示文章数量
     paginate = 20
     # 日期格式 (月和日)
-    dateFormat = "2006-01-02"
+    dateFormat = "01-02"
     # RSS 文章数目
     rss = 20
 
@@ -217,7 +217,7 @@ enableEmoji = true
     # list 页面每页显示文章数量
     paginate = 20
     # 日期格式 (月和日)
-    dateFormat = "2006-01-02"
+    dateFormat = "01-02"
     # RSS 文章数目
     rss = 20
 
@@ -385,7 +385,6 @@ enableEmoji = true
     # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
     duration = -1
 
-  # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
   # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
     google = ""
@@ -404,22 +403,14 @@ enableEmoji = true
     # 缩略图 URL
     thumbnailUrl = "/images/screenshot.png"
 
-  # Analytics config
   # 网站分析配置
   [params.analytics]
-    enable = false
+    enable = true
     # Google Analytics
     [params.analytics.google]
-      id = ""
-      # whether to anonymize IP
+      id = "G-TC5F2FT2NP"
       # 是否匿名化用户 IP
-      anonymizeIP = true
-    # Fathom Analytics
-    [params.analytics.fathom]
-      id = ""
-      # server url for your tracker if you're self hosting
-      # 自行托管追踪器时的主机路径
-      server = ""
+      anonymizeIP = false
 
   # Cookie consent config
   # Cookie 许可配置
