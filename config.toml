@@ -372,7 +372,7 @@ enableEmoji = true
         enable = true
         # owner/repo
         repo = "zu1k/comment"
-        issueTerm = "zu1k"
+        issueTerm = "url"
         label = "[blog]"
         lightTheme = "github-light"
         darkTheme = "github-dark"
