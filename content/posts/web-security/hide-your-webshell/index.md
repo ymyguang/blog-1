@@ -85,7 +85,7 @@ $a = 'p';
 eval("{$a}hpinfo();");
 ```
 
-![Syntax]](ex_5.png [PHP Curly)
+![Syntax](ex_5.png)
 
 ### php反序列化
 

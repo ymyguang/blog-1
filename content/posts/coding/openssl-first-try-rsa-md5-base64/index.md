@@ -45,9 +45,9 @@ https://www.nasm.us/
 
 使用visual studio自带的命令提示工具初始化环境，因为需要使用nmake
 
-![tool]](vs1.png [vs)
+![tool](vs1.png)
 
-![tool]](vs2.png [vs)
+![tool](vs2.png)
 
 ### 生成编译配置文件
 
@@ -65,7 +65,7 @@ nmake install
 
 此时已经有了我们需要的头文件和静态链接lib库
 
-![dir]](build1.png [build)
+![dir](build1.png)
 
 ![lib](build2.png)
 

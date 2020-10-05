@@ -19,7 +19,7 @@ date: 2020-03-18 13:15:40
 
 网卡2(LAN口)：vmnet15
 
-![win7]](ubuntuvm.png [vmware)
+![win7](ubuntuvm.png)
 
 ### win7
 
@@ -29,7 +29,7 @@ date: 2020-03-18 13:15:40
 
 > vmnet15不使用vmware的配置，使用一个空的vmnet
 
-![win7]](win7vm.png [vmware)
+![win7](win7vm.png)
 
 ## ubuntu 配置
 
@@ -37,7 +37,7 @@ date: 2020-03-18 13:15:40
 
 修改 `/etc/sysctl.conf` 开启ipv4的forward功能，将下面的注释打开，如果没有手动添加。
 
-![forward]](ipv4forward.png [ipv4)
+![forward](ipv4forward.png)
 
 `sysctl -p` 生效
 
@@ -49,7 +49,7 @@ ubuntu18.04使用netplan管理网络，修改其配置文件
 
 `sudo nano /etc/netplan/50-cloud-init.yaml`
 
-![net]](ubuntu-net.png [ubuntu)
+![net](ubuntu-net.png)
 
 使用 `netplan try` 检查配置是否正确，如果正确自动应用生效
 
@@ -75,6 +75,6 @@ iptables -t nat -A POSTROUTING -s 10.1.2.0/24 -j MASQUERADE
 
 修改网卡配置如图
 
-![win7]](win7.png [vmware)
+![win7](win7.png)
 
 win7即可通过ubuntu这个网关上网
