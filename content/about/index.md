@@ -3,10 +3,10 @@ title: "关于"
 date: 2020-03-17T09:38:42+08:00
 draft: false
 
-lightgallery: true
+lightgallery: false
 
 math:
-  enable: true
+  enable: false
 ---
 
 ## About Me
