@@ -701,6 +701,8 @@ Not Valid After: 2099-09-09 08:00:00
 <blockquote>
 <p>主要是无法确定应该修改哪一个地方，因为出现了不止一次，一个特征是调用 VerifyPSS 的那个 Call，可以尝试自己解析 pclntab 段，从中还原符号表找到这个验证函数的入口，然后找搜索关键 Call，再在这个 call 后面两三个汇编处找 setnz 或者 setz 进行修改</p>
 </blockquote>
+<h2 id="2020-年-10-月-4-日-补充">2020 年 10 月 4 日 补充</h2>
+<p>感谢 @Lz1y 大佬在 PR#3 中提供的思路，现在已能够自动patch非arm版本的xray二进制了</p>
 ]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
 <p>因为都是js代码，没有用wasm，分析还是比较简单的</p>
 <h2 id="切屏检测">切屏检测</h2>
@@ -1126,7 +1128,7 @@ Not Valid After: 2099-09-09 08:00:00
 </div><p>可能是360也发现这个dos了，过了不到一个周便修复了，增加了评论速率的限制</p>
 ]]></description></item><item><title>一个来自保留IP地址的连接</title><link>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</link><pubDate>Mon, 25 May 2020 15:22:09 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</guid><description><![CDATA[<p>昨天看了一篇文章，文章最后使用IP logger进行钓鱼，最后记录下来的IP地址让我大跌眼镜</p>
 <p>万万没有想到，记录下来的IP地址竟然是是 244.242.105.51</p>
-<p>![Logger]](ip-logger.png [IP)</p>
+<p>![Logger]](ip-logger.pn)</p>
 <p>这可是一个E类IP地址，是属于保留地址，是未来用来做ip研究用的，目前并没有开放使用啊</p>
 <p>考虑到文章中是对一个地下黑客组织进行钓鱼，所以我有理由相信，这个访问记录是通过某种高超的我从来没有听说过的手段实现的</p>
 <p>IP Logger为啥会记录到这样一个IP的访问呢？ 这个问题一直到现在都在困扰我</p>
@@ -1243,7 +1245,7 @@ Not Valid After: 2099-09-09 08:00:00
 <p></p>
 <p>发现在调用showwindow前需要将参数 True or False push入栈，也就是 call ShowWindow前面的push 0，只需要修改这几处汇编即可</p>
 <p></p>
-<p>![1]](14.png [push)</p>
+<p></p>
 <p>将push 0修改为push 1即可去除他的屏蔽(后面的分析知道 push 5 比较好)</p>
 <h3 id="去除强制全屏">去除强制全屏</h3>
 <p>下面我们来去除一下窗口全屏，虽然有任务栏可以用了，但是全屏会挡住，不好用</p>
@@ -3019,10 +3021,10 @@ mysql&gt; <span class="k">select</span> concat<span class="o">(</span><span clas
 <h2 id="操作">操作</h2>
 <h3 id="开启actions功能">开启actions功能</h3>
 <p>在我们博客的github仓库顶部可以找到 Actions 菜单，在里面我们可以搜索、选择各种预备好的actions模板，也可以点击 <code>Set up a workflow yourself</code> 按钮创建自己的工作流。</p>
-<p>![actions]](github1.jpg [github)</p>
+<p></p>
 <p>这里我的部署工作稍微复杂点，所以选择自己编写工作流配置文件。</p>
 <p>在手动编写面板的右侧可以搜索别人写好的各种actions，方便我们使用这些actions配置一些基本的工作</p>
-<p>![marketplace]](action-mark.jpg [github actions)</p>
+<p></p>
 <p>当然，也可以选择在 hexo 根目录下创建 <code>.github/workflows</code> 目录，并在里面编写github actions配置文件的方法来开启这个功能。</p>
 <h3 id="基本部署">基本部署</h3>
 <p>首先我们需要将git库的代码检出到github actions提供的容器中，这里使用github提供的checkout步骤</p>
@@ -3463,20 +3465,20 @@ https://cdn.jsdelivr.net/gh/ github用户名 / 库名 @ 版本号或者tag / 路
 <h4 id="css-样式表">css 样式表</h4>
 <p>大部分 css 样式会在 <code>head</code> 标签里面引入，这里的 css 样式表会阻塞页面的渲染，导致打开慢的体验，所以需要特别注意</p>
 <p>我将我使用的主题的 style.css \ rtl.css \ disquesjs.css 替换成 jsDelivr，明显提升了等待时间</p>
-<p>![css]](head.jpg [head)</p>
+<p></p>
 <p>还有一些其他地方的 css 引入</p>
-<p>![style]](css2.jpg [css in)</p>
+<p></p>
 <h4 id="js-脚本">js 脚本</h4>
 <p>寻找并替换各种调用到的 js 脚本</p>
-<p>![style]](js1.jpg [css in)</p>
+<p></p>
 <p>main.js</p>
-<p>![style]](js2.jpg [css in)</p>
+<p></p>
 <p>disqusjs.js</p>
-<p>![style]](js3.jpg [css in)</p>
+<p></p>
 <p>还有其他的一些地方，不一一列举了</p>
 <h4 id="字体">字体</h4>
 <p>字体需要特别注意，通常情况下比较大，耗时比较长</p>
-<p>![replace]](font1.jpg [font)</p>
+<p></p>
 <p>我使用的主题使用的字体通过 <code>all.min.css</code> 引入，因为前面这个 css 样式已经通过 jsDelivr 导入，里面的字体使用的是相对链接，所以字体默认也是通过 jsDelivr 引入了</p>
 <h4 id="img-小图片">img 小图片</h4>
 <p>一般是 logo 等资源，根据主题自行替换</p>
@@ -3523,7 +3525,7 @@ https://cdn.jsdelivr.net/gh/ github用户名 / 库名 @ 版本号或者tag / 路
 <p>无论怎样优化，字体加载的时间无法忽略，这段时间的网页文字显示为空，这给用户带来卡顿感</p>
 <p>我们必须使字体加载时文字可见，这样才能弥补 github pages 的慢</p>
 <p>具体方法是将各 <code>@font-face</code> 中 <code>font-display</code> 设置为 <code>swap</code>, 这样可以在字体未加载完时临时使用系统字体替代，加载完后重新渲染字体</p>
-<p>![display]](font-swap.jpg [font)</p>
+<p></p>
 <p>每一个地方都需要改，自己搜索吧</p>
 <h2 id="使用-disqusjs">使用 DisqusJS</h2>
 <p>由于众所周知的原因，disqus 被墙了，国内访问不了，而大部分 hexo 网站都使用 disqus 作为评论系统，这导致网页会卡在评论区的加载上，虽然网页已经加载完了，但进度条还在进行，给用户带来慢的感觉。</p>

@@ -11066,7 +11066,7 @@ line 3 of code
 <span class="k">eval</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">{</span><span class="nv">$a</span><span class="si">}</span><span class="s2">hpinfo();&#34;</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>![Syntax]](ex_5.png [PHP Curly)</p>
+</div><p></p>
 <h3 id="php反序列化">php反序列化</h3>
 <p>这是根据php反序列化漏洞来实现命令执行，可以先创建一个反序列化的漏洞文件，再去调用反序列化函数unserialize</p>
 <div class="highlight"><div class="chroma">
@@ -12043,6 +12043,8 @@ Not Valid After: 2099-09-09 08:00:00
 <blockquote>
 <p>主要是无法确定应该修改哪一个地方，因为出现了不止一次，一个特征是调用 VerifyPSS 的那个 Call，可以尝试自己解析 pclntab 段，从中还原符号表找到这个验证函数的入口，然后找搜索关键 Call，再在这个 call 后面两三个汇编处找 setnz 或者 setz 进行修改</p>
 </blockquote>
+<h2 id="2020-年-10-月-4-日-补充">2020 年 10 月 4 日 补充</h2>
+<p>感谢 @Lz1y 大佬在 PR#3 中提供的思路，现在已能够自动patch非arm版本的xray二进制了</p>
 ]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
 <p>因为都是js代码，没有用wasm，分析还是比较简单的</p>
 <h2 id="切屏检测">切屏检测</h2>
@@ -12468,7 +12470,7 @@ Not Valid After: 2099-09-09 08:00:00
 </div><p>可能是360也发现这个dos了，过了不到一个周便修复了，增加了评论速率的限制</p>
 ]]></description></item><item><title>一个来自保留IP地址的连接</title><link>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</link><pubDate>Mon, 25 May 2020 15:22:09 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</guid><description><![CDATA[<p>昨天看了一篇文章，文章最后使用IP logger进行钓鱼，最后记录下来的IP地址让我大跌眼镜</p>
 <p>万万没有想到，记录下来的IP地址竟然是是 244.242.105.51</p>
-<p>![Logger]](ip-logger.png [IP)</p>
+<p>![Logger]](ip-logger.pn)</p>
 <p>这可是一个E类IP地址，是属于保留地址，是未来用来做ip研究用的，目前并没有开放使用啊</p>
 <p>考虑到文章中是对一个地下黑客组织进行钓鱼，所以我有理由相信，这个访问记录是通过某种高超的我从来没有听说过的手段实现的</p>
 <p>IP Logger为啥会记录到这样一个IP的访问呢？ 这个问题一直到现在都在困扰我</p>
@@ -12585,7 +12587,7 @@ Not Valid After: 2099-09-09 08:00:00
 <p></p>
 <p>发现在调用showwindow前需要将参数 True or False push入栈，也就是 call ShowWindow前面的push 0，只需要修改这几处汇编即可</p>
 <p></p>
-<p>![1]](14.png [push)</p>
+<p></p>
 <p>将push 0修改为push 1即可去除他的屏蔽(后面的分析知道 push 5 比较好)</p>
 <h3 id="去除强制全屏">去除强制全屏</h3>
 <p>下面我们来去除一下窗口全屏，虽然有任务栏可以用了，但是全屏会挡住，不好用</p>

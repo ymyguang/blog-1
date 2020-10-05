@@ -13,13 +13,13 @@
 
 在我们博客的github仓库顶部可以找到 Actions 菜单，在里面我们可以搜索、选择各种预备好的actions模板，也可以点击 `Set up a workflow yourself` 按钮创建自己的工作流。
 
-![actions]](github1.jpg [github)
+![actions](github1.jpg)
 
 这里我的部署工作稍微复杂点，所以选择自己编写工作流配置文件。
 
 在手动编写面板的右侧可以搜索别人写好的各种actions，方便我们使用这些actions配置一些基本的工作
 
-![marketplace]](action-mark.jpg [github actions)
+![marketplace](action-mark.jpg)
 
 当然，也可以选择在 hexo 根目录下创建 `.github/workflows` 目录，并在里面编写github actions配置文件的方法来开启这个功能。
 

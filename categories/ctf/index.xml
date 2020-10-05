@@ -85,7 +85,7 @@
 <span class="k">eval</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">{</span><span class="nv">$a</span><span class="si">}</span><span class="s2">hpinfo();&#34;</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>![Syntax]](ex_5.png [PHP Curly)</p>
+</div><p></p>
 <h3 id="php反序列化">php反序列化</h3>
 <p>这是根据php反序列化漏洞来实现命令执行，可以先创建一个反序列化的漏洞文件，再去调用反序列化函数unserialize</p>
 <div class="highlight"><div class="chroma">

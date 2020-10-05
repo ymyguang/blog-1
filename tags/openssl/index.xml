@@ -16,8 +16,8 @@
 <h2 id="编译-openssl-静态链接库">编译 openssl 静态链接库</h2>
 <h3 id="初始化环境">初始化环境</h3>
 <p>使用visual studio自带的命令提示工具初始化环境，因为需要使用nmake</p>
-<p>![tool]](vs1.png [vs)</p>
-<p>![tool]](vs2.png [vs)</p>
+<p></p>
+<p></p>
 <h3 id="生成编译配置文件">生成编译配置文件</h3>
 <p>cd进入openssl源码目录</p>
 <p>执行 <code>perl Configure VC-WIN64A no-asm no-shared --prefix=&quot;D:\Project\opensslwork\openssl\build&quot; --openssldir=&quot;D:\Project\opensslwork\openssl\build\ssl&quot;</code></p>
@@ -35,7 +35,7 @@ nmake install
 </code></pre></td></tr></table>
 </div>
 </div><p>此时已经有了我们需要的头文件和静态链接lib库</p>
-<p>![dir]](build1.png [build)</p>
+<p></p>
 <p></p>
 <h2 id="使用openssl的api进行编程">使用openssl的api进行编程</h2>
 <h3 id="visual-studio项目配置">visual studio项目配置</h3>

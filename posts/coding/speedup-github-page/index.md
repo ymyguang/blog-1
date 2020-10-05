@@ -183,25 +183,25 @@ https://cdn.jsdelivr.net/gh/ github用户名 / 库名 @ 版本号或者tag / 路
 
 我将我使用的主题的 style.css \ rtl.css \ disquesjs.css 替换成 jsDelivr，明显提升了等待时间
 
-![css]](head.jpg [head)
+![css](head.jpg)
 
 还有一些其他地方的 css 引入
 
-![style]](css2.jpg [css in)
+![style](css2.jpg)
 
 #### js 脚本
 
 寻找并替换各种调用到的 js 脚本
 
-![style]](js1.jpg [css in)
+![style](js1.jpg)
 
 main.js
 
-![style]](js2.jpg [css in)
+![style](js2.jpg)
 
 disqusjs.js
 
-![style]](js3.jpg [css in)
+![style](js3.jpg)
 
 还有其他的一些地方，不一一列举了
 
@@ -209,7 +209,7 @@ disqusjs.js
 
 字体需要特别注意，通常情况下比较大，耗时比较长
 
-![replace]](font1.jpg [font)
+![replace](font1.jpg)
 
 我使用的主题使用的字体通过 `all.min.css` 引入，因为前面这个 css 样式已经通过 jsDelivr 导入，里面的字体使用的是相对链接，所以字体默认也是通过 jsDelivr 引入了
 
@@ -248,7 +248,7 @@ cdn:
 
 具体方法是将各 `@font-face` 中 `font-display` 设置为 `swap`, 这样可以在字体未加载完时临时使用系统字体替代，加载完后重新渲染字体
 
-![display]](font-swap.jpg [font)
+![display](font-swap.jpg)
 
 每一个地方都需要改，自己搜索吧
 

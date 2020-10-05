@@ -61,7 +61,7 @@
 <p></p>
 <p>发现在调用showwindow前需要将参数 True or False push入栈，也就是 call ShowWindow前面的push 0，只需要修改这几处汇编即可</p>
 <p></p>
-<p>![1]](14.png [push)</p>
+<p></p>
 <p>将push 0修改为push 1即可去除他的屏蔽(后面的分析知道 push 5 比较好)</p>
 <h3 id="去除强制全屏">去除强制全屏</h3>
 <p>下面我们来去除一下窗口全屏，虽然有任务栏可以用了，但是全屏会挡住，不好用</p>
