@@ -12473,7 +12473,7 @@ Not Valid After: 2099-09-09 08:00:00
 </div><p>可能是360也发现这个dos了，过了不到一个周便修复了，增加了评论速率的限制</p>
 ]]></description></item><item><title>一个来自保留IP地址的连接</title><link>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</link><pubDate>Mon, 25 May 2020 15:22:09 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/events/why-reveice-connection-from-class-e-ip/</guid><description><![CDATA[<p>昨天看了一篇文章，文章最后使用IP logger进行钓鱼，最后记录下来的IP地址让我大跌眼镜</p>
 <p>万万没有想到，记录下来的IP地址竟然是是 244.242.105.51</p>
-<p>![Logger]](ip-logger.pn)</p>
+<p></p>
 <p>这可是一个E类IP地址，是属于保留地址，是未来用来做ip研究用的，目前并没有开放使用啊</p>
 <p>考虑到文章中是对一个地下黑客组织进行钓鱼，所以我有理由相信，这个访问记录是通过某种高超的我从来没有听说过的手段实现的</p>
 <p>IP Logger为啥会记录到这样一个IP的访问呢？ 这个问题一直到现在都在困扰我</p>
