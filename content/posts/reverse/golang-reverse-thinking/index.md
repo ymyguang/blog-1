@@ -5,7 +5,7 @@ tags:
   - reverse
   - golang
 categories:
-  - coding
+  - reverse
 date: 2020-06-20 17:48:53
 ---
 
@@ -15,7 +15,7 @@ date: 2020-06-20 17:48:53
 
 ## golang特殊段
 
-在本次逆向的过程中，我遇到了上述的问题，在网上搜索发现了一个ida插件， [IDAGolangHelper](https://github.com/sibears/IDAGolangHelper.git) 
+在本次逆向的过程中，我遇到了上述的问题，在网上搜索发现了一个ida插件， [IDAGolangHelper](https://github.com/sibears/IDAGolangHelper.git)
 
 这个插件的作者对golang编译器有深入的研究，他发现golang编译器在linux平台下交叉编译windows平台下运行的程序时，会生成一个特殊的段`.gopclntab`，在这个段中会保存一份特殊的符号表，作者利用这个段的信息对符号表进行了重建，我在使用过程中发现效果不错
 
