@@ -6,7 +6,7 @@ tags:
   - keygen
   - xray
 categories:
-  - coding
+  - reverse
 keywords:
   - cracker
   - keygen

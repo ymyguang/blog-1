@@ -14,7 +14,7 @@ categories:
 
 J!4Yu大佬的系列文章太全面了，他写的[go_parser](https://github.com/0xjiayu/go_parser)相当好用
 
-- [—综述](https://www.anquanke.com/post/id/214940)
+- [综述](https://www.anquanke.com/post/id/214940)
 - [MetaInfo、函数符号和源码文件路径列表](https://www.anquanke.com/post/id/215419)
 - [数据类型](https://www.anquanke.com/post/id/215820)
 - [itab与strings](https://www.anquanke.com/post/id/218377)
