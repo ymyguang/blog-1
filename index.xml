@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zu1k</title><link>https://lgf.im/</link><description>zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Aug 2020 09:21:59 +0000</lastBuildDate><atom:link href="https://lgf.im/index.xml" rel="self" type="application/rss+xml"/><item><title>主题文档 - 基本概念</title><link>https://lgf.im/posts/theme/theme-documentation-basics/</link><pubDate>Fri, 06 Mar 2020 21:40:32 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/theme/theme-documentation-basics/</guid><description><![CDATA[<p>探索 Hugo - <strong>LoveIt</strong> 主题的全部内容和背后的核心概念.</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>zu1k</title><link>https://lgf.im/</link><description>zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 05 Oct 2020 20:11:24 +0800</lastBuildDate><atom:link href="https://lgf.im/index.xml" rel="self" type="application/rss+xml"/><item><title>主题文档 - 基本概念</title><link>https://lgf.im/posts/theme/theme-documentation-basics/</link><pubDate>Fri, 06 Mar 2020 21:40:32 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/theme/theme-documentation-basics/</guid><description><![CDATA[<p>探索 Hugo - <strong>LoveIt</strong> 主题的全部内容和背后的核心概念.</p>
 <h2 id="1-准备">1 准备</h2>
 <p>由于 Hugo 提供的便利性, <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer">Hugo</a> 本身是这个主题唯一的依赖.</p>
 <p>直接安装满足你操作系统 (<strong>Windows</strong>, <strong>Linux</strong>, <strong>macOS</strong>) 的最新版本 <a href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener noreffer"><i class="far fa-file-archive fa-fw"></i>&nbsp;Hugo (&gt; 0.62.0)</a>.</p>
@@ -10979,7 +10979,46 @@ line 3 of code
 <td></td>
 </tr>
 </tbody>
-</table>]]></description></item><item><title>如何优雅的隐藏你的Webshell</title><link>https://lgf.im/posts/web-security/hide-your-webshell/</link><pubDate>Sat, 08 Aug 2020 09:21:59 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/hide-your-webshell/</guid><description><![CDATA[<blockquote>
+</table>]]></description></item><item><title>Golang逆向资料</title><link>https://lgf.im/posts/reverse/golang-reverse/</link><pubDate>Mon, 05 Oct 2020 20:11:24 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/reverse/golang-reverse/</guid><description><![CDATA[<p>前段时间从逆向xray开始入门Golang逆向，打算深入学习一下Golang逆向方法，这几天看了很多相关的文章，原本想要自己总结一文，但无奈大佬们的总结太全面了，我就直接扔链接吧</p>
+<h2 id="go二进制文件逆向分析从基础到进阶">Go二进制文件逆向分析从基础到进阶</h2>
+<p>J!4Yu大佬的系列文章太全面了，他写的<a href="https://github.com/0xjiayu/go_parser" target="_blank" rel="noopener noreffer">go_parser</a>相当好用</p>
+<ul>
+<li><a href="https://www.anquanke.com/post/id/214940" target="_blank" rel="noopener noreffer">—综述</a></li>
+<li><a href="https://www.anquanke.com/post/id/215419" target="_blank" rel="noopener noreffer">MetaInfo、函数符号和源码文件路径列表</a></li>
+<li><a href="https://www.anquanke.com/post/id/215820" target="_blank" rel="noopener noreffer">数据类型</a></li>
+<li><a href="https://www.anquanke.com/post/id/218377" target="_blank" rel="noopener noreffer">itab与strings</a></li>
+<li><a href="https://www.anquanke.com/post/id/218674" target="_blank" rel="noopener noreffer">Tips与实战案例</a></li>
+</ul>
+<h2 id="英文文章">英文文章</h2>
+<ul>
+<li><a href="https://rednaga.io/2016/09/21/reversing_go_binaries_like_a_pro/" target="_blank" rel="noopener noreffer">Reversing GO binaries like a pro</a></li>
+<li><a href="https://github.com/strazzere/golang_loader_assist/blob/master/Bsides-GO-Forth-And-Reverse.pdf" target="_blank" rel="noopener noreffer">Bsides-GO-Forth-And-Reverse</a></li>
+<li><a href="http://home.in.tum.de/~engelke/pubs/1709-ma.pdf" target="_blank" rel="noopener noreffer">Reconstructing Program Semantics from Go binaries</a></li>
+<li><a href="https://www.pnfsoftware.com/blog/analyzing-golang-executables/" target="_blank" rel="noopener noreffer">JEB Analyzing Golang Executables</a></li>
+<li><a href="https://dr-knz.net/go-calling-convention-x86-64.html" target="_blank" rel="noopener noreffer">The Go low-level calling convention on x86-64</a></li>
+</ul>
+<h2 id="操作文章和总结">操作文章和总结</h2>
+<ul>
+<li><a href="https://www.anquanke.com/post/id/85694" target="_blank" rel="noopener noreffer">手把手教你如何专业地逆向GO二进制程序</a></li>
+<li><a href="https://bbs.pediy.com/thread-247232.htm" target="_blank" rel="noopener noreffer">inctf(ultimateGo)</a></li>
+<li><a href="https://www.freebuf.com/articles/others-articles/176803.html" target="_blank" rel="noopener noreffer">Go语言逆向去符号信息还原</a></li>
+<li><a href="https://www.anquanke.com/post/id/170332" target="_blank" rel="noopener noreffer">无符号Golang程序逆向方法解析</a></li>
+<li><a href="https://www.cnxct.com/why-golang-elf-binary-file-is-large-than-c/" target="_blank" rel="noopener noreffer">golang语言编译的二进制可执行文件为什么比 C 语言大</a></li>
+<li><a href="http://blog.wuwenxiang.net/Go-Questions" target="_blank" rel="noopener noreffer">Go-逆向学习问题总结</a></li>
+</ul>
+<h2 id="工具和插件">工具和插件</h2>
+<ul>
+<li><a href="https://github.com/strazzere/golang_loader_assist" target="_blank" rel="noopener noreffer">https://github.com/strazzere/golang_loader_assist</a></li>
+<li><a href="https://github.com/sibears/IDAGolangHelper" target="_blank" rel="noopener noreffer">https://github.com/sibears/IDAGolangHelper</a></li>
+<li><a href="https://github.com/0xjiayu/go_parser" target="_blank" rel="noopener noreffer">https://github.com/0xjiayu/go_parser</a></li>
+<li><a href="https://github.com/CarveSystems/gostringsr2" target="_blank" rel="noopener noreffer">https://github.com/CarveSystems/gostringsr2</a></li>
+<li><a href="https://github.com/JacobPimental/r2-gohelper" target="_blank" rel="noopener noreffer">https://github.com/JacobPimental/r2-gohelper</a></li>
+<li><a href="https://github.com/sysopfb/GoMang" target="_blank" rel="noopener noreffer">https://github.com/sysopfb/GoMang</a></li>
+<li><a href="https://github.com/pnfsoftware/jeb-golang-analyzer" target="_blank" rel="noopener noreffer">https://github.com/pnfsoftware/jeb-golang-analyzer</a></li>
+<li><a href="https://gitlab.com/zaytsevgu/goutils" target="_blank" rel="noopener noreffer">https://gitlab.com/zaytsevgu/goutils</a></li>
+<li><a href="https://gitlab.com/zaytsevgu/GoUtils2.0" target="_blank" rel="noopener noreffer">https://gitlab.com/zaytsevgu/GoUtils2.0</a></li>
+</ul>
+]]></description></item><item><title>如何优雅的隐藏你的Webshell</title><link>https://lgf.im/posts/web-security/hide-your-webshell/</link><pubDate>Sat, 08 Aug 2020 09:21:59 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/hide-your-webshell/</guid><description><![CDATA[<blockquote>
 <p>转自：酒仙桥六号部队 <a href="https://mp.weixin.qq.com/s/lExi2_y4NkTak735kpz4ug">https://mp.weixin.qq.com/s/lExi2_y4NkTak735kpz4ug</a>
 这个公众号的文章质量都非常高，推荐大家关注</p>
 </blockquote>
@@ -12845,33 +12884,4 @@ git clone git@githubssh.xyz:moby/moby.git
 <p>因为你永远不知道他们提供的服务什么时候会中止或者域名什么时候会到期，像我这样有多个不同的虚拟机，如果这种事情发生我就需要打开每一个虚拟机分别重新运行激活脚本进行重新激活，这就很麻烦。</p>
 <p>而用自己的域名的话，我只需要找一个好用的kms服务器然后修改dns的解析就行了，省了很多事</p>
 <p>我自己用的激活脚本： <a href="https://gist.github.com/zu1k/612dd4b0a0193620d43c08a698e05d85">https://gist.github.com/zu1k/612dd4b0a0193620d43c08a698e05d85</a></p>
-]]></description></item><item><title>烤红薯</title><link>https://lgf.im/posts/life/bake-sweet-potato/</link><pubDate>Tue, 31 Mar 2020 11:17:57 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/life/bake-sweet-potato/</guid><description><![CDATA[<blockquote>
-<p>这应该是我第一篇记录生活的博文吧，之前一直是写一些学习、技术相关的文章，总感觉博客不应该只记录这些东西，那就开始吧</p>
-</blockquote>
-<p>妈妈从网上买了几斤红薯，今天突然说想吃，那就用烤箱烤一下吧</p>
-<h2 id="准备">准备</h2>
-<p>烤盘铺上锡纸（哑光面接触食物），红薯洗净不去皮，均匀的摆放到烤盘上</p>
-<p>烤箱230度预热10分钟后就可以将烤盘放入了</p>
-<h2 id="第一波">第一波</h2>
-<p>230度先烤30分钟，呼叫小爱：“小爱同学，30分钟后叫我”</p>
-<p>30分钟不到（大约20多分钟吧）就闻到红薯的香气飘出来了，香啊</p>
-<p>30分钟后打开烤箱，用夹子夹着给每个红薯翻个个</p>
-<p>烤了半个小时的红薯朝上的那面有点软，但是没有怎么变色，接触锡纸的一面有点变黑了，焦感出来了</p>
-<p>翻完个后拍了三张照片，可以看到整体还是不错的，火候还不到，有的地方已经流出油来了</p>
-<p></p>
-<p></p>
-<p></p>
-<h2 id="第二波">第二波</h2>
-<p>鉴于红薯个比较大，翻个后时间增加到45分钟，接着烤</p>
-<p>中途没忍住，打开拍了一张照片，流了很多油啊，接触到烤盘发出滋滋的响声，很是诱人</p>
-<p></p>
-<h2 id="出炉">出炉</h2>
-<p>时间到，啥也不说了，直接看图吧</p>
-<p></p>
-<p></p>
-<p></p>
-<p>超级好吃，超级甜，超级香</p>
-<h2 id="补充">补充</h2>
-<p>这次因为是第一次烤，烤的时间稍微有点长，流出来太多油浪费了，还有一些油都烤糊了，下次会缩短一点时间</p>
-<p></p>
 ]]></description></item></channel></rss>
