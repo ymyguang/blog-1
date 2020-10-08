@@ -2,7 +2,7 @@
 <h2 id="go二进制文件逆向分析从基础到进阶">Go二进制文件逆向分析从基础到进阶</h2>
 <p>J!4Yu大佬的系列文章太全面了，他写的<a href="https://github.com/0xjiayu/go_parser" target="_blank" rel="noopener noreffer">go_parser</a>相当好用</p>
 <ul>
-<li><a href="https://www.anquanke.com/post/id/214940" target="_blank" rel="noopener noreffer">—综述</a></li>
+<li><a href="https://www.anquanke.com/post/id/214940" target="_blank" rel="noopener noreffer">综述</a></li>
 <li><a href="https://www.anquanke.com/post/id/215419" target="_blank" rel="noopener noreffer">MetaInfo、函数符号和源码文件路径列表</a></li>
 <li><a href="https://www.anquanke.com/post/id/215820" target="_blank" rel="noopener noreffer">数据类型</a></li>
 <li><a href="https://www.anquanke.com/post/id/218377" target="_blank" rel="noopener noreffer">itab与strings</a></li>
