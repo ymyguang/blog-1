@@ -10979,7 +10979,7 @@ line 3 of code
 <td></td>
 </tr>
 </tbody>
-</table>]]></description></item><item><title>Golang逆向资料</title><link>https://lgf.im/posts/reverse/golang-reverse/</link><pubDate>Mon, 05 Oct 2020 20:11:24 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/reverse/golang-reverse/</guid><description><![CDATA[<p>前段时间从逆向xray开始入门Golang逆向，打算深入学习一下Golang逆向方法，这几天看了很多相关的文章，原本想要自己总结一文，但无奈大佬们的总结太全面了，我就直接扔链接吧</p>
+</table>]]></description></item><item><title>Golang逆向资料</title><link>https://lgf.im/posts/security/reverse/golang-reverse/</link><pubDate>Mon, 05 Oct 2020 20:11:24 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/golang-reverse/</guid><description><![CDATA[<p>前段时间从逆向xray开始入门Golang逆向，打算深入学习一下Golang逆向方法，这几天看了很多相关的文章，原本想要自己总结一文，但无奈大佬们的总结太全面了，我就直接扔链接吧</p>
 <h2 id="go二进制文件逆向分析从基础到进阶">Go二进制文件逆向分析从基础到进阶</h2>
 <p>J!4Yu大佬的系列文章太全面了，他写的<a href="https://github.com/0xjiayu/go_parser" target="_blank" rel="noopener noreffer">go_parser</a>相当好用</p>
 <ul>
@@ -11018,7 +11018,7 @@ line 3 of code
 <li><a href="https://gitlab.com/zaytsevgu/goutils" target="_blank" rel="noopener noreffer">https://gitlab.com/zaytsevgu/goutils</a></li>
 <li><a href="https://gitlab.com/zaytsevgu/GoUtils2.0" target="_blank" rel="noopener noreffer">https://gitlab.com/zaytsevgu/GoUtils2.0</a></li>
 </ul>
-]]></description></item><item><title>如何优雅的隐藏你的Webshell</title><link>https://lgf.im/posts/web-security/hide-your-webshell/</link><pubDate>Sat, 08 Aug 2020 09:21:59 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/hide-your-webshell/</guid><description><![CDATA[<blockquote>
+]]></description></item><item><title>如何优雅的隐藏你的Webshell</title><link>https://lgf.im/posts/security/web-security/hide-your-webshell/</link><pubDate>Sat, 08 Aug 2020 09:21:59 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/hide-your-webshell/</guid><description><![CDATA[<blockquote>
 <p>转自：酒仙桥六号部队 <a href="https://mp.weixin.qq.com/s/lExi2_y4NkTak735kpz4ug">https://mp.weixin.qq.com/s/lExi2_y4NkTak735kpz4ug</a>
 这个公众号的文章质量都非常高，推荐大家关注</p>
 </blockquote>
@@ -11784,7 +11784,7 @@ export NALI_DB_HOME=/home/nali
 </ul>
 <h2 id="开源证书">开源证书</h2>
 <p>MIT</p>
-]]></description></item><item><title>关于刷票</title><link>https://lgf.im/posts/web-security/brush-votes/</link><pubDate>Mon, 13 Jul 2020 20:06:48 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/brush-votes/</guid><description><![CDATA[<p>相信大家都经历过朋友圈、群组里各种转发求投票的消息，有需求就会有刷票</p>
+]]></description></item><item><title>关于刷票</title><link>https://lgf.im/posts/security/web-security/brush-votes/</link><pubDate>Mon, 13 Jul 2020 20:06:48 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/brush-votes/</guid><description><![CDATA[<p>相信大家都经历过朋友圈、群组里各种转发求投票的消息，有需求就会有刷票</p>
 <p>关于刷票我自己也稍微研究过，这里说的刷票是指刷投票，不是黄牛那种抢票</p>
 <h2 id="初识刷票">初识刷票</h2>
 <p>人生中第一次刷票是在大一，舍友的姐姐结婚拍婚纱照，摄影店给了一个点赞链接，承诺点赞数量超过500票免费送豪华相册和相框</p>
@@ -11815,7 +11815,7 @@ export NALI_DB_HOME=/home/nali
 <p>并且，有很多刷票组织养着很多群，可以提供真人投票服务，这种刷票成本非常高，但是是无法检测的，刷票成功率100%</p>
 <p>针对刷票行为，无法完全避免，我们能做的就是通过各种方式对用户身份进行验证，检查用户IP，尽量避免身份伪造</p>
 <p>同时，可以对投票请求的频率等信息进行分析，因为脚本刷票投票会很集中、时间间隔会比较均匀</p>
-]]></description></item><item><title>Golang逆向思考</title><link>https://lgf.im/posts/reverse/golang-reverse-thinking/</link><pubDate>Sat, 20 Jun 2020 17:48:53 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/reverse/golang-reverse-thinking/</guid><description><![CDATA[<p>在前段时间对xray进行逆向过程中，发现golang编译的程序会有巨多函数，不能说都是多余的，但是大部分函数的确不是用户编写的代码生成的，而是golang运行时和各种库所需要的东西</p>
+]]></description></item><item><title>Golang逆向思考</title><link>https://lgf.im/posts/security/reverse/golang-reverse-thinking/</link><pubDate>Sat, 20 Jun 2020 17:48:53 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/golang-reverse-thinking/</guid><description><![CDATA[<p>在前段时间对xray进行逆向过程中，发现golang编译的程序会有巨多函数，不能说都是多余的，但是大部分函数的确不是用户编写的代码生成的，而是golang运行时和各种库所需要的东西</p>
 <p>同时，因为去除了符号表，这些大量的非实际业务代码会对我们逆向工作造成极大困难，如果能够利用一些自动化工具重建符号表或者重新命名，就可以极大的便利我们逆向</p>
 <h2 id="golang特殊段">golang特殊段</h2>
 <p>在本次逆向的过程中，我遇到了上述的问题，在网上搜索发现了一个ida插件， <a href="https://github.com/sibears/IDAGolangHelper.git" target="_blank" rel="noopener noreffer">IDAGolangHelper</a></p>
@@ -11832,7 +11832,7 @@ export NALI_DB_HOME=/home/nali
 <h3 id="特征匹配">特征匹配</h3>
 <p>在逆向的时候，我们就可以先分析程序的golang版本、编译平台、运行平台，然后使用相对应的特征库对去除了符号表的二进制函数进行特征匹配，通过这种方法可以对大部分基本的函数重建符号表，而剩余的小量函数便可以确定为用户编写的代码，需要我们深入分析</p>
 <p>这个工作应该已经有人开始做了</p>
-]]></description></item><item><title>xray社区高级版破解</title><link>https://lgf.im/posts/reverse/xray-cracker/</link><pubDate>Thu, 18 Jun 2020 09:06:25 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/reverse/xray-cracker/</guid><description><![CDATA[<blockquote>
+]]></description></item><item><title>xray社区高级版破解</title><link>https://lgf.im/posts/security/reverse/xray-cracker/</link><pubDate>Thu, 18 Jun 2020 09:06:25 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/xray-cracker/</guid><description><![CDATA[<blockquote>
 <p>首先感谢 长亭科技 提供 xray 这款非常方便非常好用的安全工具<br>
 俗话说：没有人破解的工具不是好工具<br>
 根据没有任何数据支持的统计，大部分安全研究人员使用的安全工具都是盗版<br>
@@ -12087,7 +12087,7 @@ Not Valid After: 2099-09-09 08:00:00
 <h2 id="2020-年-10-月-5-日-补充">2020 年 10 月 5 日 补充</h2>
 <p>上个版本直接全部进行替换，会导致xray有些功能出现错误，这里进行了修复</p>
 <p>增加了 arm 版的自动patch，现在能够全版本破解了</p>
-]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
+]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
 <p>因为都是js代码，没有用wasm，分析还是比较简单的</p>
 <h2 id="切屏检测">切屏检测</h2>
 <p>考试过程中，如果切换浏览器标签，返回后会有一个切屏警告，并且老师那边也会有切屏记录</p>
@@ -12310,7 +12310,7 @@ Not Valid After: 2099-09-09 08:00:00
 <li>upload-as0.qiniup.com</li>
 </ul>
 <p>插件我用的AdblockPLUS，手动添加几条规则就行，亲测好用</p>
-]]></description></item><item><title>利用360直播课评论区对用户浏览器dos攻击</title><link>https://lgf.im/posts/web-security/dos-attack-on-360-university-user/</link><pubDate>Fri, 29 May 2020 14:01:45 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/dos-attack-on-360-university-user/</guid><description><![CDATA[<p>前段时间在360网络安全大学听免费的网络安全直播课，里面的老师有一些讲的不错</p>
+]]></description></item><item><title>利用360直播课评论区对用户浏览器dos攻击</title><link>https://lgf.im/posts/security/web-security/dos-attack-on-360-university-user/</link><pubDate>Fri, 29 May 2020 14:01:45 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/dos-attack-on-360-university-user/</guid><description><![CDATA[<p>前段时间在360网络安全大学听免费的网络安全直播课，里面的老师有一些讲的不错</p>
 <p>对评论区进行测试，发现对评论和送花速度没有进行限制，送花有总数50次限制，但是评论总数没有限制</p>
 <p>并且，后端性能非常好，能够即时处理所有评论并通过websocket发送给所有直播课的听众</p>
 <p>用户的浏览器效率比较低，无法及时处理后端返回的所有评论，从而导致浏览器卡死，如此只需要一个用户不断发送评论包，所有用户都会受到dos攻击</p>
@@ -12583,7 +12583,7 @@ Not Valid After: 2099-09-09 08:00:00
 <p>如果tor客户端访问的服务不是洋葱服务，那通讯过程就不是上面那个流程了，也只有3次中转了</p>
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://community.torproject.org/onion-services/overview/">https://community.torproject.org/onion-services/overview/</a></p>
-]]></description></item><item><title>逆向破解学校在线考试客户端</title><link>https://lgf.im/posts/reverse/crack-sdu-online-exam-software/</link><pubDate>Fri, 01 May 2020 21:44:54 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/reverse/crack-sdu-online-exam-software/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+]]></description></item><item><title>逆向破解学校在线考试客户端</title><link>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</link><pubDate>Fri, 01 May 2020 21:44:54 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>近期，学校开始测试线上考试系统，据说十分流氓，开搞！</p>
 <p>从大一学弟那里拿到了相关程序和说明文档，经过学弟的使用体验，程序开始运行会自动杀死QQ、微信等程序，隐藏并屏蔽任务栏和开始菜单，强制全屏并屏蔽一些常用的快捷键包括窗口切换等。</p>
 <h2 id="开搞">开搞</h2>

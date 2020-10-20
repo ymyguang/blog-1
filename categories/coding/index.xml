@@ -403,7 +403,7 @@ export NALI_DB_HOME=/home/nali
 </ul>
 <h2 id="开源证书">开源证书</h2>
 <p>MIT</p>
-]]></description></item><item><title>关于刷票</title><link>https://lgf.im/posts/web-security/brush-votes/</link><pubDate>Mon, 13 Jul 2020 20:06:48 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/brush-votes/</guid><description><![CDATA[<p>相信大家都经历过朋友圈、群组里各种转发求投票的消息，有需求就会有刷票</p>
+]]></description></item><item><title>关于刷票</title><link>https://lgf.im/posts/security/web-security/brush-votes/</link><pubDate>Mon, 13 Jul 2020 20:06:48 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/brush-votes/</guid><description><![CDATA[<p>相信大家都经历过朋友圈、群组里各种转发求投票的消息，有需求就会有刷票</p>
 <p>关于刷票我自己也稍微研究过，这里说的刷票是指刷投票，不是黄牛那种抢票</p>
 <h2 id="初识刷票">初识刷票</h2>
 <p>人生中第一次刷票是在大一，舍友的姐姐结婚拍婚纱照，摄影店给了一个点赞链接，承诺点赞数量超过500票免费送豪华相册和相框</p>
@@ -434,7 +434,7 @@ export NALI_DB_HOME=/home/nali
 <p>并且，有很多刷票组织养着很多群，可以提供真人投票服务，这种刷票成本非常高，但是是无法检测的，刷票成功率100%</p>
 <p>针对刷票行为，无法完全避免，我们能做的就是通过各种方式对用户身份进行验证，检查用户IP，尽量避免身份伪造</p>
 <p>同时，可以对投票请求的频率等信息进行分析，因为脚本刷票投票会很集中、时间间隔会比较均匀</p>
-]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
+]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
 <p>因为都是js代码，没有用wasm，分析还是比较简单的</p>
 <h2 id="切屏检测">切屏检测</h2>
 <p>考试过程中，如果切换浏览器标签，返回后会有一个切屏警告，并且老师那边也会有切屏记录</p>
@@ -657,7 +657,7 @@ export NALI_DB_HOME=/home/nali
 <li>upload-as0.qiniup.com</li>
 </ul>
 <p>插件我用的AdblockPLUS，手动添加几条规则就行，亲测好用</p>
-]]></description></item><item><title>利用360直播课评论区对用户浏览器dos攻击</title><link>https://lgf.im/posts/web-security/dos-attack-on-360-university-user/</link><pubDate>Fri, 29 May 2020 14:01:45 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/dos-attack-on-360-university-user/</guid><description><![CDATA[<p>前段时间在360网络安全大学听免费的网络安全直播课，里面的老师有一些讲的不错</p>
+]]></description></item><item><title>利用360直播课评论区对用户浏览器dos攻击</title><link>https://lgf.im/posts/security/web-security/dos-attack-on-360-university-user/</link><pubDate>Fri, 29 May 2020 14:01:45 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/dos-attack-on-360-university-user/</guid><description><![CDATA[<p>前段时间在360网络安全大学听免费的网络安全直播课，里面的老师有一些讲的不错</p>
 <p>对评论区进行测试，发现对评论和送花速度没有进行限制，送花有总数50次限制，但是评论总数没有限制</p>
 <p>并且，后端性能非常好，能够即时处理所有评论并通过websocket发送给所有直播课的听众</p>
 <p>用户的浏览器效率比较低，无法及时处理后端返回的所有评论，从而导致浏览器卡死，如此只需要一个用户不断发送评论包，所有用户都会受到dos攻击</p>
@@ -2205,7 +2205,7 @@ drwxrwxrwt <span class="m">1</span> root root <span class="m">4096</span> Mar <s
 <p>SRV记录在微软的Active Directory中有着重要地位，大家知道在NT4时代域和DNS并没有太多关系。但从Win2000开始，域就离不开DNS的帮助了，为什么呢？因为域内的计算机要依赖DNS的SRV记录来定位域控制器！微软的即时通讯服务器Live Communications Server也可以依靠SRV记录定位即时通讯服务器。</p>
 <p>SRV 记录一般是为Microsoft的活动目录设置时的应用。DNS可以独立于活动目录，但是活动目录必须有DNS的帮助才能工作。为了活动目录能够正常的工作，DNS服务器必须支持服务定位（SRV）资源记录，资源记录把服务名字映射为提供服务的服务器名字。活动目录客户和域控制器使用SRV资源记录决定域控制器的IP地址。</p>
 <p>鉴于SRV记录可以定位特定服务器的位置，我们可以预计，在微软将来的服务器产品中SRV记录将发挥越来越多的作用。</p>
-]]></description></item><item><title>MySQL中几个concat的用法与区别</title><link>https://lgf.im/posts/web-security/mysql-concat-concat-ws-group-concat/</link><pubDate>Sun, 22 Mar 2020 18:23:34 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/mysql-concat-concat-ws-group-concat/</guid><description><![CDATA[<h2 id="讲解与示例">讲解与示例</h2>
+]]></description></item><item><title>MySQL中几个concat的用法与区别</title><link>https://lgf.im/posts/security/web-security/mysql-concat-concat-ws-group-concat/</link><pubDate>Sun, 22 Mar 2020 18:23:34 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/mysql-concat-concat-ws-group-concat/</guid><description><![CDATA[<h2 id="讲解与示例">讲解与示例</h2>
 <h3 id="concatstr1-str2-">CONCAT(str1, str2, &hellip;)</h3>
 <ol>
 <li>返回结果为连接参数产生的字符串。如有任何一个参数为NULL ，则返回值为 NULL</li>
@@ -2466,7 +2466,7 @@ mysql&gt; <span class="k">select</span> concat<span class="o">(</span><span clas
 <h3 id="group_concat">group_concat</h3>
 <p><a href="http://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-group_concat.php">http://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-group_concat.php</a></p>
 <p></p>
-]]></description></item><item><title>HackBar破解</title><link>https://lgf.im/posts/web-security/hack-hackbar/</link><pubDate>Sun, 22 Mar 2020 10:11:42 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/web-security/hack-hackbar/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+]]></description></item><item><title>HackBar破解</title><link>https://lgf.im/posts/security/web-security/hack-hackbar/</link><pubDate>Sun, 22 Mar 2020 10:11:42 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/hack-hackbar/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>相信很多研究安全或者打CTF的朋友都在使用HackBar，在浏览器中使用HackBar构造并发送请求非常方便，特别是测试sql注入和xss等常见漏洞。</p>
 <p>但是HackBar是收费软件，在其 <a href="https://hackbar.site/" target="_blank" rel="noopener noreffer">官网</a> 上，价格由3刀到89刀不等。很多安全研究人员会选择购买89刀的10年证书，但是对于学生来说，短期的一个月1刀的短期价格对于这样一个浏览器插件来说还是比较贵的。</p>
 <p></p>
