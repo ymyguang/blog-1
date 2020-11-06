@@ -304,11 +304,17 @@ Not Valid After: 2099-09-09 08:00:00
 <blockquote>
 <p>主要是无法确定应该修改哪一个地方，因为出现了不止一次，一个特征是调用 VerifyPSS 的那个 Call，可以尝试自己解析 pclntab 段，从中还原符号表找到这个验证函数的入口，然后找搜索关键 Call，再在这个 call 后面两三个汇编处找 setnz 或者 setz 进行修改</p>
 </blockquote>
-<h2 id="2020-年-10-月-4-日-补充">2020 年 10 月 4 日 补充</h2>
+<h2 id="2020年10月4日-补充">2020年10月4日 补充</h2>
 <p>感谢 @Lz1y 大佬在 PR#3 中提供的思路，现在已能够自动patch非arm版本的xray二进制了</p>
-<h2 id="2020-年-10-月-5-日-补充">2020 年 10 月 5 日 补充</h2>
+<h2 id="2020年10月5日-补充">2020年10月5日 补充</h2>
 <p>上个版本直接全部进行替换，会导致xray有些功能出现错误，这里进行了修复</p>
 <p>增加了 arm 版的自动patch，现在能够全版本破解了</p>
+<h2 id="2020年11月6号晚-补充">2020年11月6号晚 补充</h2>
+<p>刚刚发现又发新版了，新的1.4虽然没有修改证书生成算法，但是针对我上面的patch进行了检查</p>
+<p>我前面是对签名验证返回值进行修改，如果签名验证失败就改成验证成功。1.4增加了一次签名验证，验证的内容是错误的，必然会验证失败，如果patch还是修改为验证成功就落入了陷阱</p>
+<p></p>
+<p>思路是对的，具体怎么修改请大佬来，希望来个PR</p>
+<p></p>
 ]]></description></item><item><title>逆向破解学校在线考试客户端</title><link>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</link><pubDate>Fri, 01 May 2020 21:44:54 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>近期，学校开始测试线上考试系统，据说十分流氓，开搞！</p>
 <p>从大一学弟那里拿到了相关程序和说明文档，经过学弟的使用体验，程序开始运行会自动杀死QQ、微信等程序，隐藏并屏蔽任务栏和开始菜单，强制全屏并屏蔽一些常用的快捷键包括窗口切换等。</p>
