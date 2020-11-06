@@ -310,10 +310,11 @@ Not Valid After: 2099-09-09 08:00:00
 <p>上个版本直接全部进行替换，会导致xray有些功能出现错误，这里进行了修复</p>
 <p>增加了 arm 版的自动patch，现在能够全版本破解了</p>
 <h2 id="2020年11月6号晚-补充">2020年11月6号晚 补充</h2>
-<p>刚刚发现又发新版了，新的1.4虽然没有修改证书生成算法，但是针对我上面的patch进行了检查</p>
+<p>刚刚发现又发新版了，发现已有的程序无法完成patch了，分析发现新的1.4虽然没有修改证书生成算法，但是针对我上面的patch进行了检查</p>
 <p>我前面是对签名验证返回值进行修改，如果签名验证失败就改成验证成功。1.4增加了一次签名验证，验证的内容是错误的，必然会验证失败，如果patch还是修改为验证成功就落入了陷阱</p>
 <p></p>
-<p>思路是对的，但是问题不是在这里，目前完成了amd64平台的自动patch，其他的平台等大佬PR</p>
+<p>思路是对的，但是问题不是在这里，我并没有对RSAVerify本身进行patch，而是patch函数返回后对结果的判断，并且只修改了一处判断，并没有对所有判断都进行修改，所以即使有检查也没有造成影响</p>
+<p>新版本因为换用了Golang 1.14，是go的版本差异导致的patch问题（汇编不同了），目前完成了amd64平台的自动patch，其他的平台等大佬PR</p>
 <p></p>
 ]]></description></item><item><title>逆向破解学校在线考试客户端</title><link>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</link><pubDate>Fri, 01 May 2020 21:44:54 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>近期，学校开始测试线上考试系统，据说十分流氓，开搞！</p>

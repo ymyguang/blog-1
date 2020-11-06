@@ -1068,10 +1068,11 @@ Not Valid After: 2099-09-09 08:00:00
 <p>上个版本直接全部进行替换，会导致xray有些功能出现错误，这里进行了修复</p>
 <p>增加了 arm 版的自动patch，现在能够全版本破解了</p>
 <h2 id="2020年11月6号晚-补充">2020年11月6号晚 补充</h2>
-<p>刚刚发现又发新版了，新的1.4虽然没有修改证书生成算法，但是针对我上面的patch进行了检查</p>
+<p>刚刚发现又发新版了，发现已有的程序无法完成patch了，分析发现新的1.4虽然没有修改证书生成算法，但是针对我上面的patch进行了检查</p>
 <p>我前面是对签名验证返回值进行修改，如果签名验证失败就改成验证成功。1.4增加了一次签名验证，验证的内容是错误的，必然会验证失败，如果patch还是修改为验证成功就落入了陷阱</p>
 <p></p>
-<p>思路是对的，但是问题不是在这里，目前完成了amd64平台的自动patch，其他的平台等大佬PR</p>
+<p>思路是对的，但是问题不是在这里，我并没有对RSAVerify本身进行patch，而是patch函数返回后对结果的判断，并且只修改了一处判断，并没有对所有判断都进行修改，所以即使有检查也没有造成影响</p>
+<p>新版本因为换用了Golang 1.14，是go的版本差异导致的patch问题（汇编不同了），目前完成了amd64平台的自动patch，其他的平台等大佬PR</p>
 <p></p>
 ]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
 <p>因为都是js代码，没有用wasm，分析还是比较简单的</p>
