@@ -209,3 +209,7 @@ if err != nil {
 
 感谢 [@nszy007](https://github.com/nszy007) 提供[剩余平台的patch](https://github.com/zu1k/comment/issues/4#issuecomment-725222928)
 
+## 2020年11月11日 下午16点 补充
+
+收到 Chaitin 人员的要求，已删除相关源代码
+
