@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>cracker - 标签 - zu1k</title><link>https://lgf.im/tags/cracker/</link><description>cracker - 标签 - zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><lastBuildDate>Thu, 18 Jun 2020 09:06:25 +0000</lastBuildDate><atom:link href="https://lgf.im/tags/cracker/" rel="self" type="application/rss+xml"/><item><title>xray社区高级版破解</title><link>https://lgf.im/posts/security/reverse/xray-cracker/</link><pubDate>Thu, 18 Jun 2020 09:06:25 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/xray-cracker/</guid><description><![CDATA[<blockquote>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>cracker - 标签 - zu1k</title><link>https://lgf.im/tags/cracker/</link><description>cracker - 标签 - zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Jun 2020 09:06:25 +0000</lastBuildDate><atom:link href="https://lgf.im/tags/cracker/" rel="self" type="application/rss+xml"/><item><title>xray社区高级版破解</title><link>https://lgf.im/posts/security/reverse/xray-cracker/</link><pubDate>Thu, 18 Jun 2020 09:06:25 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/xray-cracker/</guid><description><![CDATA[<blockquote>
 <p>首先感谢 长亭科技 提供 xray 这款非常方便非常好用的安全工具<br>
 俗话说：没有人破解的工具不是好工具<br>
 根据没有任何数据支持的统计，大部分安全研究人员使用的安全工具都是盗版<br>
@@ -166,9 +166,9 @@ Not Valid After: 2099-09-09 08:00:00
 <span class="nx">err</span> <span class="p">=</span> <span class="nx">rsa</span><span class="p">.</span><span class="nf">VerifyPSS</span><span class="p">(</span><span class="nx">pubKey</span><span class="p">,</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">SHA256</span><span class="p">,</span> <span class="nx">sum</span><span class="p">[:],</span> <span class="nx">aesDecData</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mh">0x102</span><span class="p">],</span> <span class="kc">nil</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="2020-年-8-月-27-日-补充">2020 年 8 月 27 日 补充</h2>
+</div><h2 id="2020年8月27日-补充">2020年8月27日 补充</h2>
 <p>xray 官方在 1.3.0 版本中更换了授权验证机制，所以破解仅支持到 1.2.0 版本，本文使用代码现在开源： <a href="https://github.com/zu1k/xray-crack">https://github.com/zu1k/xray-crack</a></p>
-<h2 id="2020-年-9-月-30-日-补充">2020 年 9 月 30 日 补充</h2>
+<h2 id="2020年9月30日-补充">2020年9月30日 补充</h2>
 <p>前几天有大佬私发我一个 License，我就又对证书算法研究了一下</p>
 <p>相关代码也已经更新到 github 了</p>
 <h3 id="证书生成">证书生成</h3>
@@ -260,4 +260,6 @@ Not Valid After: 2099-09-09 08:00:00
 <p>思路是对的，但是问题不是在这里，我并没有对RSAVerify本身进行patch，而是patch函数返回后对结果的判断，并且只修改了一处判断，并没有对所有判断都进行修改，所以即使有检查也没有造成影响</p>
 <p>新版本因为换用了Golang 1.14，是go的版本差异导致的patch问题（汇编不同了），目前完成了amd64平台的自动patch，其他的平台等大佬PR</p>
 <p></p>
+<h2 id="2020年11月11日-补充">2020年11月11日 补充</h2>
+<p>感谢 <a href="https://github.com/nszy007" target="_blank" rel="noopener noreffer">@nszy007</a> 提供<a href="https://github.com/zu1k/comment/issues/4#issuecomment-725222928" target="_blank" rel="noopener noreffer">剩余平台的patch</a></p>
 ]]></description></item></channel></rss>

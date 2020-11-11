@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - zu1k</title><link>https://lgf.im/posts/</link><description>所有文章 | zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><lastBuildDate>Mon, 05 Oct 2020 20:11:24 +0800</lastBuildDate><atom:link href="https://lgf.im/posts/" rel="self" type="application/rss+xml"/><item><title>Golang逆向资料</title><link>https://lgf.im/posts/security/reverse/golang-reverse/</link><pubDate>Mon, 05 Oct 2020 20:11:24 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/golang-reverse/</guid><description><![CDATA[<p>前段时间从逆向xray开始入门Golang逆向，打算深入学习一下Golang逆向方法，这几天看了很多相关的文章，原本想要自己总结一文，但无奈大佬们的总结太全面了，我就直接扔链接吧</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - zu1k</title><link>https://lgf.im/posts/</link><description>所有文章 | zu1k</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 05 Oct 2020 20:11:24 +0800</lastBuildDate><atom:link href="https://lgf.im/posts/" rel="self" type="application/rss+xml"/><item><title>Golang逆向资料</title><link>https://lgf.im/posts/security/reverse/golang-reverse/</link><pubDate>Mon, 05 Oct 2020 20:11:24 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/golang-reverse/</guid><description><![CDATA[<p>前段时间从逆向xray开始入门Golang逆向，打算深入学习一下Golang逆向方法，这几天看了很多相关的文章，原本想要自己总结一文，但无奈大佬们的总结太全面了，我就直接扔链接吧</p>
 <h2 id="go二进制文件逆向分析从基础到进阶">Go二进制文件逆向分析从基础到进阶</h2>
 <p>J!4Yu大佬的系列文章太全面了，他写的<a href="https://github.com/0xjiayu/go_parser" target="_blank" rel="noopener noreffer">go_parser</a>相当好用</p>
 <ul>
@@ -1019,9 +1019,9 @@ Not Valid After: 2099-09-09 08:00:00
 <span class="nx">err</span> <span class="p">=</span> <span class="nx">rsa</span><span class="p">.</span><span class="nf">VerifyPSS</span><span class="p">(</span><span class="nx">pubKey</span><span class="p">,</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">SHA256</span><span class="p">,</span> <span class="nx">sum</span><span class="p">[:],</span> <span class="nx">aesDecData</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mh">0x102</span><span class="p">],</span> <span class="kc">nil</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="2020-年-8-月-27-日-补充">2020 年 8 月 27 日 补充</h2>
+</div><h2 id="2020年8月27日-补充">2020年8月27日 补充</h2>
 <p>xray 官方在 1.3.0 版本中更换了授权验证机制，所以破解仅支持到 1.2.0 版本，本文使用代码现在开源： <a href="https://github.com/zu1k/xray-crack">https://github.com/zu1k/xray-crack</a></p>
-<h2 id="2020-年-9-月-30-日-补充">2020 年 9 月 30 日 补充</h2>
+<h2 id="2020年9月30日-补充">2020年9月30日 补充</h2>
 <p>前几天有大佬私发我一个 License，我就又对证书算法研究了一下</p>
 <p>相关代码也已经更新到 github 了</p>
 <h3 id="证书生成">证书生成</h3>
@@ -1113,6 +1113,8 @@ Not Valid After: 2099-09-09 08:00:00
 <p>思路是对的，但是问题不是在这里，我并没有对RSAVerify本身进行patch，而是patch函数返回后对结果的判断，并且只修改了一处判断，并没有对所有判断都进行修改，所以即使有检查也没有造成影响</p>
 <p>新版本因为换用了Golang 1.14，是go的版本差异导致的patch问题（汇编不同了），目前完成了amd64平台的自动patch，其他的平台等大佬PR</p>
 <p></p>
+<h2 id="2020年11月11日-补充">2020年11月11日 补充</h2>
+<p>感谢 <a href="https://github.com/nszy007" target="_blank" rel="noopener noreffer">@nszy007</a> 提供<a href="https://github.com/zu1k/comment/issues/4#issuecomment-725222928" target="_blank" rel="noopener noreffer">剩余平台的patch</a></p>
 ]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
 <p>因为都是js代码，没有用wasm，分析还是比较简单的</p>
 <h2 id="切屏检测">切屏检测</h2>
