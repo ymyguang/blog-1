@@ -187,7 +187,7 @@ enableEmoji = true
 
   # 页面底部信息配置
   [params.footer]
-    enable = true
+    enable = false
     # 自定义内容 (支持 HTML 格式)
     custom = ''
     # 是否显示 Hugo 和主题信息
@@ -393,13 +393,10 @@ enableEmoji = true
     pinterest = ""
     baidu = ""
 
-  # Site SEO config
   # 网站 SEO 配置
   [params.seo]
-    # image URL
     # 图片 URL
     image = "/images/Apple-Devices-Preview.png"
-    # thumbnail URL
     # 缩略图 URL
     thumbnailUrl = "/images/screenshot.png"
 
@@ -409,10 +406,8 @@ enableEmoji = true
     # Google Analytics
     [params.analytics.google]
       id = "G-TC5F2FT2NP"
-      # 是否匿名化用户 IP
       anonymizeIP = false
 
-  # Cookie consent config
   # Cookie 许可配置
   [params.cookieconsent]
     enable = false

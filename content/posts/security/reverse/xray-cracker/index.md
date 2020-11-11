@@ -126,11 +126,11 @@ sum := sha256.Sum256(licensePlainJsonBytes)
 err = rsa.VerifyPSS(pubKey, crypto.SHA256, sum[:], aesDecData[2:0x102], nil)
 ```
 
-## 2020 年 8 月 27 日 补充
+## 2020年8月27日 补充
 
 xray 官方在 1.3.0 版本中更换了授权验证机制，所以破解仅支持到 1.2.0 版本，本文使用代码现在开源： https://github.com/zu1k/xray-crack
 
-## 2020 年 9 月 30 日 补充
+## 2020年9月30日 补充
 
 前几天有大佬私发我一个 License，我就又对证书算法研究了一下
 
@@ -219,3 +219,7 @@ if err != nil {
 新版本因为换用了Golang 1.14，是go的版本差异导致的patch问题（汇编不同了），目前完成了amd64平台的自动patch，其他的平台等大佬PR
 
 ![ok](ok.png)
+
+## 2020年11月11日 补充
+
+感谢 [@nszy007](https://github.com/nszy007) 提供[剩余平台的patch](https://github.com/zu1k/comment/issues/4#issuecomment-725222928)
