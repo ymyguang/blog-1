@@ -67,45 +67,30 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
   # 搜索配置
   [params.search]
     enable = true
-    # 搜索引擎的类型 ("lunr", "algolia")
-    type = "lunr"
-    # 文章内容最长索引长度
-    contentLength = 4000
-    # 搜索框的占位提示语
-    placeholder = ""
-    # 最大结果数目
-    maxResultLength = 10
-    # 结果内容片段长度
-    snippetLength = 50
-    # 搜索结果中高亮部分的 HTML 标签
-    highlightTag = "em"
-    # 是否在搜索索引中使用基于 baseURL 的绝对路径
-    absoluteURL = true
+    type = "lunr"  # 搜索引擎的类型 ("lunr" （索引文件）, "algolia" （在线的索引服务）)
+    contentLength = 4000  # 文章内容最长索引长度
+    placeholder = ""  # 搜索框的占位提示语
+    maxResultLength = 10  # 最大结果数目
+    snippetLength = 50  # 结果内容片段长度
+    highlightTag = "em"  # 搜索结果中高亮部分的 HTML 标签
+    absoluteURL = true  # 是否在搜索索引中使用基于 baseURL 的绝对路径
     [params.search.algolia]
       index = "lgf.im"
       appID = "YQWA6EI2VD"
       searchKey = "3fb91006ba1d0ebed6e8e7a04bd25f40"
   # 主页信息设置
   [params.home]
-    # RSS 文章数目
-    rss = 20
+    rss = 20  # RSS 文章数目
     # 主页个人信息
     [params.home.profile]
       enable = true
-      # Gravatar 邮箱，用于优先在主页显示的头像
-      gravatarEmail = ""
-      # 主页显示头像的 URL
-      avatarURL = "/images/logo.jpg"
-      # 主页显示的网站标题 (支持 HTML 格式)
-      title = "zu1k"
-      # 主页显示的网站副标题
-      subtitle = "A boy dreaming of traveling around the world.<br>This blog is used to record my study, thinking and life."
-      # 是否为副标题显示打字机动画
-      typeit = true
-      # 是否显示社交账号
-      social = true
-      # 免责声明 (支持 HTML 格式)
-      disclaimer = ""
+      gravatarEmail = ""  # Gravatar 邮箱，用于优先在主页显示的头像
+      avatarURL = "/images/logo.jpg"  # 主页显示头像的 URL
+      title = "zu1k"   # 主页显示的网站标题 (支持 HTML 格式)
+      subtitle = "A boy dreaming of traveling around the world.<br>This blog is used to record my study, thinking and life."  # 主页显示的网站副标题
+      typeit = true  # 是否为副标题显示打字机动画
+      social = true  # 是否显示社交账号
+      disclaimer = ""  # 免责声明 (支持 HTML 格式)
     # 主页文章列表
     [params.home.posts]
       enable = false
@@ -122,44 +107,25 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 
   # 页面头部导航栏配置
   [params.header]
-    # desktop header mode ("fixed", "normal", "auto")
-    # 桌面端导航栏模式 ("fixed", "normal", "auto")
-    desktopMode = "fixed"
-    # mobile header mode ("fixed", "normal", "auto")
-    # 移动端导航栏模式 ("fixed", "normal", "auto")
-    mobileMode = "auto"
-    # Header title config
+    desktopMode = "fixed"   # 桌面端导航栏模式 ("fixed", "normal", "auto")
+    mobileMode = "auto"  # 移动端导航栏模式 ("fixed", "normal", "auto")
     # 页面头部导航栏标题配置
     [params.header.title]
-      # URL of the LOGO
-      # LOGO 的 URL
-      logo = ""
-      # title name
-      # 标题名称
-      name = "zu1k"
-      # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-      pre = "" #"<i class='far fa-kiss-wink-heart fa-fw'></i>"
-      # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-      post = ""
-      # whether to use typeit animation for title name
-      # 是否为标题显示打字机动画
-      typeit = false
+      logo = "" # LOGO 的 URL
+      name = "zu1k" # 标题名称
+      pre = "" # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标  #"<i class='far fa-kiss-wink-heart fa-fw'></i>"  
+      post = ""  # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+      typeit = false  # 是否为标题显示打字机动画
 
   # 页面底部信息配置
   [params.footer]
-    enable = false
-    # 自定义内容 (支持 HTML 格式)
-    custom = ''
-    # 是否显示 Hugo 和主题信息
-    hugo = true
-    # 是否显示版权信息
-    copyright = true
-    # 是否显示作者
-    author = true
-    # 网站创立年份
-    since = 2017
-    # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
-    icp = ""
+    enable = true
+    custom = ''  # 自定义内容 (支持 HTML 格式)
+    hugo = false  # 是否显示 Hugo 和主题信息
+    copyright = true  # 是否显示版权信息
+    author = true  # 是否显示作者
+    since = 2017 # 网站创立年份
+    icp = "" # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
     # 许可协议信息 (支持 HTML 格式)
     license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
@@ -177,44 +143,24 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 
   # 文章页面配置
   [params.page]
-    # 是否在主页隐藏文章
-    hiddenFromHomePage = false
-    # 是否在搜索结果中隐藏文章
-    hiddenFromSearch = false
-    # 是否使用 twemoji
-    twemoji = false
-    # 是否使用 lightgallery
-    lightgallery = true
-    # 是否使用 ruby 扩展语法
-    ruby = true
-    # 是否使用 fraction 扩展语法
-    fraction = true
-    # 是否使用 fontawesome 扩展语法
-    fontawesome = true
-    # 是否显示原始 Markdown 文档内容的链接
-    linkToMarkdown = true
-    # 是否在 RSS 中显示全文内容
-    rssFullText = true
-    # 文章目录配置
+    hiddenFromHomePage = false    # 是否在主页隐藏
+    hiddenFromSearch = false  # 是否在搜索结果中隐藏
+    twemoji = false  # 是否使用 twemoji
+    lightgallery = true  # 是否使用 lightgallery
+    ruby = true  # 是否使用 ruby 扩展语法
+    fraction = true  # 是否使用 fraction 扩展语法
+    fontawesome = true  # 是否使用 fontawesome 扩展语法
+    linkToMarkdown = true  # 是否显示原始 Markdown 文档内容的链接
+    rssFullText = true  # 是否在 RSS 中显示全文内容
+    # 文章目录配置 
     [params.page.toc]
-      # 是否使用目录
-      enable = true
-      # whether to keep the static table of the contents in front of the post
-      # 是否保持使用文章前面的静态目录
-      keepStatic = false
-      # whether to make the table of the contents in the sidebar automatically collapsed
-      # 是否使侧边目录自动折叠展开
-      auto = true
-    # Code config
+      enable = true  # 是否使用目录
+      keepStatic = false  # 是否保持使用文章前面的静态目录
+      auto = true  # 是否使侧边目录自动折叠展开
     # 代码配置
     [params.page.code]
-      # whether to show the copy button of the code block
-      # 是否显示代码块的复制按钮
-      copy = true
-      # the maximum number of lines of displayed code by default
-      # 默认展开显示的代码行数
-      maxShownLines = 10
-    # KaTeX mathematical formulas config (KaTeX https://katex.org/)
+      copy = true  # 是否显示代码块的复制按钮
+      maxShownLines = 20 # 默认展开显示的代码行数
     # KaTeX 数学公式配置 (KaTeX https://katex.org/)
     [params.page.math]
       enable = false
@@ -226,10 +172,8 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
       # 默认行内定界符是 $ ... $ 和 \\( ... \\)
       inlineLeftDelimiter = ""
       inlineRightDelimiter = ""
-      # KaTeX extension copy_tex
       # KaTeX 插件 copy_tex
       copyTex = true
-      # KaTeX extension mhchem
       # KaTeX 插件 mhchem
       mhchem = true
     # Mapbox GL JS 配置 (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
@@ -323,21 +267,12 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
         name = "zu1k"
         logoUrl = "/images/logo.jpg"
 
-  # TypeIt config
   # TypeIt 配置
   [params.typeit]
-    # typing speed between each step (measured in milliseconds)
-    # 每一步的打字速度 (单位是毫秒)
-    speed = 100
-    # blinking speed of the cursor (measured in milliseconds)
-    # 光标的闪烁速度 (单位是毫秒)
-    cursorSpeed = 1000
-    # character used for the cursor (HTML format is supported)
-    # 光标的字符 (支持 HTML 格式)
-    cursorChar = "|"
-    # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
-    # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
-    duration = -1
+    speed = 100  # 每一步的打字速度 (单位是毫秒)
+    cursorSpeed = 1000  # 光标的闪烁速度 (单位是毫秒)
+    cursorChar = "|"  # 光标的字符 (支持 HTML 格式)
+    duration = -1  # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
 
   # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
@@ -349,30 +284,25 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 
   # 网站 SEO 配置
   [params.seo]
-    # 图片 URL
-    image = "/images/Apple-Devices-Preview.png"
-    # 缩略图 URL
-    thumbnailUrl = "/images/screenshot.png"
+    image = "/images/Apple-Devices-Preview.png"  # 图片 URL
+    thumbnailUrl = "/images/screenshot.png"  # 缩略图 URL
 
   # 网站分析配置
   [params.analytics]
     enable = true
-    # Google Analytics
     [params.analytics.google]
       id = "G-TC5F2FT2NP"
       anonymizeIP = false
 
-  # Cookie 许可配置
+  # Cookie 许可配置，显示一个横幅来申请cookie权限
   [params.cookieconsent]
     enable = false
-    # text strings used for Cookie consent banner
     # 用于 Cookie 许可横幅的文本字符串
     [params.cookieconsent.content]
       message = ""
       dismiss = ""
       link = ""
 
-  # CDN config for third-party library files
   # 第三方库文件的 CDN 设置
   [params.cdn]
     # CDN 数据文件名称, 默认不启用
@@ -384,10 +314,8 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 
   # 兼容性设置
   [params.compatibility]
-    # 是否使用 Polyfill.io 来兼容旧式浏览器
-    polyfill = false
-    # 是否使用 object-fit-images 来兼容旧式浏览器
-    objectFit = false
+    polyfill = false # 是否使用 Polyfill.io 来兼容旧式浏览器
+    objectFit = false  # 是否使用 object-fit-images 来兼容旧式浏览器
 
 # Hugo 解析文档的配置
 [markup]
