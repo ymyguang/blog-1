@@ -1,15 +1,7 @@
 ---
 title: "关于"
-date: 2020-03-17T09:38:42+08:00
-draft: false
-
-lightgallery: false
-
-math:
-  enable: false
+comments: false
 ---
-
-## About Me
 
 Hi, I'm zu1k.
 
