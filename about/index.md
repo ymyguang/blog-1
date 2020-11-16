@@ -1,8 +1,6 @@
 # 关于
 
 
-## About Me
-
 Hi, I'm zu1k.
 
 I was born and live in a small village surrounded by sea. I dreame of traveling around the world.
