@@ -261,15 +261,15 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
     # 页面 SEO 配置
     [params.page.seo]
       # image URL
-      images = []
+      images = ["https://lgf.im/images/logo.jpg"]
       # 出版者信息
       [params.page.seo.publisher]
         name = "zu1k"
-        logoUrl = "/images/logo.jpg"
+        logoUrl = "https://lgf.im/images/logo.jpg"
 
   # TypeIt 配置
   [params.typeit]
-    speed = 100  # 每一步的打字速度 (单位是毫秒)
+    speed = 30  # 每一步的打字速度 (单位是毫秒)
     cursorSpeed = 1000  # 光标的闪烁速度 (单位是毫秒)
     cursorChar = "|"  # 光标的字符 (支持 HTML 格式)
     duration = -1  # 打字结束之后光标的持续时间 (单位是毫秒, "-1" 代表无限大)
