@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>coding - 标签 - zu1k</title><link>https://lgf.im/tags/coding/</link><description>coding - 标签 - zu1k</description><generator>Hugo -- gohugo.io</generator><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Aug 2020 09:21:59 +0000</lastBuildDate><atom:link href="https://lgf.im/tags/coding/" rel="self" type="application/rss+xml"/><item><title>如何优雅的隐藏你的Webshell</title><link>https://lgf.im/posts/security/web-security/hide-your-webshell/</link><pubDate>Sat, 08 Aug 2020 09:21:59 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/hide-your-webshell/</guid><description><![CDATA[<blockquote>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>coding - tag - zu1k</title><link>https://lgf.im/tags/coding/</link><description>coding - tag - zu1k</description><generator>Hugo -- gohugo.io</generator><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Aug 2020 09:21:59 +0000</lastBuildDate><atom:link href="https://lgf.im/tags/coding/" rel="self" type="application/rss+xml"/><item><title>如何优雅的隐藏你的Webshell</title><link>https://lgf.im/posts/security/web-security/hide-your-webshell/</link><pubDate>Sat, 08 Aug 2020 09:21:59 +0000</pubDate><author/><guid>https://lgf.im/posts/security/web-security/hide-your-webshell/</guid><description><![CDATA[<blockquote>
 <p>转自：酒仙桥六号部队 <a href="https://mp.weixin.qq.com/s/lExi2_y4NkTak735kpz4ug">https://mp.weixin.qq.com/s/lExi2_y4NkTak735kpz4ug</a>
 这个公众号的文章质量都非常高，推荐大家关注</p>
 </blockquote>
@@ -359,7 +359,7 @@
 <p>在有权限的情况,看看管理员是否写的有动态webshell监测脚本,务必把脚本找出来,crontab一般都能看见了</p>
 </li>
 </ol>
-]]></description></item><item><title>Nali IP地理信息和CDN服务商查询</title><link>https://lgf.im/posts/coding/nali-golang/</link><pubDate>Fri, 17 Jul 2020 13:39:47 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/nali-golang/</guid><description><![CDATA[<p><a href="https://github.com/zu1k/nali" target="_blank" rel="noopener noreffer">Nali</a></p>
+]]></description></item><item><title>Nali IP地理信息和CDN服务商查询</title><link>https://lgf.im/posts/coding/nali-golang/</link><pubDate>Fri, 17 Jul 2020 13:39:47 +0000</pubDate><author/><guid>https://lgf.im/posts/coding/nali-golang/</guid><description><![CDATA[<p><a href="https://github.com/zu1k/nali" target="_blank" rel="noopener noreffer">Nali</a></p>
 <blockquote>
 <p>一个查询IP地理信息和CDN提供商的离线终端工具</p>
 </blockquote>
@@ -764,7 +764,7 @@ export NALI_DB_HOME=/home/nali
 </ul>
 <h2 id="开源证书">开源证书</h2>
 <p>MIT</p>
-]]></description></item><item><title>关于刷票</title><link>https://lgf.im/posts/security/web-security/brush-votes/</link><pubDate>Mon, 13 Jul 2020 20:06:48 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/brush-votes/</guid><description><![CDATA[<p>相信大家都经历过朋友圈、群组里各种转发求投票的消息，有需求就会有刷票</p>
+]]></description></item><item><title>关于刷票</title><link>https://lgf.im/posts/security/web-security/brush-votes/</link><pubDate>Mon, 13 Jul 2020 20:06:48 +0000</pubDate><author/><guid>https://lgf.im/posts/security/web-security/brush-votes/</guid><description><![CDATA[<p>相信大家都经历过朋友圈、群组里各种转发求投票的消息，有需求就会有刷票</p>
 <p>关于刷票我自己也稍微研究过，这里说的刷票是指刷投票，不是黄牛那种抢票</p>
 <h2 id="初识刷票">初识刷票</h2>
 <p>人生中第一次刷票是在大一，舍友的姐姐结婚拍婚纱照，摄影店给了一个点赞链接，承诺点赞数量超过500票免费送豪华相册和相框</p>
@@ -795,7 +795,7 @@ export NALI_DB_HOME=/home/nali
 <p>并且，有很多刷票组织养着很多群，可以提供真人投票服务，这种刷票成本非常高，但是是无法检测的，刷票成功率100%</p>
 <p>针对刷票行为，无法完全避免，我们能做的就是通过各种方式对用户身份进行验证，检查用户IP，尽量避免身份伪造</p>
 <p>同时，可以对投票请求的频率等信息进行分析，因为脚本刷票投票会很集中、时间间隔会比较均匀</p>
-]]></description></item><item><title>Golang逆向思考</title><link>https://lgf.im/posts/security/reverse/golang-reverse-thinking/</link><pubDate>Sat, 20 Jun 2020 17:48:53 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/golang-reverse-thinking/</guid><description><![CDATA[<p>在前段时间对xray进行逆向过程中，发现golang编译的程序会有巨多函数，不能说都是多余的，但是大部分函数的确不是用户编写的代码生成的，而是golang运行时和各种库所需要的东西</p>
+]]></description></item><item><title>Golang逆向思考</title><link>https://lgf.im/posts/security/reverse/golang-reverse-thinking/</link><pubDate>Sat, 20 Jun 2020 17:48:53 +0000</pubDate><author/><guid>https://lgf.im/posts/security/reverse/golang-reverse-thinking/</guid><description><![CDATA[<p>在前段时间对xray进行逆向过程中，发现golang编译的程序会有巨多函数，不能说都是多余的，但是大部分函数的确不是用户编写的代码生成的，而是golang运行时和各种库所需要的东西</p>
 <p>同时，因为去除了符号表，这些大量的非实际业务代码会对我们逆向工作造成极大困难，如果能够利用一些自动化工具重建符号表或者重新命名，就可以极大的便利我们逆向</p>
 <h2 id="golang特殊段">golang特殊段</h2>
 <p>在本次逆向的过程中，我遇到了上述的问题，在网上搜索发现了一个ida插件， <a href="https://github.com/sibears/IDAGolangHelper.git" target="_blank" rel="noopener noreffer">IDAGolangHelper</a></p>
@@ -812,7 +812,7 @@ export NALI_DB_HOME=/home/nali
 <h3 id="特征匹配">特征匹配</h3>
 <p>在逆向的时候，我们就可以先分析程序的golang版本、编译平台、运行平台，然后使用相对应的特征库对去除了符号表的二进制函数进行特征匹配，通过这种方法可以对大部分基本的函数重建符号表，而剩余的小量函数便可以确定为用户编写的代码，需要我们深入分析</p>
 <p>这个工作应该已经有人开始做了</p>
-]]></description></item><item><title>xray社区高级版破解</title><link>https://lgf.im/posts/security/reverse/xray-cracker/</link><pubDate>Thu, 18 Jun 2020 09:06:25 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/xray-cracker/</guid><description><![CDATA[<blockquote>
+]]></description></item><item><title>xray社区高级版破解</title><link>https://lgf.im/posts/security/reverse/xray-cracker/</link><pubDate>Thu, 18 Jun 2020 09:06:25 +0000</pubDate><author/><guid>https://lgf.im/posts/security/reverse/xray-cracker/</guid><description><![CDATA[<blockquote>
 <p>首先感谢 长亭科技 提供 xray 这款非常方便非常好用的安全工具<br>
 俗话说：没有人破解的工具不是好工具<br>
 根据没有任何数据支持的统计，大部分安全研究人员使用的安全工具都是盗版<br>
@@ -1086,7 +1086,7 @@ Not Valid After: 2099-09-09 08:00:00
 <p>证书算法没有任何修改</p>
 <div class="details admonition note open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-pencil-alt fa-fw"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-pencil-alt fa-fw"></i><i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p>前段时间长亭的小姐姐跟我说有人通过破解xray盈利，那时候我还不太信，真有人花钱买破解版？</p>
@@ -1096,7 +1096,7 @@ Not Valid After: 2099-09-09 08:00:00
 </div>
         </div>
     </div>
-]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
+]]></description></item><item><title>屏蔽雨课堂在线考试异常上报</title><link>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</link><pubDate>Fri, 12 Jun 2020 20:23:46 +0000</pubDate><author/><guid>https://lgf.im/posts/security/web-security/yuketang-exam-block-report/</guid><description><![CDATA[<p>学校又开始推雨课堂的在线考试功能了，在老师的配合下稍微分析了一下</p>
 <p>因为都是js代码，没有用wasm，分析还是比较简单的</p>
 <h2 id="切屏检测">切屏检测</h2>
 <p>考试过程中，如果切换浏览器标签，返回后会有一个切屏警告，并且老师那边也会有切屏记录</p>
@@ -1319,7 +1319,7 @@ Not Valid After: 2099-09-09 08:00:00
 <li>upload-as0.qiniup.com</li>
 </ul>
 <p>插件我用的AdblockPLUS，手动添加几条规则就行，亲测好用</p>
-]]></description></item><item><title>利用360直播课评论区对用户浏览器dos攻击</title><link>https://lgf.im/posts/security/web-security/dos-attack-on-360-university-user/</link><pubDate>Fri, 29 May 2020 14:01:45 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/dos-attack-on-360-university-user/</guid><description><![CDATA[<p>前段时间在360网络安全大学听免费的网络安全直播课，里面的老师有一些讲的不错</p>
+]]></description></item><item><title>利用360直播课评论区对用户浏览器dos攻击</title><link>https://lgf.im/posts/security/web-security/dos-attack-on-360-university-user/</link><pubDate>Fri, 29 May 2020 14:01:45 +0000</pubDate><author/><guid>https://lgf.im/posts/security/web-security/dos-attack-on-360-university-user/</guid><description><![CDATA[<p>前段时间在360网络安全大学听免费的网络安全直播课，里面的老师有一些讲的不错</p>
 <p>对评论区进行测试，发现对评论和送花速度没有进行限制，送花有总数50次限制，但是评论总数没有限制</p>
 <p>并且，后端性能非常好，能够即时处理所有评论并通过websocket发送给所有直播课的听众</p>
 <p>用户的浏览器效率比较低，无法及时处理后端返回的所有评论，从而导致浏览器卡死，如此只需要一个用户不断发送评论包，所有用户都会受到dos攻击</p>
@@ -1519,7 +1519,7 @@ Not Valid After: 2099-09-09 08:00:00
 </code></pre></td></tr></table>
 </div>
 </div><p>可能是360也发现这个dos了，过了不到一个周便修复了，增加了评论速率的限制</p>
-]]></description></item><item><title>逆向破解学校在线考试客户端</title><link>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</link><pubDate>Fri, 01 May 2020 21:44:54 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+]]></description></item><item><title>逆向破解学校在线考试客户端</title><link>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</link><pubDate>Fri, 01 May 2020 21:44:54 +0000</pubDate><author/><guid>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>近期，学校开始测试线上考试系统，据说十分流氓，开搞！</p>
 <p>从大一学弟那里拿到了相关程序和说明文档，经过学弟的使用体验，程序开始运行会自动杀死QQ、微信等程序，隐藏并屏蔽任务栏和开始菜单，强制全屏并屏蔽一些常用的快捷键包括窗口切换等。</p>
 <h2 id="开搞">开搞</h2>
@@ -1624,7 +1624,7 @@ Not Valid After: 2099-09-09 08:00:00
 <h2 id="申明与文件">申明与文件</h2>
 <p>同时本次研究完全以学习为目的，不得将上述内容用作商业或非法，否则一切后果由用户负责。您必须在下载后的24个小时之内，从您的电脑中彻底删除上述内容。</p>
 <p>破解之后的程序 {% asset_link 线上考试.zip [点击下载] %}</p>
-]]></description></item><item><title>使用GlobalSSH服务加速境外服务器ssh访问</title><link>https://lgf.im/posts/coding/use-ucloud-globalssh-to-speedup-server-ssh/</link><pubDate>Sun, 12 Apr 2020 16:37:56 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/use-ucloud-globalssh-to-speedup-server-ssh/</guid><description><![CDATA[<blockquote>
+]]></description></item><item><title>使用GlobalSSH服务加速境外服务器ssh访问</title><link>https://lgf.im/posts/coding/use-ucloud-globalssh-to-speedup-server-ssh/</link><pubDate>Sun, 12 Apr 2020 16:37:56 +0000</pubDate><author/><guid>https://lgf.im/posts/coding/use-ucloud-globalssh-to-speedup-server-ssh/</guid><description><![CDATA[<blockquote>
 <h3 id="ucloud已经对加速ip进行限制本文中的方法即时失效">UCloud已经对加速IP进行限制，本文中的方法即时失效</h3>
 <p>通知内容如下：<br>
 尊敬的UCloud用户，您好！<br>
@@ -1681,7 +1681,7 @@ git clone git@githubssh.xyz:moby/moby.git
 </div><p>为了能够自动更新ip，我写了一个程序，每天会检查github新的ip，创建新的globalssh，然后自动解析到域名githubssh.xyz上，由cloudflare进行DNS层面的负载均衡</p>
 <p>开源地址为： <a href="https://github.com/zu1k/globalssh4github">https://github.com/zu1k/globalssh4github</a></p>
 <p>同时为了方便，改了一个插件： <a href="https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/kejahdakjmkfddgnifodfnpcklckjjpo">https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/kejahdakjmkfddgnifodfnpcklckjjpo</a></p>
-]]></description></item><item><title>学习Linux中的SUID机制</title><link>https://lgf.im/posts/linux/linux-suid/</link><pubDate>Mon, 30 Mar 2020 11:36:25 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/linux/linux-suid/</guid><description><![CDATA[<h2 id="什么是suid">什么是SUID</h2>
+]]></description></item><item><title>学习Linux中的SUID机制</title><link>https://lgf.im/posts/linux/linux-suid/</link><pubDate>Mon, 30 Mar 2020 11:36:25 +0000</pubDate><author/><guid>https://lgf.im/posts/linux/linux-suid/</guid><description><![CDATA[<h2 id="什么是suid">什么是SUID</h2>
 <p>SUID简称位，英文全称是Set owner User ID up on execution，它是一种特殊的文件权限，能够让用户(如Bob)用其他用户(如root用户)的权限运行一个程序，而不需要用sudo进行临时提权</p>
 <p>同一类的还有SGID，就不详细说了，原理与SUID一样，就以SUID为例</p>
 <p>在一个程序执行的时候会有三个ID状态，在深入学习SUID之前必须能够区分下面三种ID：</p>
@@ -1786,7 +1786,7 @@ nmap --interactive
 <p>假如user1用 <code>chmod 4777 /home/user1/script.sh</code> 命令给<code>script.sh</code>脚本设置SUID位，登录user2后执行这个脚本提示没有权限</p>
 <p>这是因为SUID位只对编译过的可执行程序起作用，sh脚本的实际执行程序是sh或者bash之类，如果它们在执行的时候并不会检查脚本文件的SUID位，那就不会起作用了</p>
 <p>Perl执行器会检查perl脚本的suid位，所以可以给pl脚本设置suid位</p>
-]]></description></item><item><title>Linux Shell中的重定向</title><link>https://lgf.im/posts/linux/redirect-in-shell/</link><pubDate>Tue, 24 Mar 2020 15:50:07 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/linux/redirect-in-shell/</guid><description><![CDATA[<p>经常会看到别人的shell脚本后面有一个 <code>2&gt;&amp;1</code> ，一直没去深究，今天这个话题就以这个为出发点进行展开，学习一下linux shell中重定向的话题。</p>
+]]></description></item><item><title>Linux Shell中的重定向</title><link>https://lgf.im/posts/linux/redirect-in-shell/</link><pubDate>Tue, 24 Mar 2020 15:50:07 +0000</pubDate><author/><guid>https://lgf.im/posts/linux/redirect-in-shell/</guid><description><![CDATA[<p>经常会看到别人的shell脚本后面有一个 <code>2&gt;&amp;1</code> ，一直没去深究，今天这个话题就以这个为出发点进行展开，学习一下linux shell中重定向的话题。</p>
 <h2 id="特殊的东西">特殊的东西</h2>
 <p>先来看一点linux中特殊的东西，为后面的内容打下基础</p>
 <h3 id="特殊的文件">特殊的文件</h3>
@@ -2179,7 +2179,7 @@ drwxrwxrwt <span class="m">1</span> root root <span class="m">4096</span> Mar <s
 <p>如果你想了解功能，通过下面的命令查看官方文档吧</p>
 <p><code>man -Len -Pless\ +/^REDIRECTION bash</code></p>
 <p>本文的参考资料： <a href="https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean" target="_blank" rel="noopener noreffer">stack overflow</a></p>
-]]></description></item><item><title>MySQL中几个concat的用法与区别</title><link>https://lgf.im/posts/security/web-security/mysql-concat-concat-ws-group-concat/</link><pubDate>Sun, 22 Mar 2020 18:23:34 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/mysql-concat-concat-ws-group-concat/</guid><description><![CDATA[<h2 id="讲解与示例">讲解与示例</h2>
+]]></description></item><item><title>MySQL中几个concat的用法与区别</title><link>https://lgf.im/posts/security/web-security/mysql-concat-concat-ws-group-concat/</link><pubDate>Sun, 22 Mar 2020 18:23:34 +0000</pubDate><author/><guid>https://lgf.im/posts/security/web-security/mysql-concat-concat-ws-group-concat/</guid><description><![CDATA[<h2 id="讲解与示例">讲解与示例</h2>
 <h3 id="concatstr1-str2-">CONCAT(str1, str2, &hellip;)</h3>
 <ol>
 <li>返回结果为连接参数产生的字符串。如有任何一个参数为NULL ，则返回值为 NULL</li>
@@ -2440,7 +2440,7 @@ mysql&gt; <span class="k">select</span> concat<span class="o">(</span><span clas
 <h3 id="group_concat">group_concat</h3>
 <p><a href="http://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-group_concat.php">http://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-group_concat.php</a></p>
 <p></p>
-]]></description></item><item><title>HackBar破解</title><link>https://lgf.im/posts/security/web-security/hack-hackbar/</link><pubDate>Sun, 22 Mar 2020 10:11:42 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/web-security/hack-hackbar/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+]]></description></item><item><title>HackBar破解</title><link>https://lgf.im/posts/security/web-security/hack-hackbar/</link><pubDate>Sun, 22 Mar 2020 10:11:42 +0000</pubDate><author/><guid>https://lgf.im/posts/security/web-security/hack-hackbar/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>相信很多研究安全或者打CTF的朋友都在使用HackBar，在浏览器中使用HackBar构造并发送请求非常方便，特别是测试sql注入和xss等常见漏洞。</p>
 <p>但是HackBar是收费软件，在其 <a href="https://hackbar.site/" target="_blank" rel="noopener noreffer">官网</a> 上，价格由3刀到89刀不等。很多安全研究人员会选择购买89刀的10年证书，但是对于学生来说，短期的一个月1刀的短期价格对于这样一个浏览器插件来说还是比较贵的。</p>
 <p></p>
@@ -2615,7 +2615,7 @@ mysql&gt; <span class="k">select</span> concat<span class="o">(</span><span clas
 <p></p>
 <h2 id="总结">总结</h2>
 <p>本文以HackBar的chrome插件的分析破解为例，想大家展示了浏览器插件的简单破解，Firefox的插件破解也是大同小异，希望大家可以活学活用</p>
-]]></description></item><item><title>使用Github Actions对Hexo博客自动部署</title><link>https://lgf.im/posts/coding/use-github-actions-to-auto-deploy-hexo/</link><pubDate>Sat, 21 Mar 2020 09:24:56 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/use-github-actions-to-auto-deploy-hexo/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+]]></description></item><item><title>使用Github Actions对Hexo博客自动部署</title><link>https://lgf.im/posts/coding/use-github-actions-to-auto-deploy-hexo/</link><pubDate>Sat, 21 Mar 2020 09:24:56 +0000</pubDate><author/><guid>https://lgf.im/posts/coding/use-github-actions-to-auto-deploy-hexo/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>很多同学和我一样也在用Hexo搭建自己的博客，通常最后发布的操作是 <code>hexo g</code> 生成静态网页，然后 <code>hexo d</code> 将public目录推送到github、coding、gitee等平台。</p>
 <p>但是很多时候我们都想偷个懒，只管写博客，写完后将git 一 push，后面的生成部署工作让程序自动完成，github actions为我们提供了这个便利。</p>
 <h2 id="操作">操作</h2>
@@ -2801,7 +2801,7 @@ mysql&gt; <span class="k">select</span> concat<span class="o">(</span><span clas
 </div><blockquote>
 <p>在github actions将page专用分支更新后，zeit\netlify\github pages三个平台都会自动将最新的内容部署上，这样我就只需要关注博客内容，后续操作都不需要管了</p>
 </blockquote>
-]]></description></item><item><title>加快Github Pages国内访问速度</title><link>https://lgf.im/posts/coding/speedup-github-page/</link><pubDate>Thu, 19 Mar 2020 17:17:53 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/speedup-github-page/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+]]></description></item><item><title>加快Github Pages国内访问速度</title><link>https://lgf.im/posts/coding/speedup-github-page/</link><pubDate>Thu, 19 Mar 2020 17:17:53 +0000</pubDate><author/><guid>https://lgf.im/posts/coding/speedup-github-page/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>相信不少小伙伴都在使用 Github Pages 提供的免费静态网站托管来搭建自己的博客，但是因为墙的存在和特殊国情，使用 Github Pages 搭建的网站速度普遍不快，因此很多小伙伴只能转战国内付费的服务器和 CDN。</p>
 <p>正巧我也在使用 Github Pages 搭建自己的静态博客，正好来说一下我的优化方法。</p>
 <h2 id="压缩">压缩</h2>
@@ -3295,7 +3295,7 @@ Due to that, we cannot deploy the commit e80751b.</p>
 </blockquote>
 <h2 id="辅助优化">辅助优化</h2>
 <p>使用谷歌提供的 <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="noopener noreffer">Pagespeed Insights</a> 工具分析网页加载并根据建议进行优化</p>
-]]></description></item><item><title>静态链接OpenSSL进行RSA\MD5\Base64</title><link>https://lgf.im/posts/coding/openssl-first-try-rsa-md5-base64/</link><pubDate>Wed, 18 Mar 2020 12:50:10 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/openssl-first-try-rsa-md5-base64/</guid><description><![CDATA[<h2 id="简介">简介</h2>
+]]></description></item><item><title>静态链接OpenSSL进行RSA\MD5\Base64</title><link>https://lgf.im/posts/coding/openssl-first-try-rsa-md5-base64/</link><pubDate>Wed, 18 Mar 2020 12:50:10 +0000</pubDate><author/><guid>https://lgf.im/posts/coding/openssl-first-try-rsa-md5-base64/</guid><description><![CDATA[<h2 id="简介">简介</h2>
 <p>目标平台： Windows 10 amd64</p>
 <p>使用静态链接方式，原因：动态链接库太大了，包含很多本次实验不需要的函数</p>
 <h2 id="准备工作">准备工作</h2>
@@ -3539,7 +3539,7 @@ nmake install
 <p></p>
 <h3 id="生成的公钥文件">生成的公钥文件</h3>
 <p></p>
-]]></description></item><item><title>Telegram关键词自动回复机器人</title><link>https://lgf.im/posts/coding/telegram-keyword-reply-bot/</link><pubDate>Tue, 26 Nov 2019 19:03:35 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/telegram-keyword-reply-bot/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+]]></description></item><item><title>Telegram关键词自动回复机器人</title><link>https://lgf.im/posts/coding/telegram-keyword-reply-bot/</link><pubDate>Tue, 26 Nov 2019 19:03:35 +0000</pubDate><author/><guid>https://lgf.im/posts/coding/telegram-keyword-reply-bot/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>高中时期了解了telegram，大学期间正式开始使用。自己的频道最多的时候有上万人关注，聊天群组里人数也很多，但是时间久了我发现了一个问题。因为telegram在国内并不常用，新加入的成员往往都是新手，通常会问一些琐碎的、相似的问题，例如：如何汉化tg、+86号码无法私聊别人，等等相关的问题是在不想重复回答，便产生了制作一个关键词回复机器人的想法。</p>
 <h2 id="功能">功能</h2>
 <p>下面简单说一下机器人实现的一些功能，具体还是推荐你亲身进行体验。</p>
@@ -3929,7 +3929,7 @@ random{回复内容1$$回复内容2$$回复内容3}，使用两个英文的$符�
 <p>不过机器人后续开发不会停止，今年比较忙，等我闲下来给机器人做一个大版本更新</p>
 <p>后续会将 匹配 和 动作 进行拆分，匹配将支持更加细致和灵活的方式，动作会进行增加，争取支持tg所有的消息类型和群组管理类型</p>
 <p>还会增加网页控制后台，可以在网页后台查看群组统计信息，并对群组机器人规则进行设置</p>
-]]></description></item><item><title>c/c++字符串处理大集合</title><link>https://lgf.im/posts/coding/c-cpp-string-op/</link><pubDate>Mon, 03 Dec 2018 13:09:49 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/c-cpp-string-op/</guid><description><![CDATA[<div class="highlight"><div class="chroma">
+]]></description></item><item><title>c/c++字符串处理大集合</title><link>https://lgf.im/posts/coding/c-cpp-string-op/</link><pubDate>Mon, 03 Dec 2018 13:09:49 +0000</pubDate><author/><guid>https://lgf.im/posts/coding/c-cpp-string-op/</guid><description><![CDATA[<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -4739,7 +4739,7 @@ random{回复内容1$$回复内容2$$回复内容3}，使用两个英文的$符�
  <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">os</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>新理念外语网络教学平台脚本刷时长</title><link>https://lgf.im/posts/coding/new-concept-foreign-language-online-teaching-platform-script/</link><pubDate>Sun, 14 Oct 2018 18:15:22 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/new-concept-foreign-language-online-teaching-platform-script/</guid><description><![CDATA[<p>这是我们学校用的平台，自己写了一个脚本，可以用来刷时间，可以多开同时刷。</p>
+</div>]]></description></item><item><title>新理念外语网络教学平台脚本刷时长</title><link>https://lgf.im/posts/coding/new-concept-foreign-language-online-teaching-platform-script/</link><pubDate>Sun, 14 Oct 2018 18:15:22 +0000</pubDate><author/><guid>https://lgf.im/posts/coding/new-concept-foreign-language-online-teaching-platform-script/</guid><description><![CDATA[<p>这是我们学校用的平台，自己写了一个脚本，可以用来刷时间，可以多开同时刷。</p>
 <p>20分钟刷一册书不是问题。</p>
 <p>有需要的拿去，随便改改就能用。</p>
 <div class="highlight"><div class="chroma">
@@ -5047,7 +5047,7 @@ random{回复内容1$$回复内容2$$回复内容3}，使用两个英文的$符�
 </div><blockquote>
 <p>大二上学期写的，质量不高，轻喷</p>
 </blockquote>
-]]></description></item><item><title>简单正则表达式使用</title><link>https://lgf.im/posts/learn/simple-regular-expression-use/</link><pubDate>Sun, 14 Oct 2018 17:49:06 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/learn/simple-regular-expression-use/</guid><description><![CDATA[<p>这里做一个笔记，整理了各大网站里关于正则表达式的知识，以备后面查询。
+]]></description></item><item><title>简单正则表达式使用</title><link>https://lgf.im/posts/learn/simple-regular-expression-use/</link><pubDate>Sun, 14 Oct 2018 17:49:06 +0000</pubDate><author/><guid>https://lgf.im/posts/learn/simple-regular-expression-use/</guid><description><![CDATA[<p>这里做一个笔记，整理了各大网站里关于正则表达式的知识，以备后面查询。
 主要涉及两个方面：</p>
 <ol>
 <li>正则表达式书写规则</li>
