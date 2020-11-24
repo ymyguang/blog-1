@@ -323,6 +323,21 @@ Not Valid After: 2099-09-09 08:00:00
 <h2 id="2020年11月18日-补充">2020年11月18日 补充</h2>
 <p></p>
 <p>思路不变，不要再给我发邮件要破解版和代码了</p>
+<h2 id="2020年11月24日-补充">2020年11月24日 补充</h2>
+<p></p>
+<p>证书算法没有任何修改</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>前段时间长亭的小姐姐跟我说有人通过破解xray盈利，那时候我还不太信，真有人花钱买破解版？</p>
+<p>前几天算是见到了
+</p>
+<p>希望不要再有人联系我要（买）破解代码和工具了，我是不会干这种事的</p>
+</div>
+        </div>
+    </div>
 ]]></description></item><item><title>逆向破解学校在线考试客户端</title><link>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</link><pubDate>Fri, 01 May 2020 21:44:54 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/security/reverse/crack-sdu-online-exam-software/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>近期，学校开始测试线上考试系统，据说十分流氓，开搞！</p>
 <p>从大一学弟那里拿到了相关程序和说明文档，经过学弟的使用体验，程序开始运行会自动杀死QQ、微信等程序，隐藏并屏蔽任务栏和开始菜单，强制全屏并屏蔽一些常用的快捷键包括窗口切换等。</p>
