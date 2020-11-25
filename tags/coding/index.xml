@@ -1,4 +1,194 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>coding - tag - zu1k</title><link>https://lgf.im/tags/coding/</link><description>coding - tag - zu1k</description><generator>Hugo -- gohugo.io</generator><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 08 Aug 2020 09:21:59 +0000</lastBuildDate><atom:link href="https://lgf.im/tags/coding/" rel="self" type="application/rss+xml"/><item><title>如何优雅的隐藏你的Webshell</title><link>https://lgf.im/posts/security/web-security/hide-your-webshell/</link><pubDate>Sat, 08 Aug 2020 09:21:59 +0000</pubDate><author/><guid>https://lgf.im/posts/security/web-security/hide-your-webshell/</guid><description><![CDATA[<blockquote>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>coding - tag - zu1k</title><link>https://lgf.im/tags/coding/</link><description>coding - tag - zu1k</description><generator>Hugo -- gohugo.io</generator><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 25 Nov 2020 12:06:25 +0800</lastBuildDate><atom:link href="https://lgf.im/tags/coding/" rel="self" type="application/rss+xml"/><item><title>将博客部署到CF Workers Site</title><link>https://lgf.im/posts/coding/deploy-blog-to-cf-workers-site/</link><pubDate>Wed, 25 Nov 2020 12:06:25 +0800</pubDate><author/><guid>https://lgf.im/posts/coding/deploy-blog-to-cf-workers-site/</guid><description><![CDATA[<p>前几天Cloudflare将Workers KV增加了免费额度，还不得搞起来？</p>
+<p>利用Workers KV存储网页内容，通过Workers将内容返回给用户，就等于将自己的网站直接部署到CF成千上万的边缘节点当中，全球访问速度和TTFB都应该不错</p>
+<p><a href="https://blog.cloudflare.com/workers-sites/">https://blog.cloudflare.com/workers-sites/</a></p>
+<h2 id="安装wrangler">安装Wrangler</h2>
+<p><a href="https://developers.cloudflare.com/workers/cli-wrangler/install-update" target="_blank" rel="noopener noreffer">官方文档</a></p>
+<p>Wrangler有两种安装方式，通过NPM或者Cargo安装都可以，任选其一即可</p>
+<p>准备好NodeJS和NPM环境，然后执行下面命令，NPM方式是下载预编译好的二进制程序，安装速度比较快</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">npm i @cloudflare/wrangler -g
+</code></pre></td></tr></table>
+</div>
+</div><p>或者准备好Rust环境，然后执行下面命令，Cargo方式是在本机从源码编译，安装速度比较慢</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">cargo install wrangler
+
+<span class="c1"># 使用系统OpenSSL库，生成的二进制会小一些</span>
+cargo install wrangler --features sys-openssl
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="部署">部署</h2>
+<p>我自己博客使用的是Hugo，下面所有内容都是按照Hugo的方式来，其他静态站点生成器方法类似</p>
+<h3 id="登录">登录</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">wrangler login
+
+<span class="c1"># 手动设置token</span>
+wrangler config
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="初始化">初始化</h3>
+<p>进入自己站点的目录，执行下面命令进行初始化。这里Wrangler会自动安装cargo-generate工具，在本目录下创建一个<code>workers-site</code>项目目录，然后生成一个<code>wrangler.toml</code>配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">wrangler init --site
+</code></pre></td></tr></table>
+</div>
+</div><p>打开<code>wrangler.toml</code>文件，按照自己的信息进行修改</p>
+<p><code>account_id</code>和<code>zone_id</code>都可以从Cloudflare官网上找到，<code>route</code>是路由到Workers的规则，这里写你需要绑定的域名，不要忘记后面的<code>/*</code></p>
+<p><code>bucket</code>是网站的目录，因为我用的是Hugo，所有这个目录默认是<code>public</code></p>
+<p><code>entry-point</code>是部署到Workers的js代码目录，这里不需要修改，因为刚刚初始化的时候生成的项目目录名已经自动填写上了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;blog&#34;</span>
+<span class="nx">type</span> <span class="p">=</span> <span class="s2">&#34;webpack&#34;</span>
+<span class="nx">account_id</span> <span class="p">=</span> <span class="s2">&#34;eu5d123456789987456321aabcddgeh&#34;</span>
+<span class="nx">workers_dev</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="nx">route</span> <span class="p">=</span> <span class="s2">&#34;cf.lgf.im/*&#34;</span>
+<span class="nx">zone_id</span> <span class="p">=</span> <span class="s2">&#34;fhidag8u98f43h93fhiohr929c8d59efhauh&#34;</span>
+
+<span class="p">[</span><span class="nx">site</span><span class="p">]</span>
+<span class="nx">bucket</span> <span class="p">=</span> <span class="s2">&#34;public&#34;</span>
+<span class="nx">entry</span><span class="err">-</span><span class="nx">point</span> <span class="p">=</span> <span class="s2">&#34;workers-site&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="预览">预览</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">wrangler preview --watch
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="发布">发布</h3>
+<p>在Cloudflare中增加一条DNS记录，需要打开CF代理</p>
+<p></p>
+<p>执行下面命令进行部署</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">wrangler publish
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="使用github-actions持续集成">使用Github Actions持续集成</h2>
+<p>Cloudflare提供了官方的<a href="https://github.com/marketplace/actions/deploy-to-cloudflare-workers-with-wrangler" target="_blank" rel="noopener noreffer">Wrangler GitHub Action</a>，可以直接用Github Actions将博客内容部署到CF Workers Site</p>
+<h3 id="添加认证信息">添加认证信息</h3>
+<p>在github仓库设置一个secret，名字为<code>CF_API_TOKEN</code>，值为Wrangler的token</p>
+<p></p>
+<h3 id="workflows">Workflows</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hugo</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">master</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-18.04</span><span class="w">
+</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
+</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.75.1&#39;</span><span class="w">
+</span><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
+</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo --minify</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
+</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-gh-pages@v3</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">github_token</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.GITHUB_TOKEN }}</span><span class="w">
+</span><span class="w">          </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l">./public</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Publish</span><span class="w">
+</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">cloudflare/wrangler-action@1.3.0</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">apiToken</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.CF_API_TOKEN }}</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>如何优雅的隐藏你的Webshell</title><link>https://lgf.im/posts/security/web-security/hide-your-webshell/</link><pubDate>Sat, 08 Aug 2020 09:21:59 +0000</pubDate><author/><guid>https://lgf.im/posts/security/web-security/hide-your-webshell/</guid><description><![CDATA[<blockquote>
 <p>转自：酒仙桥六号部队 <a href="https://mp.weixin.qq.com/s/lExi2_y4NkTak735kpz4ug">https://mp.weixin.qq.com/s/lExi2_y4NkTak735kpz4ug</a>
 这个公众号的文章质量都非常高，推荐大家关注</p>
 </blockquote>
@@ -5047,202 +5237,4 @@ random{回复内容1$$回复内容2$$回复内容3}，使用两个英文的$符�
 </div><blockquote>
 <p>大二上学期写的，质量不高，轻喷</p>
 </blockquote>
-]]></description></item><item><title>简单正则表达式使用</title><link>https://lgf.im/posts/learn/simple-regular-expression-use/</link><pubDate>Sun, 14 Oct 2018 17:49:06 +0000</pubDate><author/><guid>https://lgf.im/posts/learn/simple-regular-expression-use/</guid><description><![CDATA[<p>这里做一个笔记，整理了各大网站里关于正则表达式的知识，以备后面查询。
-主要涉及两个方面：</p>
-<ol>
-<li>正则表达式书写规则</li>
-<li>常用正则表达式</li>
-</ol>
-<h2 id="正则表达式简单用法">正则表达式简单用法</h2>
-<p>常用元字符</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">代码</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">.</td>
-<td style="text-align:left">匹配除换行符以外的任意字符</td>
-</tr>
-<tr>
-<td style="text-align:left">\w</td>
-<td style="text-align:left">匹配字母或数字或下划线</td>
-</tr>
-<tr>
-<td style="text-align:left">\s</td>
-<td style="text-align:left">匹配任意的空白符</td>
-</tr>
-<tr>
-<td style="text-align:left">\d</td>
-<td style="text-align:left">匹配数字</td>
-</tr>
-<tr>
-<td style="text-align:left">\b</td>
-<td style="text-align:left">匹配单词的开始或结束</td>
-</tr>
-<tr>
-<td style="text-align:left">^</td>
-<td style="text-align:left">匹配字符串的开始</td>
-</tr>
-<tr>
-<td style="text-align:left">$</td>
-<td style="text-align:left">匹配字符串的结束</td>
-</tr>
-</tbody>
-</table>
-<p>常用限定符</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">代码/语法</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">*</td>
-<td style="text-align:left">重复零次或更多次</td>
-</tr>
-<tr>
-<td style="text-align:left">+</td>
-<td style="text-align:left">重复一次或更多次</td>
-</tr>
-<tr>
-<td style="text-align:left">?</td>
-<td style="text-align:left">重复零次或一次</td>
-</tr>
-<tr>
-<td style="text-align:left">{n}</td>
-<td style="text-align:left">重复n次</td>
-</tr>
-<tr>
-<td style="text-align:left">{n,}</td>
-<td style="text-align:left">重复n次或更多次</td>
-</tr>
-<tr>
-<td style="text-align:left">{n,m}</td>
-<td style="text-align:left">重复n到m次</td>
-</tr>
-</tbody>
-</table>
-<p>常用反义词</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">代码/语法</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">\W</td>
-<td style="text-align:left">匹配任意不是字母，数字，下划线，汉字的字符</td>
-</tr>
-<tr>
-<td style="text-align:left">\S</td>
-<td style="text-align:left">匹配任意不是空白符的字符</td>
-</tr>
-<tr>
-<td style="text-align:left">\D</td>
-<td style="text-align:left">匹配任意非数字的字符</td>
-</tr>
-<tr>
-<td style="text-align:left">\B</td>
-<td style="text-align:left">匹配不是单词开头或结束的位置</td>
-</tr>
-<tr>
-<td style="text-align:left">[^x]</td>
-<td style="text-align:left">匹配除了x以外的任意字符</td>
-</tr>
-<tr>
-<td style="text-align:left">[^aeiou]</td>
-<td style="text-align:left">匹配除了aeiou这几个字母以外的任意字符</td>
-</tr>
-</tbody>
-</table>
-<!-- 
-## 常用正则表达式
-
-<div>
-		<h2>一、校验数字的表达式</h2>
-<ul>
-<li>数字：<strong>^[0-9]*$</strong></li>
-<li> n位的数字：<strong>^\d{n}$</strong></li>
-<li> 至少n位的数字<strong>：^\d{n,}$</strong></li>
-<li> m-n位的数字：<strong>^\d{m,n}$</strong></li>
-<li> 零和非零开头的数字：<strong>^(0 | [1-9][0-9]*)$</strong></li>
-<li> 非零开头的最多带两位小数的数字：<strong>^([1-9][0-9]*)+(\.[0-9]{1,2})?$</strong></li>
-<li> 带1-2位小数的正数或负数：<strong>^(\-)?\d+(\.\d{1,2})$</strong></li>
-<li> 正数、负数、和小数：<strong>^(\- | \+)?\d+(\.\d+)?$</strong></li>
-<li> 有两位小数的正实数：<strong>^[0-9]+(\.[0-9]{2})?$</strong></li>
-<li> 有1~3位小数的正实数：<strong>^[0-9]+(\.[0-9]{1,3})?$</strong></li>
-<li> 非零的正整数：<strong>^[1-9]\d*$ 或 ^([1-9][0-9]*){1,3}$ 或 ^\+?[1-9][0-9]*$</strong></li>
-<li> 非零的负整数：<strong>^\-[1-9][]0-9"*$ 或 ^-[1-9]\d*$</strong></li>
-<li> 非负整数：<strong>^\d+$ 或 ^[1-9]\d* | 0$</strong></li>
-<li> 非正整数：<strong>^-[1-9]\d* | 0$ 或 ^((-\d+) | (0+))$</strong></li>
-<li> 非负浮点数：<strong>^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d* | 0\.\d*[1-9]\d* | 0?\.0+ | 0$</strong></li>
-<li> 非正浮点数：<strong>^((-\d+(\.\d+)?) | (0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d* | 0\.\d*[1-9]\d*)) | 0?\.0+ | 0$</strong></li>
-<li> 正浮点数：<strong>^[1-9]\d*\.\d* | 0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*) | ([0-9]*[1-9][0-9]*\.[0-9]+) | ([0-9]*[1-9][0-9]*))$</strong></li>
-<li> 负浮点数：<strong>^-([1-9]\d*\.\d* | 0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*) | ([0-9]*[1-9][0-9]*\.[0-9]+) | ([0-9]*[1-9][0-9]*)))$</strong></li>
-<li> 浮点数：<strong>^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d* | 0\.\d*[1-9]\d* | 0?\.0+ | 0)$</strong></li></ul>
-
-<hr>
-<h2>二、校验字符的表达式</h2>
-<ul>
-<li>汉字：<strong>^[\u4e00-\u9fa5]{0,}$</strong></li>
-<li>英文和数字：<strong>^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]{4,40}$</strong></li>
-<li>长度为3-20的所有字符：<strong>^.{3,20}$</strong></li>
-<li>由26个英文字母组成的字符串：<strong>^[A-Za-z]+$</strong></li>
-<li>由26个大写英文字母组成的字符串：<strong>^[A-Z]+$</strong></li>
-<li>由26个小写英文字母组成的字符串：<strong>^[a-z]+$</strong></li>
-<li>由数字和26个英文字母组成的字符串：<strong>^[A-Za-z0-9]+$</strong></li>
-<li>由数字、26个英文字母或者下划线组成的字符串：<strong>^\w+$ 或 ^\w{3,20}$</strong></li>
-<li>中文、英文、数字包括下划线：<strong>^[\u4E00-\u9FA5A-Za-z0-9_]+$</strong></li>
-<li>中文、英文、数字但不包括下划线等符号：<strong>^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$</strong></li>
-<li>可以输入含有^%&',;=?$\"等字符：<strong>[^%&',;=?$\x22]+</strong></li>
-<li>禁止输入含有~的字符：<strong>[^~\x22]+</strong></li></ul>
-
-<hr>
-<h2>三、特殊需求表达式</h2>
-<ul>
-<li>Email地址：<strong>^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</strong></li>
-<li>域名：<strong>[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?</strong></li>
-<li>InternetURL：<strong>[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$</strong></li>
-<li>手机号码：<strong>^(13[0-9] | 14[5 | 7] | 15[0 | 1 | 2 | 3 | 5 | 6 | 7 | 8 | 9] | 18[0 | 1 | 2 | 3 | 5 | 6 | 7 | 8 | 9])\d{8}$</strong></li>
-<li>电话号码("XXX-XXXXXXX"、"XXXX-XXXXXXXX"、"XXX-XXXXXXX"、"XXX-XXXXXXXX"、"XXXXXXX"和"XXXXXXXX)：<strong>^(\(\d{3,4}-) | \d{3.4}-)?\d{7,8}$ </strong></li>
-<li>国内电话号码(0511-4405222、021-87888822)：<strong>\d{3}-\d{8} | \d{4}-\d{7}</strong></li>
-<li>电话号码正则表达式（支持手机号码，3-4位区号，7-8位直播号码，1－4位分机号）: <strong>((\d{11}) | ^((\d{7,8}) | (\d{4} | \d{3})-(\d{7,8}) | (\d{4} | \d{3})-(\d{7,8})-(\d{4} | \d{3} | \d{2} | \d{1}) | (\d{7,8})-(\d{4} | \d{3} | \d{2} | \d{1}))$)</strong></li>
-<li>身份证号(15位、18位数字)，最后一位是校验位，可能为数字或字符X：<strong>(^\d{15}$) | (^\d{18}$) | (^\d{17}(\d | X | x)$)</strong></li>
-<li>帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：<strong>^[a-zA-Z][a-zA-Z0-9_]{4,15}$</strong></li>
-<li>密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：<strong>^[a-zA-Z]\w{5,17}$</strong></li>
-<li>强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在 8-10 之间)：<strong>^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,10}$  </strong></li>
-<li>强密码(必须包含大小写字母和数字的组合，可以使用特殊字符，长度在8-10之间)：<strong>^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$  </strong></li>
-<li>日期格式：<strong>^\d{4}-\d{1,2}-\d{1,2}</strong></li>
-<li>一年的12个月(01～09和1～12)：<strong>^(0?[1-9] | 1[0-2])$</strong></li>
-<li>一个月的31天(01～09和1～31)：<strong>^((0?[1-9]) | ((1 | 2)[0-9]) | 30 | 31)$ </strong></li>
-<li>钱的输入格式：<ol>
-<li>    有四种钱的表示形式我们可以接受:"10000.00" 和 "10,000.00", 和没有 "分" 的 "10000" 和 "10,000"：<strong>^[1-9][0-9]*$ </strong></li>
-<li>    这表示任意一个不以0开头的数字,但是,这也意味着一个字符"0"不通过,所以我们采用下面的形式：<strong>^(0 | [1-9][0-9]*)$ </strong></li>
-<li>    一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：<strong>^(0 | -?[1-9][0-9]*)$ </strong></li>
-<li>    这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧。下面我们要加的是说明可能的小数部分：<strong>^[0-9]+(.[0-9]+)?$ </strong></li>
-<li>    必须说明的是,小数点后面至少应该有1位数,所以"10."是不通过的,但是 "10" 和 "10.2" 是通过的：<strong>^[0-9]+(.[0-9]{2})?$ </strong></li>
-<li>    这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：<strong>^[0-9]+(.[0-9]{1,2})?$ </strong></li>
-<li>    这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：<strong>^[0-9]{1,3}(,[0-9]{3})*(.[0-9]{1,2})?$ </strong></li>
-<li>    1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：<strong>^([0-9]+ | [0-9]{1,3}(,[0-9]{3})*)(.[0-9]{1,2})?$ </strong></li>
-<li>    备注：这就是最终结果了,别忘了"+"可以用"*"替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里</li></ol></li>
-<li>xml文件：<strong>^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x | X][m | M][l | L]$</strong></li>
-<li>中文字符的正则表达式：<strong>[\u4e00-\u9fa5]</strong></li>
-<li>双字节字符：<strong>[^\x00-\xff]    (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</strong></li>
-<li>空白行的正则表达式：<strong>\n\s*\r    (可以用来删除空白行)</strong></li>
-<li>HTML标记的正则表达式：<strong><(\S*?)[^>]*>.*?</\1> | <.*? />    (首尾空白字符的正则表达式：^\s* | \s*$或(^\s*) | (\s*$)    (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</strong></li>
-<li>腾讯QQ号：<strong>[1-9][0-9]{4,}    (腾讯QQ号从10000开始)</strong></li>
-<li>中国邮政编码：<strong>[1-9]\d{5}(?!\d)    (中国邮政编码为6位数字)</strong></li>
-<li>IP地址：<strong>((?:(?:25[0-5] | 2[0-4]\\d | [01]?\\d?\\d)\\.){3}(?:25[0-5] | 2[0-4]\\d | [01]?\\d?\\d)) </strong></li></ul>
-</div>-->
-<h2 id="正则表达式学习网站">正则表达式学习网站</h2>
-<p><a href="http://tool.chinaz.com/regex/" target="_blank" rel="noopener noreffer">正则表达式在线测试-站长工具</a>
-<a href="https://c.runoob.com/front-end/854" target="_blank" rel="noopener noreffer">正则表达式在线测试-菜鸟工具</a>
-<a href="http://www.runoob.com/regexp/regexp-syntax.html" target="_blank" rel="noopener noreffer">正则表达式教程-菜鸟教程</a></p>]]></description></item></channel></rss>
+]]></description></item></channel></rss>
