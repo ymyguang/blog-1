@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>hexo - tag - zu1k</title><link>https://lgf.im/tags/hexo/</link><description>hexo - tag - zu1k</description><generator>Hugo -- gohugo.io</generator><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 21 Mar 2020 09:24:56 +0000</lastBuildDate><atom:link href="https://lgf.im/tags/hexo/" rel="self" type="application/rss+xml"/><item><title>使用Github Actions对Hexo博客自动部署</title><link>https://lgf.im/posts/coding/use-github-actions-to-auto-deploy-hexo/</link><pubDate>Sat, 21 Mar 2020 09:24:56 +0000</pubDate><author/><guid>https://lgf.im/posts/coding/use-github-actions-to-auto-deploy-hexo/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>hexo - 标签 - zu1k</title><link>https://lgf.im/tags/hexo/</link><description>hexo - 标签 - zu1k</description><generator>Hugo -- gohugo.io</generator><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 21 Mar 2020 09:24:56 +0000</lastBuildDate><atom:link href="https://lgf.im/tags/hexo/" rel="self" type="application/rss+xml"/><item><title>使用Github Actions对Hexo博客自动部署</title><link>https://lgf.im/posts/coding/use-github-actions-to-auto-deploy-hexo/</link><pubDate>Sat, 21 Mar 2020 09:24:56 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/use-github-actions-to-auto-deploy-hexo/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>很多同学和我一样也在用Hexo搭建自己的博客，通常最后发布的操作是 <code>hexo g</code> 生成静态网页，然后 <code>hexo d</code> 将public目录推送到github、coding、gitee等平台。</p>
 <p>但是很多时候我们都想偷个懒，只管写博客，写完后将git 一 push，后面的生成部署工作让程序自动完成，github actions为我们提供了这个便利。</p>
 <h2 id="操作">操作</h2>
@@ -46,9 +46,9 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-yml" data-lang="yml">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Installation</span><span class="w">
-</span><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span><span class="sd">    npm install
-</span><span class="sd">    npm install -g hexo-cli
+</span><span class="sd">    npm install -g hexo-cli</span><span class="w">    
 </span></code></pre></td></tr></table>
 </div>
 </div><p>依赖装好后就可以执行命令生成静态网站了</p>
@@ -152,33 +152,33 @@
 </span><span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="m">12.</span><span class="l">x  </span><span class="w">
 </span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">replace cdn url</span><span class="w">
 </span><span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">replace</span><span class="w">
-</span><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span><span class="sd">        tagname=$(date +%y%j%H%M)
 </span><span class="sd">        sed -i &#34;s/hexoblog/hexoblog@$tagname/g&#34; _config.yml
 </span><span class="sd">        sed -i &#34;s/hexoblog/hexoblog@$tagname/g&#34; themes/cactus/_config.yml
-</span><span class="sd">        echo &#34;::set-output name=tagname::$tagname&#34;
-</span><span class="sd">    - name: Installation
-</span><span class="sd">      run: |
+</span><span class="sd">        echo &#34;::set-output name=tagname::$tagname&#34;</span><span class="w">        
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Installation</span><span class="w">
+</span><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span><span class="sd">        npm install
-</span><span class="sd">        npm install -g hexo-cli gulp
-</span><span class="sd">    - name: Generate
-</span><span class="sd">      run: hexo clean &amp;&amp; hexo g &amp;&amp; gulp &amp;&amp; hexo d
-</span><span class="sd">    - name: Deploy
-</span><span class="sd">      uses: peaceiris/actions-gh-pages@v3
-</span><span class="sd">      with:
-</span><span class="sd">        github_token: ${{ secrets.GITHUB_TOKEN }}
-</span><span class="sd">        publish_dir: ./public
-</span><span class="sd">        cname: g.blog.lgf.im
-</span><span class="sd">    - name: Create Release
-</span><span class="sd">      uses: actions/create-release@latest
-</span><span class="sd">      env:
-</span><span class="sd">        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-</span><span class="sd">      with:
-</span><span class="sd">        tag_name: ${{ steps.replace.outputs.tagname }}
-</span><span class="sd">        release_name: ${{ steps.replace.outputs.tagname }}
-</span><span class="sd">        body: Automatic generated
-</span><span class="sd">        draft: false
-</span><span class="sd">        prerelease: true
+</span><span class="sd">        npm install -g hexo-cli gulp</span><span class="w">        
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Generate</span><span class="w">
+</span><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hexo clean &amp;&amp; hexo g &amp;&amp; gulp &amp;&amp; hexo d</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
+</span><span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-gh-pages@v3</span><span class="w">
+</span><span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">github_token</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.GITHUB_TOKEN }}</span><span class="w">
+</span><span class="w">        </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l">./public</span><span class="w">
+</span><span class="w">        </span><span class="nt">cname</span><span class="p">:</span><span class="w"> </span><span class="l">g.blog.lgf.im</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Create Release</span><span class="w">
+</span><span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/create-release@latest</span><span class="w">
+</span><span class="w">      </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">GITHUB_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.GITHUB_TOKEN }}</span><span class="w">
+</span><span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">tag_name</span><span class="p">:</span><span class="w"> </span><span class="l">${{ steps.replace.outputs.tagname }}</span><span class="w">
+</span><span class="w">        </span><span class="nt">release_name</span><span class="p">:</span><span class="w"> </span><span class="l">${{ steps.replace.outputs.tagname }}</span><span class="w">
+</span><span class="w">        </span><span class="nt">body</span><span class="p">:</span><span class="w"> </span><span class="l">Automatic generated</span><span class="w">
+</span><span class="w">        </span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w">        </span><span class="nt">prerelease</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><blockquote>

@@ -53,7 +53,7 @@ wrangler init --site
 
 `account_id`和`zone_id`都可以从Cloudflare官网上找到，`route`是路由到Workers的规则，这里写你需要绑定的域名，不要忘记后面的`/*`
 
-`bucket`是网站的目录，因为我用的是Hugo，所有这个目录默认是`public`
+`bucket`是网站的目录，因为我用的是Hugo，所以这个目录默认是`public`
 
 `entry-point`是部署到Workers的js代码目录，这里不需要修改，因为刚刚初始化的时候生成的项目目录名已经自动填写上了
 
@@ -120,7 +120,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.75.1'
+          hugo-version: '0.78.2'
           extended: true
 
       - name: Build
