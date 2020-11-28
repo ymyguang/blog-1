@@ -1,4 +1,25 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>github - 标签 - zu1k</title><link>https://lgf.im/tags/github/</link><description>github - 标签 - zu1k</description><generator>Hugo -- gohugo.io</generator><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 27 Mar 2020 15:45:02 +0000</lastBuildDate><atom:link href="https://lgf.im/tags/github/" rel="self" type="application/rss+xml"/><item><title>给git设置代理</title><link>https://lgf.im/posts/coding/set-proxy-for-git/</link><pubDate>Fri, 27 Mar 2020 15:45:02 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/set-proxy-for-git/</guid><description><![CDATA[<p>近期，Github的直连速度一直不理想，甚至被墙或者MITM，最好的解决办法就是挂代理</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>github - 标签 - zu1k</title><link>https://lgf.im/tags/github/</link><description>github - 标签 - zu1k</description><generator>Hugo -- gohugo.io</generator><managingEditor>i@lgf.im (zu1k)</managingEditor><webMaster>i@lgf.im (zu1k)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 28 Nov 2020 15:07:17 +0800</lastBuildDate><atom:link href="https://lgf.im/tags/github/" rel="self" type="application/rss+xml"/><item><title>不讲武德！来骗Follow</title><link>https://lgf.im/posts/events/cheat-for-follow/</link><pubDate>Sat, 28 Nov 2020 15:07:17 +0800</pubDate><author>作者</author><guid>https://lgf.im/posts/events/cheat-for-follow/</guid><description><![CDATA[<p>下午，还是习惯性的打开GitHub，发现有个没有头像的人Follow我</p>
+<p></p>
+<p>通常出于礼貌，我会查看对方的个人页和他的仓库，如果感觉不错便会回Follow他</p>
+<p>当我打开他的Github个人profile页面，令我惊讶的是他总共follow了<strong>59.3k</strong>人，而他的followers人数又七百多人</p>
+<p></p>
+<p>他只Pin了一个仓库，有70多个star，按理说无法吸引如此多数量的followers，这激起了我的好奇，难不成有什么好的内容没有Pin出来？</p>
+<p></p>
+<p>先看了一下他的贡献，连续两年都很稀疏，也没有什么突出的贡献量，平平无奇</p>
+<p></p>
+<p></p>
+<p>接下来查看他的仓库，一共有三百五十多个仓库，其中绝大多数都是Fork来的，通过筛选找到他自己的仓库25个</p>
+<p></p>
+<p>仔细查看这25个项目，除了他pin出来的那个仓库有73个star外，其他的统统都没有或者仅有个位数star</p>
+<p></p>
+<p>而仓库的内容也没有太有价值的东西，所以几乎可以判断他的follower不是因为有价值的东西而follow的</p>
+<p>他Follow了近6万人，star了5千多个项目，结合我自己有回Follow的习惯，看样子这个人的follower大部分都是被骗来的</p>
+<p>这个程序员不讲武德。来，骗！我涉世未深的，小同志。这好吗？这不好。</p>
+<p>我劝！这位，程序员，耗子尾汁，好好反思。以后不要再犯这样的聪明，小聪明，啊</p>
+<blockquote>
+<p>感兴趣的同学看这里：https://github.com/Lisprez</p>
+</blockquote>
+]]></description></item><item><title>给git设置代理</title><link>https://lgf.im/posts/coding/set-proxy-for-git/</link><pubDate>Fri, 27 Mar 2020 15:45:02 +0000</pubDate><author>作者</author><guid>https://lgf.im/posts/coding/set-proxy-for-git/</guid><description><![CDATA[<p>近期，Github的直连速度一直不理想，甚至被墙或者MITM，最好的解决办法就是挂代理</p>
 <p>Git 可以使用四种不同的协议来传输资料：本地协议（Local），HTTP 协议，SSH（Secure Shell）协议及 Git 协议</p>
 <p>而我们平时使用github一般使用两种协议，一种是http协议，另一种是ssh协议，针对这两种协议有两种不同的代理设置办法</p>
 <h2 id="http协议">http协议</h2>
