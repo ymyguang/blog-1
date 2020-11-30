@@ -1,7 +1,7 @@
 ---
-title: "IPFS"
+title: "IPFS新手指北"
 date: 2020-11-29T22:21:44+08:00
-draft: true
+draft: false
 tags:
 - IPFS
 - p2p
@@ -18,7 +18,35 @@ categories:
 - [IPFS官网](https://ipfs.io/)
 - [GitHub](https://github.com/ipfs)
 
-## IPFS的功能
+## IPFS的优点
+
+### 与现有Web比较
+
+![Today's web is inefficient and expensive](compare/ipfs-illustration-http.svg)
+
+#### 现有的网络技术效率低下、成本高昂
+
+HTTP一次从一台计算机下载文件，而不是同时从多台计算机获取文件。点对点IPFS节省了大量的带宽—视频高达60%，这使得无需重复地高效地分发大量数据成为可能。
+
+![Today's web can't preserve humanity's history](compare/ipfs-illustration-history.svg)
+
+#### 现有的网络无法保存人类的历史
+
+一个网页的平均寿命是100天，然后就永远消失了。我们这个时代的主要媒介还不够脆弱。IPFS保留文件的每一个版本，并使为镜像数据建立弹性网络变得简单。
+
+![Today's web is centralized, limiting opportunity](compare/ipfs-illustration-centralized.svg)
+
+#### 现有的网络是集中的，限制了机会
+
+互联网作为人类历史上最伟大的均衡器之一，推动了创新的发展，但日益巩固的控制威胁着这一进步。通过提供一个真实的IPFS技术来实现IPFS的原始愿景。
+
+![Today's web is addicted to the backbone](compare/ipfs-illustration-network.svg)
+
+#### 现有的网络深度依赖主干网
+
+IPFS支持创建多样化的弹性网络，以实现持久可用性—无论是否有Internet主干网连接。这意味着发展中国家在自然灾害期间，或者在咖啡厅的wi-fi上时，能够更好地连接。
+
+### IPFS做的更好
 
 IPFS宣称，无论你现在在用已有的Web技术干什么，IPFS都可以做到更好。
 
@@ -74,6 +102,8 @@ IPFS网络中的每一个节点只存储自己**感兴趣**的内容，也就是
 
 当我们要从IPFS中查看或者下载某个文件时，IPFS便要通过改文件的**指纹Hash**查询索引信息，并向自己连接的节点进行询问。这一步需要找到IPFS网络中的哪些节点存储着自己想要的文件数据块。
 
+![IPFS寻址](work/one-ipfs-node-only.png)
+
 ![第五步](work/work_5.png)
 
 如果你无法记住IPFS中存储的文件的指纹Hash(是一段非常长的字符串)，实际上你也无须记住这个Hash，IPFS提供了**IPNS**来提供**人类可读名字**到**指纹Hash**之间的映射，你只需要记住你添加在IPNS中的人类可读名字即可。
@@ -84,19 +114,19 @@ IPFS网络中的每一个节点只存储自己**感兴趣**的内容，也就是
 
 设置环境变量`IPFS_PATH`，这个目录在后面进行初始化和使用的时候会作为IPFS的本地仓库。如果这里不进行设置，IPFS默认会使用用户目录下的`.ipfs`文件夹作为本地仓库。
 
-![设置环境变量 IPFS_PATH](ipfs_env.png)
+![设置环境变量 IPFS_PATH](tutorial/ipfs_env.png)
 
 #### 初始化
 
 运行命令 `ipfs init` 进行初始化，这一步会初始化密钥对，并在刚刚指定的`IPFS_PATH`目录创建初始文件。
 
-![初始化](ipfs_init.png)
+![初始化](tutorial/ipfs_init.png)
 
 #### 检查可用性
 
 通过显示的命令来检查可用性，这里使用`ipfs cat`命令来查看指定的`CID`对应的内容。
 
-![IPFS cat](ipfs_cat.png)
+![IPFS cat](tutorial/ipfs_init.png)
 
 #### 开启守护进程
 
@@ -108,7 +138,31 @@ ipfs daemon
 
 ### 获取文件(夹)
 
+IPFS获取文件的方式是隐式的，我们可以通过查看、下载等命令，告诉IPFS你要去获取我想要的文件
+
+#### 查看文本
+
+查看文本使用 `ipfs cat`命令来进行，就如前面检查可用性的使用一样
+
+#### 下载二进制
+
+对于图片、视频等文件，无法使用`cat`命令来查看（cat出来是一堆乱码），此时我们可以使用`ipfs get cid`的方式来将文件下载到本地。不过这样直接下载文件名会是指定的CID，一个长字符串不具有识别性，我们可以重定向到指定的文件，`ipfs get cid -o newname.png`
+
+![IPFS get](tutorial/ipfs_get.png)
+
+#### 列出目录
+
+通过`ipfs ls`命令来列出一个目录
+
+![IPFS ls](tutorial/ipfs_ls.png)
+
 ### 添加文件(夹)
+
+通过`ipfs add 文件名`命令来将文件添加到IPFS
+
+如果需要添加文件夹，需要添加`-r`参数来使其递归处理
+
+![IPFS add](tutorial/ipfs_add.png)
 
 ### 使用IPNS
 
@@ -140,7 +194,7 @@ added QmUXRdUs4aAwV6ayFu7ps3TYdVqgHf6JeETDYYQUFnVHGv public
 
 ![public的CID](web/public_cid.png)
 
-#### 本机网关验证
+#### 本机网关访问
 
 我们先通过本机的IPFS网关来访问一下，看看有没有添加成功。注意这一步需要你本地已经开启了IPFS守护进程。
 
@@ -176,17 +230,41 @@ added QmUXRdUs4aAwV6ayFu7ps3TYdVqgHf6JeETDYYQUFnVHGv public
 这里的长字符串是IPFS中的另一个概念：IPLD
 {{< /admonition >}}
 
+#### 远程网关访问
+
+### 使用IPNS进行映射
+
+### 解析域名
+
+### 更新内容
+
 ## 相关概念
 
 在IPFS里面有很多概念需要了解
 
 ### Peer
 
+**Peer**是对等节点，因为IPFS是基于P2P技术实现的，所以没有服务器客户端这一说，每个人都同时是服务器和客户端，人人为我，我为人人。
+
 ### CID
+
+**内容标识符**（CID）是一个用于指向IPFS中的内容的标签。它不指示内容存储在哪里，但它根据内容数据本身形成一种地址。无论它指向的内容有多大，CID都很短
+
+详细内容见：[IPFS官方文档：Content addressing and CIDs](https://docs.ipfs.io/concepts/content-addressing/)
+
+在线的CID查看器：[CID Inspector](https://cid.ipfs.io/)
+
+### Gateway
+
+具体见：[IPFS文档：Gateway](https://docs.ipfs.io/concepts/ipfs-gateway/)
 
 ### IPNS
 
+https://docs.ipfs.io/concepts/ipns/
+
 ### IPLD
+
+https://docs.ipfs.io/concepts/ipld/
 
 ## 底层技术
 
@@ -198,7 +276,11 @@ added QmUXRdUs4aAwV6ayFu7ps3TYdVqgHf6JeETDYYQUFnVHGv public
 
 输入到散列算法中的数据的描述见 https://github.com/ipfs/go-ipfs/tree/master/merkledag
 
+具体见：[IPFS文档：Merkle](https://docs.ipfs.io/concepts/merkle-dag/)
+
 ### 分布式散列表DHT
+
+具体见：[IPFS文档：DHT](https://docs.ipfs.io/concepts/dht/)
 
 ## 上层应用
 
