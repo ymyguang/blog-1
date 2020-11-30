@@ -1,6 +1,8 @@
 # IPFS新手指北
 
 
+## IPFS简介
+
 **IPFS**全称`InterPlanetary File System`，中文名叫**星际文件系统**，听起来非常酷炫。
 
 它是是一个旨在创建持久且分布式存储和共享文件的网络传输协议，是一种内容可寻址的对等超媒体分发协议。在IPFS网络中的**全球所有**节点将构成**一个**分布式文件系统，全球中的每一个人都可以通过IPFS网关存储和访问IPFS里面的文件。
@@ -114,6 +116,12 @@ IPFS网络中的每一个节点只存储自己**感兴趣**的内容，也就是
 
 ![初始化](tutorial/ipfs_init.png)
 
+#### 查看节点ID信息
+
+运行命令 `ipfs id` 即可查看自己IPFS节点ID信息，包含了节点ID、公钥、地址、代理版本、协议版本、支持的协议等信息
+
+可以通过 `ipfs id 别人的ID`来查看别人的节点ID信息
+
 #### 检查可用性
 
 通过显示的命令来检查可用性，这里使用`ipfs cat`命令来查看指定的`CID`对应的内容。
@@ -158,81 +166,9 @@ IPFS获取文件的方式是隐式的，我们可以通过查看、下载等命�
 
 ### 使用IPNS
 
-## 在IPFS部署网站
-
-既然IPFS宣称能够构建新一代分布式Web，那我们便想要把自己的网站部署到IPFS上去
-
-### 将文件添加到IPFS中
-
-我使用的是Hugo静态网站生成器生成我的博客，生成的内容存放在`public`目录下，所以首先我需要将`public`目录及其里面的所有内容添加到IPFS中。
-
-```powershell
-# -r 参数代表递归添加
-ipfs add -r public
-
-# 实际运行效果
-PS D:\blog> ipfs add -r public
-added QmUefJXxEvRgQTfDJSKA9bjua2GP5iqV8YdrPf8pYwjChD public/about/index.html
-added QmZPy9wc92kpFvzf53AMHKiHcZmFG6wNu3ampBjkeuzCHv public/about/index.md
-很长的滚屏后......
-added QmdjMP28LPesg9C1aLste2vyajoca75J52Cvjavhu6XZsE public/tags
-added QmUXRdUs4aAwV6ayFu7ps3TYdVqgHf6JeETDYYQUFnVHGv public
- 35.12 MiB / 35.12 MiB [===========================================] 100.00%
-```
-
-### 通过IPFS网关访问
-
-在刚刚添加完成的最后，名称为`public`的那串Hash便是public目录的CID，我们现在可以通过这个CID在IPFS网关上访问我们刚刚的添加的内容。
-
-![public的CID](web/public_cid.png)
-
-#### 本机网关访问
-
-我们先通过本机的IPFS网关来访问一下，看看有没有添加成功。注意这一步需要你本地已经开启了IPFS守护进程。
-
-如果你发现仅仅访问单个文件，能够正常访问到
-
-![访问单个文件](web/local_single.png)
-
-但是访问整个网站，内容可以显示，但是样式出现了错误。
-
-![样式错误](web/local_error.png)
-
-这是因为我的样式使用的是**绝对地址**，不能通过这样一种简单访问单个文件的方式来使用
-
-这个时候我们需要借用IPFS提供的Web面板来进行，如果你没有修改配置文件，那Web面板的地址为：[http://127.0.0.1:5001](http://127.0.0.1:5001)
-
-![WebUI](web/webui.png)
-
-在浏览页面，粘贴刚刚`public`对应的CID，浏览目录内容，然后在右侧的More按钮中点击`Inspect`
-
-![Inspect](web/webui_inspect.png)
-
-在Inspect页面，你能看到该CID对应文件的块信息，这里我们点`在IPFS网关上查看`按钮
-
-![网关提供的网站](web/ipfs_blog.png)
-
-你会发现网站的内容和样式显示正常了。
-
-{{< admonition >}}
-你会发现浏览器地址栏的网址为一个另一个**长字符串**构成的域名
-
-长字符串.ipfs.localhost:8080
-
-这里的长字符串是IPFS中的另一个概念：IPLD
-{{< /admonition >}}
-
-#### 远程网关访问
-
-### 使用IPNS进行映射
-
-### 解析域名
-
-### 更新内容
-
 ## 相关概念
 
-在IPFS里面有很多概念需要了解
+在进行深一步学习之前，先让我们来看一下关于IPFS几个不得不知道的概念，这些概念是IPFS的基础组成部分，对后续的使用至关重要
 
 ### Peer
 
@@ -248,15 +184,131 @@ added QmUXRdUs4aAwV6ayFu7ps3TYdVqgHf6JeETDYYQUFnVHGv public
 
 ### Gateway
 
+- IPFS官方提供的Gateway: https://ipfs.io/
+- Cloudflare提供的IPFS Gateway服务：https://cf-ipfs.com
+- 其他公开的Gateway列表：https://ipfs.github.io/public-gateway-checker/
+
+https://www.cloudflare.com/distributed-web-gateway/
+
 具体见：[IPFS文档：Gateway](https://docs.ipfs.io/concepts/ipfs-gateway/)
 
 ### IPNS
 
-https://docs.ipfs.io/concepts/ipns/
+IPFS使用基于内容的寻址方式，简单说就是IPFS根据文件数据的Hash来生成CID，这个CID只与文件内容有关，这也就导致了如果我们修改这个文件的内容，这个CID也会改变。如果我们通过IPFS给别人分享文件，则每次更新内容时都需要给此人一个新链接。
+
+为了解决这个问题，星际名称系统（IPNS）通过创建一个可以更新的地址来解决这个问题。
+
+具体见：[IPFS文档：IPNS](https://docs.ipfs.io/concepts/ipns/)
 
 ### IPLD
 
 https://docs.ipfs.io/concepts/ipld/
+
+## 在IPFS部署网站
+
+既然IPFS宣称能够构建新一代分布式Web，那我们便想要把自己的网站部署到IPFS上去，一起体验一下去中心化、分布式的Web3.0技术
+
+### 将文件添加到IPFS中
+
+我使用的是Hugo静态网站生成器生成我的博客，生成的内容存放在`public`目录下，所以首先我需要将`public`目录及其里面的所有内容添加到IPFS中。
+
+```powershell
+# -r 参数代表递归添加
+ipfs add -r public
+
+# 实际运行效果
+PS D:\blog> ipfs add -r public
+added QmZT5jXEi2HFVv8tzuDqULBaiEPc8geZFVjXxb9iAsBqbg public/404.html
+added QmcGDfkg6mcboba3MkNeamGQvRgdnHiD4HZhvCRwEnSdSj public/CNAME
+很长的滚屏后......
+added QmT61SS4ykbnt1ECQFDfX27QJdyhsVfRrLJztDvbcR7Kc1 public/tags
+added QmdoJ8BiuN8H7K68hJhk8ZrkFXjU8T9Wypi9xAyAzt2zoj public
+ 35.12 MiB / 35.12 MiB [===========================================] 100.00%
+```
+
+如果你不想看这么长的滚屏，只想要最后一个Hash，可以添加一个 `Q` （quiet） 参数
+
+```powershell
+PS D:\blog\blog> ipfs add -rQ public
+QmdoJ8BiuN8H7K68hJhk8ZrkFXjU8T9Wypi9xAyAzt2zoj
+```
+
+### 通过IPFS网关访问
+
+在刚刚添加完成的最后，名称为`public`的那串Hash便是public目录的CID，我们现在可以通过这个CID在IPFS网关上访问我们刚刚的添加的内容。
+
+#### 本机网关访问
+
+我们先通过本机的IPFS网关来访问一下，看看有没有添加成功。注意这一步需要你本地已经开启了IPFS守护进程。
+
+访问：[http://localhost:8080/ipfs/QmdoJ8BiuN8H7K68hJhk8ZrkFXjU8T9Wypi9xAyAzt2zoj](http://localhost:8080/ipfs/QmdoJ8BiuN8H7K68hJhk8ZrkFXjU8T9Wypi9xAyAzt2zoj)
+
+然后浏览器会自动进行跳转，可以看到能够正常访问我们的页面
+
+![IPFS local web](web/ipfs_local_web.png)
+
+{{< admonition >}}
+你会发现浏览器地址栏的网址为一个另一个**长字符串**构成的域名
+
+长字符串.ipfs.localhost:8080
+
+这里的长字符串是IPFS中的另一个概念：IPLD
+{{< /admonition >}}
+
+如果你的页面只能够显示内容，但是样式是错误的，如下图
+
+![样式错误](web/local_error.png)
+
+这是因为使用的是**绝对地址**，我们需要使用**相对地址**的形式，如果你和我一样使用Hugo，那么只需要在你的配置文件中增加 `relativeURLs = true` 即可
+
+#### 远程网关访问
+
+刚刚我们通过本机的IPFS网关成功访问到了IPFS中的网站，现在我们找一个公开的其他的IPFS网关来访问试一下
+
+这里我选择IPFS官方维护的网关：https://ipfs.io，访问：https://ipfs.io/ipfs/QmdoJ8BiuN8H7K68hJhk8ZrkFXjU8T9Wypi9xAyAzt2zoj
+
+需要注意的是，此时网站还只存在于我们本机上，其他IPFS网关从IPFS网络中找到我们的网站文件需要一段时间，我们需要保证此时IPFS守护进程不关闭并已经连接了成百上千的其他节点，这样有利于IPFS官方Gateway尽快找到我们。
+
+经过多次刷新和焦急的等待后，终于有了显示
+
+![IPFS WEB](web/ipfs_web.png)
+
+### 使用IPNS进行映射
+
+使用命令 `ipfs name publish CID` 来发布一个IPNS，这里可能需要等待一会
+
+```powershell
+PS D:\blog\blog> ipfs name publish QmdoJ8BiuN8H7K68hJhk8ZrkFXjU8T9Wypi9xAyAzt2zoj
+Published to k51qzi5uqu5djhbknypxifn09wxhtf3y1bce8oriud1ojqz5r71mpu75rru520: /ipfs/QmdoJ8BiuN8H7K68hJhk8ZrkFXjU8T9Wypi9xAyAzt2zoj
+```
+
+![ipns web](web/ipns_web.png)
+
+通过使用IPNS映射，后续我们可以更新网站内容，如果直接发布CID，那别人便无妨访问最新的版本
+
+{{< admonition >}}
+如果使用了IPNS，需要备份节点的`私钥`和生成IPNS地址时生成的`Key`
+
+它们分别存储在你init时显示的目录下的`config`文件和`keystore`文件夹内
+{{< /admonition >}}
+
+### 解析域名
+
+IPNS不是在IPFS上创建可变地址的唯一方法，我们还可以使用DNSLink，它目前比IPNS快得多，还使用人类可读的名称。
+
+例如我想要给刚刚发布在IPFS上的网站绑定`ipfs.lgf.im`这个域名，那我就需要创建`_dnslink.ipfs.lgf.im`的**TXT**记录
+
+![DNSLink](web/dnslink.png)
+
+然后任何人都可以用 `/ipfs/ipfs.lgf.im` 来找到我的网站了，访问[http://localhost:8080/ipns/ipfs.lgf.im](http://localhost:8080/ipns/ipfs.lgf.im)
+
+![DNSLink Web](web/ipfs_dnslink_web.png)
+
+详细文档见：[IPFS文档：DNSLink](https://docs.ipfs.io/concepts/dnslink/#publish-using-a-subdomain)
+
+### 更新内容
+
+更新内容时，只需要再添加一次，然后重新发布IPNS，如果你是使用DNSLink的方式，还需要修改DNS记录
 
 ## 底层技术
 
@@ -288,10 +340,21 @@ IPFS作为一个文件系统，本质就是用来存储文件，基于这个文�
 
 IPFS提供了IPFS协议的**Golang**和**JavaScript**实现，可以非常方便的将IPFS集成到我们的应用当中，充分利用IPFS的各种优势。
 
+## 未来的期望
+
+对于P2P：https://t.lgf.im/post/618818179793371136/%E5%85%B3%E4%BA%8Eresilio-sync
+
+## 一些问题
+
+### IPFS可以永久存储文件？
+
+很多人误认为IPFS可以永久存储文件，从使用的技术来讲的确更有利于永久存储内容，但是还需不断需要有人访问、Pin、传播该内容，否则待全网所有节点都将该内容数据GC掉，数据还是会丢失。
+
 ## 参考资料
 
 - [IPFS官网](https://ipfs.io/)
 - [IPFS文档](https://docs.ipfs.io/)
 - [IPFS博客](https://blog.ipfs.io/)
 - [维基百科：星际文件系统](https://zh.wikipedia.org/wiki/%E6%98%9F%E9%99%85%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)
+- [将博客部署到星际文件系统（IPFS）](https://io-oi.me/tech/host-your-blog-on-ipfs/)
 
