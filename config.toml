@@ -1,4 +1,5 @@
 baseURL = "https://lgf.im"
+relativeURLs = true
 defaultContentLanguage = "zh-cn"
 theme = "LoveIt"
 title = "zu1k"
