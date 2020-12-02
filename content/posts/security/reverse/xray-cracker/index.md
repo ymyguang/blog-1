@@ -1,5 +1,6 @@
 ---
 title: xray社区高级版破解
+description: "xray社区高级版逆向破解，破解工具、关键算法细节"
 tags:
   - coding
   - cracker

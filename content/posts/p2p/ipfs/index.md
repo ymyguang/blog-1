@@ -2,6 +2,7 @@
 title: "IPFS新手指北"
 date: 2020-11-29T22:21:44+08:00
 draft: false
+description: "IPFS是新兴的技术，在这篇文章里我详细的讲述了IPFS的特色、技术和使用方法"
 resources:
 - name: "featured-image"
   src: "ipfs-logo.png"
@@ -380,3 +381,7 @@ IPFS提供了IPFS协议的**Golang**和**JavaScript**实现，可以非常方便
 - [IPFS博客](https://blog.ipfs.io/)
 - [维基百科：星际文件系统](https://zh.wikipedia.org/wiki/%E6%98%9F%E9%99%85%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)
 - [将博客部署到星际文件系统（IPFS）](https://io-oi.me/tech/host-your-blog-on-ipfs/)
+
+## 资源分享
+
+- 机械工业出版社294G原版PDF：[/ipfs/QmZYDnPgTRs1MmBx9TPrADFV1K85sPSqLJhAShWayubu9c](https://ipfs.io/ipfs/QmZYDnPgTRs1MmBx9TPrADFV1K85sPSqLJhAShWayubu9c/)
