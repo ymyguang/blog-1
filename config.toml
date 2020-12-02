@@ -4,7 +4,7 @@ defaultContentLanguage = "zh-cn"
 theme = "LoveIt"
 title = "zu1k"
 
-enableRobotsTXT = true
+enableRobotsTXT = false
 enableGitInfo = true
 enableEmoji = true
 hasCJKLanguage = true  # 是否包括中日韩文字
