@@ -2,7 +2,7 @@
 title: "IPFS新手指北"
 date: 2020-11-29T22:21:44+08:00
 draft: false
-description: "IPFS是新兴的技术，在这篇文章里我详细的讲述了IPFS的特色、技术和使用方法"
+description: "IPFS是新兴的技术，在这篇文章里我详细的讲述了IPFS的特色、技术和使用方法，并介绍如何将自己的网站部署到IPFS上"
 resources:
 - name: "featured-image"
   src: "ipfs-logo.png"
