@@ -7,11 +7,11 @@
 
 从大学开始接触编程，第一门编程语言是Java，后续接连学习了Python、C、Golang、Rust和JavaScript。现在我更喜欢用Golang写后端，用Vue来写前端
 
-你可以通过我的GitHub关注我近期在做什么：[zu1k](https://github.com/zu1k)
-
 ## 订阅
 
 通过RSS的方式订阅我的博客：[RSS订阅链接](/index.xml)
+
+你可以通过我的GitHub关注我近期在做什么：[zu1k](https://github.com/zu1k)
 
 ## 打赏
 
