@@ -83,6 +83,17 @@
 
 > 注意：图片和文件的介绍文字默认开启markdown语法
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5500766250095754"
+     data-ad-slot="3394834810"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ### 正则表达式进行匹配
 
 现在你已经会使用关键词来回复特定内容了，但是为了更加灵活的回复，而不是令机器人看起来傻乎乎的  
@@ -119,6 +130,17 @@
             如果需要更多内容，你可以下载软件  ||
             file::文件链接
 ```
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5500766250095754"
+     data-ad-slot="3394834810"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ### 回复随机消息
 
@@ -194,6 +216,17 @@ random{回复内容1$$回复内容2$$回复内容3}，使用两个英文的$符�
 ```
 
 你还是可以结合上面的内容进行优化，因为delete、ban、kick也是回复种类之一，所以跟文字、照片、视频、文件等的使用方法相同，也就可以进行组合。
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5500766250095754"
+     data-ad-slot="3394834810"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ### 屏蔽特定后缀文件  
 
@@ -280,6 +313,17 @@ button::后面的json格式如下
 - servicelist - 查看机器人功能列表
 - deleteallrules - 清空本群所有关键词规则
 - deleteallmessage - 删除48小时内所有消息
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5500766250095754"
+     data-ad-slot="3394834810"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ## 开源
 

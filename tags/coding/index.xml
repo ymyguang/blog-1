@@ -3863,6 +3863,16 @@ nmake install
 <blockquote>
 <p>注意：图片和文件的介绍文字默认开启markdown语法</p>
 </blockquote>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<p><ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-layout="in-article"
+data-ad-format="fluid"
+data-ad-client="ca-pub-5500766250095754"
+data-ad-slot="3394834810"></ins></p>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <h3 id="正则表达式进行匹配">正则表达式进行匹配</h3>
 <p>现在你已经会使用关键词来回复特定内容了，但是为了更加灵活的回复，而不是令机器人看起来傻乎乎的<br>
 事实上机器人聪明与否完全看你设置的关键词规则是否灵活，你需要学习简单的正则表达式并且利用正则来进行匹配。</p>
@@ -3911,7 +3921,17 @@ nmake install
             file::文件链接
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="回复随机消息">回复随机消息</h3>
+</div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<p><ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-layout="in-article"
+data-ad-format="fluid"
+data-ad-client="ca-pub-5500766250095754"
+data-ad-slot="3394834810"></ins></p>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<h3 id="回复随机消息">回复随机消息</h3>
 <p>有一个群组提出了这样一个特定需求，想要从设置好的回复内容中随机回复一个，这也是支持的。</p>
 <p>使用方法：<br>
 random{回复内容1$$回复内容2$$回复内容3}，使用两个英文的$符号间隔。</p>
@@ -4019,6 +4039,16 @@ random{回复内容1$$回复内容2$$回复内容3}，使用两个英文的$符�
 </code></pre></td></tr></table>
 </div>
 </div><p>你还是可以结合上面的内容进行优化，因为delete、ban、kick也是回复种类之一，所以跟文字、照片、视频、文件等的使用方法相同，也就可以进行组合。</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<p><ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-layout="in-article"
+data-ad-format="fluid"
+data-ad-client="ca-pub-5500766250095754"
+data-ad-slot="3394834810"></ins></p>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <h3 id="屏蔽特定后缀文件">屏蔽特定后缀文件</h3>
 <p>有人发送exe\com\bat等后缀的病毒？不用再去找其他机器人了，使用自定义规则即可完成屏蔽和禁言。</p>
 <div class="highlight"><div class="chroma">
@@ -4136,6 +4166,16 @@ random{回复内容1$$回复内容2$$回复内容3}，使用两个英文的$符�
 <li>deleteallrules - 清空本群所有关键词规则</li>
 <li>deleteallmessage - 删除48小时内所有消息</li>
 </ul>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<p><ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-layout="in-article"
+data-ad-format="fluid"
+data-ad-client="ca-pub-5500766250095754"
+data-ad-slot="3394834810"></ins></p>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <h2 id="开源">开源</h2>
 <p>开源地址： <a href="https://github.com/zu1k/tg-keyword-reply-bot">https://github.com/zu1k/tg-keyword-reply-bot</a></p>
 <h2 id="赞助">赞助</h2>
