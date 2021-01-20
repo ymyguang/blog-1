@@ -316,3 +316,15 @@ button::后面的json格式如下
 
 还会增加网页控制后台，可以在网页后台查看群组统计信息，并对群组机器人规则进行设置
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- tgbot -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5500766250095754"
+     data-ad-slot="4186345767"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
