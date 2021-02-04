@@ -125,17 +125,6 @@ keywords:
 
 > 注意：图片和文件的介绍文字默认开启markdown语法
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5500766250095754"
-     data-ad-slot="3394834810"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 ### 正则表达式进行匹配
 
 现在你已经会使用关键词来回复特定内容了，但是为了更加灵活的回复，而不是令机器人看起来傻乎乎的  
@@ -172,17 +161,6 @@ keywords:
             如果需要更多内容，你可以下载软件  ||
             file::文件链接
 ```
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5500766250095754"
-     data-ad-slot="3394834810"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 ### 回复随机消息
 
@@ -258,17 +236,6 @@ random{回复内容1$$回复内容2$$回复内容3}，使用两个英文的$符�
 ```
 
 你还是可以结合上面的内容进行优化，因为delete、ban、kick也是回复种类之一，所以跟文字、照片、视频、文件等的使用方法相同，也就可以进行组合。
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5500766250095754"
-     data-ad-slot="3394834810"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 ### 屏蔽特定后缀文件  
 
@@ -356,17 +323,6 @@ button::后面的json格式如下
 - deleteallrules - 清空本群所有关键词规则
 - deleteallmessage - 删除48小时内所有消息
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5500766250095754"
-     data-ad-slot="3394834810"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 ## 开源
 
 开源地址： https://github.com/zu1k/tg-keyword-reply-bot
@@ -382,8 +338,6 @@ button::后面的json格式如下
 
 ### 如何赞助
 
-一共有两种方式可以给这个机器人提供赞助
-
 - 通过邮箱联系我，然后索要我的赞赏码或者其他收款方式
 
 ## 问题反馈
@@ -392,24 +346,3 @@ button::后面的json格式如下
 
 如果是增加特定功能就不要反馈了，如有需求可以找我或别人定制特定的机器人。
 
-## 后续工作
-
-其实我已经退出tg大半年了，已经不太需要机器人了，目前全靠聪聪支持支撑
-
-不过机器人后续开发不会停止，今年比较忙，等我闲下来给机器人做一个大版本更新
-
-后续会将 匹配 和 动作 进行拆分，匹配将支持更加细致和灵活的方式，动作会进行增加，争取支持tg所有的消息类型和群组管理类型
-
-还会增加网页控制后台，可以在网页后台查看群组统计信息，并对群组机器人规则进行设置
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- tgbot -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5500766250095754"
-     data-ad-slot="4186345767"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
